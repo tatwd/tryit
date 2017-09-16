@@ -1,6 +1,7 @@
--- ===============
--- 复杂查询 Complex Query
--- ===============
+/* --------
+ * 复杂查询 Complex Query
+ * --------
+ */
 
 -- USE S_T
 -- USE company
@@ -9,22 +10,20 @@
 
 -- SELECT * FROM 
 --     -- tables from company
---     -- dbo.customer
---     -- dbo.employee
---     -- dbo.product
+--     dbo.customer
+--     dbo.employee
+--     dbo.product
 --     dbo.sales
---     -- dbo.sale_item
+--     dbo.sale_item
 
 --     -- tables from S_T
---     -- dbo.student
---     -- dbo.course
---     -- dbo.sc
+--     dbo.student
+--     dbo.course
+--     dbo.sc
 
 -- GO
 
--- ===============
--- 针对`S_T`数据库
--- ===============
+/* 针对`S_T`数据库 */
 
 USE S_T
 
@@ -82,9 +81,7 @@ GROUP BY sno
 HAVING COUNT(cno) >= 2 
 
 
--- ===============
--- 针对`company`数据库
--- ===============
+/* 针对`company`数据库 */
 
 USE company
 
@@ -183,6 +180,7 @@ FROM sales
 GROUP BY sale_id, DATEPART(MONTH, order_date)
 ORDER BY  sale_id, '月份' DESC
 
--- ===============
--- END!!!
--- ===============
+/* --------
+ * END!!!
+ * --------
+ */
