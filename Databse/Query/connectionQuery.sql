@@ -27,7 +27,7 @@ WHERE (course.cname = '数据库' OR course.cname = '数学')
     AND student.sno = sc.sno
     AND course.cno = sc.cno
 
--- GO
+GO
 
 -- 3.
 
@@ -37,14 +37,14 @@ WHERE (course.cname = '数据库' OR course.cname = '数学')
 --         SELECT sage FROM student WHERE sname = '张立'
 --     )
 
-SELECT s_b.sno, s_b.sname, s_b.ssex, s_b.sdept
+SELECT s_b.*
 FROM student AS s_a
 INNER JOIN student AS s_b
 ON s_a.sno != s_b.sno
-    AND s_a.sage = s_b.sage
-    AND s_b.sname != '张立'
+    AND s_a.sage != s_b.sage
+    AND s_a.sname = '张立'
 
--- GO
+GO
 
 -- 4.
 
@@ -71,7 +71,7 @@ GROUP BY student.sno, student.sname, student.sdept
 -- WHERE sc.grade >= 60
 -- GROUP BY student.sno, student.sname, student.sdept
 
--- GO
+GO
 
 -- 5
 
@@ -106,7 +106,7 @@ SELECT sc_a.sno
 FROM sc AS sc_a
 INNER JOIN sc AS sc_b
 ON sc_a.sno = sc_b.sno
-WHERE sc_a.cno = '1'
+AND sc_a.cno = '1'
     AND sc_b.cno = '2'
 
 GO
