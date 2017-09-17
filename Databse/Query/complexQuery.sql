@@ -38,7 +38,7 @@ SELECT DISTINCT sdept AS '院系',
         WHEN COUNT(sdept) >= 2 AND COUNT(sdept) < 4 THEN '规模稍小'
         ELSE '规模很小'
     END
-FROM dbo.student
+FROM student
 WHERE sdept is not NULL
 GROUP BY sdept
 
@@ -164,7 +164,8 @@ GO
 
 SELECT prod_id,
     SUM(unit_price * qty) AS '销售金额',
-    DATEPART(MONTH, order_date) AS '月份' -- 取出月份
+    MONTH(order_date) AS '月份' -- 取出月份
+    -- DATEPART(MONTH, order_date) AS '月份' 
 FROM sale_item
 GROUP BY prod_id, DATEPART(MONTH, order_date)
 ORDER BY  '月份', prod_id
@@ -175,9 +176,10 @@ GO
 
 SELECT sale_id,
     SUM(tot_amt) AS '销售业绩',
-    DATEPART(MONTH, order_date) AS '月份' -- 取出月份
+    MONTH(order_date) AS '月份' -- 取出月份    
+    -- DATEPART(MONTH, order_date) AS '月份' -- 取出月份
 FROM sales
-GROUP BY sale_id, DATEPART(MONTH, order_date)
+GROUP BY sale_id, MONTH(order_date)
 ORDER BY  sale_id, '月份' DESC
 
 /* --------

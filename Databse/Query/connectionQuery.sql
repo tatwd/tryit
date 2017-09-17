@@ -242,7 +242,8 @@ SELECT customer.cust_id,
 FROM sales
 INNER JOIN customer
 ON sales.cust_id = customer.cust_id
-    AND DATEPART(YEAR, sales.order_date) = 1996
+    AND YEAR(sales.order_date) = 1996
+    -- AND DATEPART(YEAR, sales.order_date) = 1996
 GROUP BY customer.cust_id, customer.cust_name
 
 GO
@@ -254,7 +255,7 @@ SELECT TOP 5 product.prod_id, product.prod_name,
 FROM sale_item
 INNER JOIN product
 ON sale_item.prod_id = product.prod_id
-    AND DATEPART(YEAR, sale_item.order_date) = 1996
+    AND YEAR(sale_item.order_date) = 1996
 GROUP BY product.prod_id, product.prod_name
 
 GO
