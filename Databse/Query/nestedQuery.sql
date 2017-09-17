@@ -9,9 +9,9 @@ USE S_T
 
 GO
 
-SELECT * FROM student
-SELECT * FROM course
-SELECT * FROM sc
+-- SELECT * FROM student
+-- SELECT * FROM course
+-- SELECT * FROM sc
 
 GO
 
@@ -164,10 +164,10 @@ USE company
 
 GO
 
-SELECT * FROM employee
+-- SELECT * FROM employee
 -- SELECT * FROM customer
-SELECT * FROM sales
-SELECT * FROM sale_item
+-- SELECT * FROM sales
+-- SELECT * FROM sale_item
 
 GO
 
