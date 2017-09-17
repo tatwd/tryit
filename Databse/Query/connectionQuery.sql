@@ -31,11 +31,18 @@ WHERE (course.cname = '数据库' OR course.cname = '数学')
 
 -- 3.
 
-SELECT *
-FROM student
-WHERE student.sage != (
-        SELECT sage FROM student WHERE sname = '张立'
-    )
+-- SELECT *
+-- FROM student
+-- WHERE student.sage != (
+--         SELECT sage FROM student WHERE sname = '张立'
+--     )
+
+SELECT s_b.sno, s_b.sname, s_b.ssex, s_b.sdept
+FROM student AS s_a
+INNER JOIN student AS s_b
+ON s_a.sno != s_b.sno
+    AND s_a.sage = s_b.sage
+    AND s_b.sname != '张立'
 
 -- GO
 
@@ -57,10 +64,10 @@ GROUP BY student.sno, student.sname, student.sdept
 --     student.sdept AS '所在院系',
 --     SUM(course.ccredit) AS '已修学分'
 -- FROM student
---     JOIN sc
---     JOIN course
---     ON sc.cno = course.cno
---     ON student.sno = sc.sno
+-- JOIN sc
+-- JOIN course
+-- ON sc.cno = course.cno
+-- ON student.sno = sc.sno
 -- WHERE sc.grade >= 60
 -- GROUP BY student.sno, student.sname, student.sdept
 
@@ -77,18 +84,19 @@ GO
 
 -- 6.
 
-SELECT *
-FROM student
-WHERE sdept = (
-    SELECT sdept FROM student
-    WHERE sname = '李勇'
-) AND sname != '李勇'
+-- SELECT *
+-- FROM student
+-- WHERE sdept = (
+--     SELECT sdept FROM student
+--     WHERE sname = '李勇'
+-- ) AND sname != '李勇'
 
 SELECT s_a.sname
 FROM student AS s_a
-    JOIN student AS s_b
-    ON s_a.sno = s_b.sno
-WHERE s_b.sdept = 'CS' AND s_b.sname != '李勇'
+INNER JOIN student AS s_b
+ON s_a.sno = s_b.sno
+    AND s_b.sdept = 'CS'
+    AND s_b.sname != '李勇'
 
 GO
 
@@ -96,8 +104,8 @@ GO
 
 SELECT sc_a.sno
 FROM sc AS sc_a
-    JOIN sc AS sc_b
-    ON sc_a.sno = sc_b.sno
+INNER JOIN sc AS sc_b
+ON sc_a.sno = sc_b.sno
 WHERE sc_a.cno = '1'
     AND sc_b.cno = '2'
 
@@ -107,10 +115,10 @@ GO
 
 SELECT student.sname
 FROM student
-    JOIN sc
-    JOIN course
-    ON sc.cno = course.cno
-    ON student.sno = sc.sno
+INNER JOIN sc
+INNER JOIN course
+ON sc.cno = course.cno
+ON student.sno = sc.sno
 GROUP BY student.sname, course.cpno
 HAVING COUNT(*) >= 1
     AND course.cpno = '5'
@@ -124,7 +132,7 @@ GO
 SELECT student.sname, sc.cno, sc.grade
 FROM student 
 LEFT JOIN sc
-    ON student.sno = sc.sno
+ON student.sno = sc.sno
 
 GO
 
@@ -133,7 +141,7 @@ GO
 SELECT student.sname, sc.cno, sc.grade
 FROM student 
 RIGHT JOIN sc
-    ON student.sno = sc.sno
+ON student.sno = sc.sno
 
 GO
 
@@ -142,7 +150,7 @@ GO
 SELECT student.sname, sc.cno, sc.grade
 FROM student 
 FULL JOIN sc
-    ON student.sno = sc.sno
+ON student.sno = sc.sno
 
 GO
 
