@@ -108,7 +108,7 @@ GO
 
 SELECT sale_id, tot_amt
 FROM sales
-WHERE tot_amt > 10000
+WHERE SUM(tot_amt) > 10000
 
 GO
 
@@ -116,7 +116,8 @@ GO
 
 SELECT DISTINCT prod_id,
     SUM(qty) AS '销售总量',
-    AVG(unit_price) AS '平均售价'
+    SUM(qty * unit_price) / SUM(qty) AS '平均售价' 
+    -- AVG(unit_price) AS '平均售价'
 FROM sale_item
 GROUP BY prod_id
 
@@ -129,6 +130,7 @@ SELECT dept, sex,
 FROM employee
 GROUP BY
     CUBE(sex, dept)
+    -- dept, sex with CUBE
 
 GO
 
@@ -139,13 +141,17 @@ SELECT dept, sex,
 FROM employee
 GROUP BY
     ROLLUP(dept, sex)
+    -- dept, sex with ROLLUP
 
 GO
 
 -- 7.
 
-SELECT COUNT(*) AS '产品类型总数'
-FROM product
+-- SELECT COUNT(*) AS '产品类型总数'
+-- FROM product
+
+SELECT COUNT(DISTINCT prod_id)
+FROM sale_item
 
 GO
 
@@ -167,7 +173,7 @@ SELECT prod_id,
     MONTH(order_date) AS '月份' -- 取出月份
     -- DATEPART(MONTH, order_date) AS '月份' 
 FROM sale_item
-GROUP BY prod_id, DATEPART(MONTH, order_date)
+GROUP BY prod_id, MONTH(order_date)
 ORDER BY  '月份', prod_id
 
 GO
