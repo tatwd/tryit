@@ -13,7 +13,7 @@ GO
 
 SELECT student.sname, student.sno, course.cno, course.cname
 FROM student, course, sc
-WHERE student.sname LIKE '%勇%'
+WHERE student.sname LIKE '_勇%'
     AND student.sno = sc.sno
     AND sc.cno = course.cno
 
@@ -23,7 +23,7 @@ WHERE student.sname LIKE '%勇%'
 
 SELECT student.sname, student.sno, student.sdept, course.cno, sc.grade
 FROM student, course, sc
-WHERE (course.cname = '数据库' OR course.cname = '数学')
+WHERE (course.cname = '数据库' OR course.cname = '数学') -- course.cname IN('数据库', '数学')
     AND student.sno = sc.sno
     AND course.cno = sc.cno
 
@@ -225,7 +225,8 @@ GO
 SELECT sales.cust_id, 
     sale_item.prod_id,
     SUM(sale_item.qty) AS '总数量',
-    AVG(sale_item.unit_price) AS '平均单价'
+    SUM(sale_item.qty * sale_item.unit_price) / SUM(sale_item.qty) AS '平均单价'
+    -- AVG(sale_item.unit_price) AS '平均单价'
 FROM sales
 INNER JOIN sale_item
 ON sales.order_no = sale_item.order_no
