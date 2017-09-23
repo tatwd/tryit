@@ -43,8 +43,7 @@
 .email,
 .phone,
 .passwd,
-.confirm-passwd
-{
+.confirm-passwd {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     padding: 0 15px 10px 15px;  /* default margin-top: 10px ?*/
@@ -60,26 +59,30 @@
     cursor: pointer;
 }
 
+/*.validatorBox {
+    border: 0;
+    visibility: hidden;
+}*/
 
 .validator {
-    /*visibility: hidden;*/
     color: red;
     font-size: 12px;
 
     position: absolute;
-    top: 10px;
+    top: 12px;
     right: 15px;
 
     /*transform: translate(0,0);*/
     /*transition: 0.25s ease-out;*/
 }
 
+
+
 #nameBox,
 #emailBox,
 #phoneBox,
 #passwdBox,
-#confirmPasswdBox
-{
+#confirmPasswdBox {
     width: 100%;
     border: 0;
     outline: 0;
@@ -91,4 +94,11 @@
     outline: 0;
     cursor: pointer;
     background-color: #ddd;
+}
+
+.label {
+    color: red;
+    /*background-color: #fff;*/
+    padding: 15px;
+    margin-top: 25px;
 }
