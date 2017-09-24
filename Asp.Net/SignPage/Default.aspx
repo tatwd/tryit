@@ -7,6 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Sign Page</title>
     <link href="css/sign-container.css" rel="stylesheet" />
+    <script>
+        var checkLength = function (source, args) {
+            (args.Value.length < 6 || args.Value.length > 20) ? args.IsValid = false : args.IsValid = true;
+        };
+    </script>
 </head>
 <body>
     <form id="signForm" runat="server">
@@ -38,10 +43,11 @@
                 </div>
                 
                 <div class="passwd">
-                    <asp:TextBox ID="passwdBox" runat="server" TextMode="Password" placeholder="密码（不少于6位）"></asp:TextBox>
+                    <asp:TextBox ID="passwdBox" runat="server" TextMode="Password" placeholder="密码（6~20位）"></asp:TextBox>
                     <!-- 密码验证 -->
                     <asp:RequiredFieldValidator ID="notNull" CssClass="validator" runat="server" ControlToValidate="passwdBox" Display="Dynamic" ErrorMessage="不能为空"></asp:RequiredFieldValidator>
-                    <asp:CustomValidator ID="checkPasswdLength" CssClass="validator" runat="server" ControlToValidate="passwdBox" Display="Dynamic" ErrorMessage="请输入不低于6位的密码" OnServerValidate="checkPasswdLength_ServerValidate"></asp:CustomValidator>
+                    <asp:CustomValidator ID="checkPasswdLength" CssClass="validator" runat="server" ControlToValidate="passwdBox" ErrorMessage="请输入6~20位的密码" ClientValidationFunction="checkLength"></asp:CustomValidator>
+                    <!--OnServerValidate="checkPasswdLength_ServerValidate"--> 
                 </div>
                 
                 <div class="confirm-passwd">
@@ -57,7 +63,7 @@
         </div>
 
         <div class="label">
-            <asp:Label ID="tipLabel" runat="server"></asp:Label>
+            <!-- <asp:Label ID="tipLabel" runat="server"></asp:Label> -->
         </div>
     </div>
     </form>
