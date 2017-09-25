@@ -9,7 +9,7 @@ public partial class index : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void checkPasswdLength_ServerValidate(object source, ServerValidateEventArgs args)
@@ -26,6 +26,9 @@ public partial class index : System.Web.UI.Page
 
     protected void signUpBtn_Click(object sender, EventArgs e)
     {
-        tipLabel.Text = "注册成功！";
+        if (IsValid) 
+        {
+            tipLabel.Text = "注册成功！";
+        }
     }
 }

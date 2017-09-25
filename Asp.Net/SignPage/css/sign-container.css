@@ -23,19 +23,17 @@
     }
 }
 
-.title,
-.input
-{
+.title-box,
+.input-box {
     padding: 15px;
     font-size: 25px;
 }
 
-.input {
-    /*border: 1px solid red;*/
+.input-box {
     padding: 0;
 }
 
-.input div {
+.input-box div {
     border: 1px solid #ddd;
 }
 
@@ -51,7 +49,7 @@
     position: relative;
 }
 
-.sign {
+.sign-btn {
     padding: 8px 0;
     border: 1px solid #ddd;
     background-color: #ddd;

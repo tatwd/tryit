@@ -52,6 +52,8 @@
 
     //document.getElementsByClassName('sign')[0].addEventListener('click', function () {
     //    clicked = !clicked;
+    //    if(clicked)
+    //        document.getElementsByClassName('validator')[0].style.visibility = '';
     //}, false);
 
     (new FocusEvent('nameBox',          'validator')).addFocus(clicked);

@@ -19,9 +19,9 @@
         <h2>Hello Sign Up Page!</h2>
 
         <div class="container">
-            <div class="title">注册</div>
+            <div class="title-box">注册</div>
             
-            <div class="input">
+            <div class="input-box">
                 
                 <div class="name">
                     <asp:TextBox ID="nameBox" runat="server" placeholder="用户名"></asp:TextBox>
@@ -57,16 +57,16 @@
                     <asp:CompareValidator ID="confirmPasswd" CssClass="validator" runat="server" ControlToCompare="passwdBox" ControlToValidate="confirmPasswdBox" ErrorMessage="密码输入不一致"></asp:CompareValidator>
                 </div>
             </div>
-            <div class="sign">
+            <div class="sign-btn">
                 <asp:Button ID="signUpBtn" runat="server" Text="提交" OnClick="signUpBtn_Click" />
             </div>
         </div>
 
         <div class="label">
-            <!-- <asp:Label ID="tipLabel" runat="server"></asp:Label> -->
+             <asp:Label ID="tipLabel" runat="server"></asp:Label> 
         </div>
     </div>
     </form>
 </body>
 </html>
-<script src="js/sign-validate.js"></script>
+<script src="js/sign-validator.js"></script>
