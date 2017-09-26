@@ -14,7 +14,10 @@ public partial class index : System.Web.UI.Page
 
     protected void checkPasswdLength_ServerValidate(object source, ServerValidateEventArgs args)
     {
-        if (args.Value.Length < 6)
+        // validator in server
+        // not be used
+
+        if (args.Value.Length < 6 || args.Value.Length > 20)
         {
             args.IsValid = false;
         }
