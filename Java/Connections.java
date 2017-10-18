@@ -59,14 +59,20 @@ public class Connections {
 	public void allClose() throws SQLException {
 		if(!this.result.isClosed()) {
 			this.result.close();
+			
+			//System.out.println("1");
 		}
 		
 		if(!this.statement.isClosed()) {
 			this.statement.close();
+			
+			//System.out.println("2");
 		}
 		
 		if(!this.connecter.isClosed()) {
 			this.connecter.close();
+			
+			//System.out.println("3");
 		}
 		
 		System.out.println("Closed all resources!");
