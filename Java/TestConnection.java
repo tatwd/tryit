@@ -34,7 +34,8 @@ public class TestConnection {
 			
 			System.out.println("-----------------");
 			
-			connecter.allClose(); // 关闭所以资源
+			// 关闭所以资源
+            connecter.allClose();
 			
 		} catch (SQLException e) {
 			
