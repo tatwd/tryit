@@ -69,52 +69,54 @@
         </div>
       </div>
 
-      <div class="container header">
-        <div class="row">
-          <div class="logo col-lg-4 col-md-4">
-            <img src="assets/img/logo.jpg" alt="logo">
-          </div>
-          <div class="nobrother col-lg-4 col-md-4">
-            <img src="assets/img/nobrother.jpg" alt="nobrother">
-          </div>
-          <div class="sign-box col-lg-4 col-md-4">
-            <form action="" method="">
-              <table class="sign-tab">
-                  <tbody>
-                    <tr>
-                      <td class="input-td">
-                        <div class="input-usr">
-                          <!-- <label for="pwuser">用户名</label> -->
-                          <input type="text" name="pwuser" id="pwuser" placeholder="输入用户名" style="color: rgb(136, 136, 136);">
-                        </div>
-                        <div class="input-pwd">
-                          <!-- <label for="showpwd" class="">密　码</label> -->
-                          <input type="password" name="pwpwd" id="showpwd" class="">
-                        </div>
-                      </td>
-                      <td class="signin-td">
-                        <div class="save-status">
-                          <input type="checkbox" id="head_checkbox" name="cktime" value="31536000">
-                          <label for="head_checkbox">记住登录</label>
-                        </div>
-                        <div class="signin-btn">
-                          <span><button type="submit" name="head_login" style="width:70px;">登录</button></span>
-                        </div>
-                      </td>
-                      <td class="signup-td">
-                        <div class="getpwd">
-                          <a href="#">找回密码</a>                        
-                        </div>
-                        <div class="signup-btn">
-                          <span>
-                            <button type="button" style="width:70px;" onclick="">注册</button>
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-            </form>
+      <div class="header">
+        <div class="container">
+          <div class="row">
+            <div class="logo col-lg-4 col-md-4">
+              <img src="assets/img/logo.jpg" alt="logo">
+            </div>
+            <div class="nobrother col-lg-4 col-md-4">
+              <img src="assets/img/nobrother.jpg" alt="nobrother">
+            </div>
+            <div class="sign-box col-lg-4 col-md-4">
+              <form action="" method="">
+                <table class="sign-tab">
+                    <tbody>
+                      <tr>
+                        <td class="input-td">
+                          <div class="input-usr">
+                            <!-- <label for="pwuser">用户名</label> -->
+                            <input type="text" name="pwuser" id="pwuser" placeholder="输入用户名" style="color: rgb(136, 136, 136);">
+                          </div>
+                          <div class="input-pwd">
+                            <!-- <label for="showpwd" class="">密　码</label> -->
+                            <input type="password" name="pwpwd" id="showpwd" class="">
+                          </div>
+                        </td>
+                        <td class="signin-td">
+                          <div class="save-status">
+                            <input type="checkbox" id="head_checkbox" name="cktime" value="31536000">
+                            <label for="head_checkbox">记住登录</label>
+                          </div>
+                          <div class="signin-btn">
+                            <span><button type="submit" name="head_login" style="width:70px;">登录</button></span>
+                          </div>
+                        </td>
+                        <td class="signup-td">
+                          <div class="getpwd">
+                            <a href="#">找回密码</a>
+                          </div>
+                          <div class="signup-btn">
+                            <span>
+                              <button type="button" style="width:70px;" onclick="">注册</button>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -132,7 +134,7 @@
                 </button>
                 <!-- <a class="navbar-brand" href="#"></a> -->
               </div>
-          
+
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                   <li class="dropdown">
@@ -170,7 +172,7 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">快速通道 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li role="separator" class="divider"></li>                      
+                      <li role="separator" class="divider"></li>
                       <li><div style="padding: 0 15px;">您还没有登录，快捷通道只有在登录后才能使用。<a href="#">立即登录</a>！</div></li>
                       <li role="separator" class="divider"></li>
                       <li><div style="padding: 0 15px;">还没有帐号？ 赶紧<a href="#">注册一个</a>！</div></li>
@@ -182,14 +184,14 @@
           </nav>
         </div>
       </div>
-      
+
       <div class="container search">
         <div class="search-row">
           <form class="search-form" action="" method="">
             <div class="input-search">
               <input id="search_input" type="text" value="让学习成为一种习惯！" class="gray" name="keyword" onfocus="" onblur="">
             </div>
-            <div class="dropdown s-select" onmouseout="this.firstChild.style.display='none';" onmouseover="this.firstChild.style.display='block';">
+            <div class="dropdown s-select">
               <h6 class="dropdown-toggle" data-toggle="dropdown">帖子<span class="caret"></span></h6>
               <ul class="dropdown-menu" width="50px" onclick="">
                 <li type="thread">帖子</li>
@@ -220,7 +222,7 @@
                 <li data-target="#caro" data-slide-to="1"></li>
                 <li data-target="#caro" data-slide-to="2"></li>
               </ol>
-            
+
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
                 <div class="item active">
@@ -249,7 +251,7 @@
 
         <div class="list-container">
           <div class="list-1">
-            <div class="list-head">
+            <div class="ls-head">
               <div class="h-lt">
                 <img src="assets/img/dabiao.png" alt="dabiao">
                 <a href="#">:::.技术交流:::.</a>
@@ -258,7 +260,7 @@
                 <a href="javascript:void(0);"><img src="assets/img/topjian.png" alt="topjian"></a>
               </div>
             </div>
-            <div class="list-body">
+            <div class="ls-body">
               <div class="group">
                 <div class="group-item">
                   <a href="#"><img src="assets/img/PHP.png" alt="PHP"></a>
@@ -279,7 +281,7 @@
                   </span>
                 </div>
                 <div class="group-item">
-                  <a href="#"><img src="assets/img/PHP.png" alt="PHP"></a>
+                  <a href="#"><img src="assets/img/289.png" alt="big data"></a>
                   <span class="item-title">
                     <span class="title-text"><a href="#">大数据技术</a></span>
                     <span class="note-count">(今日5)</span>
@@ -291,7 +293,7 @@
 
               <div class="group">
                 <div class="group-item">
-                  <a href="#"><img src="assets/img/PHP.png" alt="PHP"></a>
+                  <a href="#"><img src="assets/img/276.jpg" alt="UI UE"></a>
                   <span class="item-title">
                     <span class="title-text"><a href="#">UI/UE 全能设计艺术</a></span>
                     <span class="note-count">(今日5)</span>
@@ -300,61 +302,333 @@
                   </span>
                 </div>
                 <div class="group-item">
-                  <a href="#"><img src="assets/img/PHP.png" alt="PHP"></a>
+                  <a href="#"><img src="assets/img/286.jpg" alt="Python AI"></a>
                   <span class="item-title">
-                    <span class="title-text"><a href="#">PHP技术</a></span>
+                    <span class="title-text"><a href="#">Python + 人工智能技术</a></span>
                     <span class="note-count">(今日5)</span>
                     <div><span>主题:10670</span>帖子:94958</div>
                     <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
                   </span>
                 </div>
                 <div class="group-item">
-                  <a href="#"><img src="assets/img/PHP.png" alt="PHP"></a>
+                  <a href="#"><img src="assets/img/linux.png" alt="linux"></a>
                   <span class="item-title">
-                    <span class="title-text"><a href="#">PHP技术</a></span>
+                    <span class="title-text"><a href="#">云计算 Linux 技术</a></span>
                     <span class="note-count">(今日5)</span>
                     <div><span>主题:10670</span>帖子:94958</div>
                     <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
                   </span>
-                </div>                
+                </div>
               </div>
 
+              <div class="group last-group">
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/HTML5.png" alt="html5"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">HTML5 技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/fenxiao.png" alt="PHP"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">资源分享</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/xishuophp.png" alt="xishuophp"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">《跟兄弟连学PHP》专区</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="list-2">
+            <div class="ls-head">
+              <div class="h-lt">
+                <img src="assets/img/dabiao.png" alt="dabiao">
+                <a href="#">:::.兄弟连:::.</a>
+              </div>
+              <div class="h-rt">
+                <a href="javascript:void(0);"><img src="assets/img/topjian.png" alt="topjian"></a>
+              </div>
+            </div>
+            <div class="ls-body">
+              <div class="group">
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/276.jpg" alt="UI UE"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">UI/UE 全能设计艺术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/286.jpg" alt="Python AI"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">Python + 人工智能技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/linux.png" alt="linux"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">云计算 Linux 技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+              </div>
+
+              <div class="group last-group">
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/HTML5.png" alt="html5"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">HTML5 技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/fenxiao.png" alt="PHP"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">资源分享</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/xishuophp.png" alt="xishuophp"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">《跟兄弟连学PHP》专区</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="list-3">
+            <div class="ls-head">
+              <div class="h-lt">
+                <img src="assets/img/dabiao.png" alt="dabiao">
+                <a href="#">:::.连队趣事:::.</a>
+              </div>
+              <div class="h-rt">
+                <a href="javascript:void(0);"><img src="assets/img/topjian.png" alt="topjian"></a>
+              </div>
+            </div>
+            <div class="ls-body">
               <div class="group">
                 <div class="group-item">
                   <a href="#"><img src="assets/img/PHP.png" alt="PHP"></a>
                   <span class="item-title">
-                    <span class="title-text"><a href="#">PHP技术</a></span>
+                    <span class="title-text"><a href="#">PHP 技术</a></span>
                     <span class="note-count">(今日5)</span>
                     <div><span>主题:10670</span>帖子:94958</div>
                     <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
                   </span>
                 </div>
                 <div class="group-item">
-                  <a href="#"><img src="assets/img/PHP.png" alt="PHP"></a>
+                  <a href="#"><img src="assets/img/java.png" alt="PHP"></a>
                   <span class="item-title">
-                    <span class="title-text"><a href="#">PHP技术</a></span>
+                    <span class="title-text"><a href="#">Java 技术</a></span>
                     <span class="note-count">(今日5)</span>
                     <div><span>主题:10670</span>帖子:94958</div>
                     <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
                   </span>
                 </div>
                 <div class="group-item">
-                  <a href="#"><img src="assets/img/PHP.png" alt="PHP"></a>
+                  <a href="#"><img src="assets/img/289.png" alt="big data"></a>
                   <span class="item-title">
-                    <span class="title-text"><a href="#">PHP技术</a></span>
+                    <span class="title-text"><a href="#">大数据技术</a></span>
                     <span class="note-count">(今日5)</span>
                     <div><span>主题:10670</span>帖子:94958</div>
                     <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
                   </span>
-                </div>               
+                </div>
+              </div>
+
+              <div class="group">
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/276.jpg" alt="UI UE"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">UI/UE 全能设计艺术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/286.jpg" alt="Python AI"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">Python + 人工智能技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/linux.png" alt="linux"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">云计算 Linux 技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+              </div>
+
+              <div class="group last-group">
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/HTML5.png" alt="html5"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">HTML5 技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/fenxiao.png" alt="PHP"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">资源分享</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/xishuophp.png" alt="xishuophp"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">《跟兄弟连学PHP》专区</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="list-2"></div>
-          <div class="list-3"></div>
-          <div class="list-4"></div>
-        </div>
+          <div class="list-4">
+            <div class="ls-head">
+              <div class="h-lt">
+                <img src="assets/img/dabiao.png" alt="dabiao">
+                <a href="#">:::.议事厅:::.</a>
+              </div>
+              <div class="h-rt">
+                <a href="javascript:void(0);"><img src="assets/img/topjian.png" alt="topjian"></a>
+              </div>
+            </div>
+            <div class="ls-body">
+              <div class="group">
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/PHP.png" alt="PHP"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">PHP 技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/java.png" alt="PHP"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">Java 技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/289.png" alt="big data"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">大数据技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+              </div>
 
-      </div>
+              <div class="group">
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/276.jpg" alt="UI UE"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">UI/UE 全能设计艺术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/286.jpg" alt="Python AI"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">Python + 人工智能技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/linux.png" alt="linux"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">云计算 Linux 技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+              </div>
+
+              <div class="group last-group">
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/HTML5.png" alt="html5"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">HTML5 技术</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/fenxiao.png" alt="PHP"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">资源分享</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+                <div class="group-item">
+                  <a href="#"><img src="assets/img/xishuophp.png" alt="xishuophp"></a>
+                  <span class="item-title">
+                    <span class="title-text"><a href="#">《跟兄弟连学PHP》专区</a></span>
+                    <span class="note-count">(今日5)</span>
+                    <div><span>主题:10670</span>帖子:94958</div>
+                    <div><a href="#">最后发帖:2017-11-16 20:27</a></div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       <div class="container footer">
         <div align="center">
@@ -364,7 +638,7 @@
               <span class="">|</span><a href="job.php?action=erasecookie&amp;verify=2d1c556e" rel="nofollow">清除Cookies</a>
             </div>
           </div>
-          <div>
+          <div class="copyright">
             <p>
               Powered by phpwind v8.7&nbsp;Copyright Time now is:11-15 20:40 <br>&copy;
               <a href="/" target="_blank"></a>  Copyright 易第优（北京）教育咨询股份有限公司 2006 - 2017 Edu Inc. <a href="http://www.miibeian.gov.cn" target="_blank">京ICP备11018177号</a>
@@ -373,11 +647,10 @@
           </div>
         </div>
       </div>
-      <!-- END! -->         
-    </div>  
+      <!-- END! -->
+    </div>
   </body>
 </html>
 <script src="vendor/jquery/jquery.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="script/main.js"></script>
-

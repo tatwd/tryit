@@ -1,3 +1,8 @@
+body {
+    background-color: #f1f2f6;
+}
+
+
 /*-------top---------*/
 
 .top {
@@ -17,18 +22,18 @@
 }
 
 .top-left > div {
-    float: left;    
+    float: left;
 }
 
 .top-right > div {
     float: left;
 }
 
-.sort, 
+.sort,
 .serv,
 .apps {
     position: relative;
-    text-align: center; 
+    text-align: center;
 }
 
 .sort-item,
@@ -38,8 +43,8 @@
     left: 0;
     right: 0;
     display: none;
-    background: #fff;  
-    z-index: 999;  
+    background: #fff;
+    z-index: 999;
 }
 
 .serv-item {
@@ -60,7 +65,9 @@
 /*-------header---------*/
 
 .header {
-    margin-top: 15px;
+    margin-top: 1px;
+    padding-top: 15px;
+    background-color: #f1f2f6;
 }
 
 @media screen and (max-width: 992px) {
@@ -81,7 +88,7 @@
 
 .sign-box {
     height: 100%;
-    padding-left: 0;     
+    padding-left: 0;
 }
 
 .sign-tab {
@@ -101,12 +108,12 @@
     display: flex;
     flex-direction: column;
     padding: 11px 0;
-    text-align: center;    
+    text-align: center;
 }
 
 .save-status {
     display: flex;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     align-items: center;
     justify-content: center;
 }
@@ -156,7 +163,7 @@ input[type=checkbox] {
 
 .navbar-inverse {
     background-color: #075991;
-    border-color: #075991; 
+    border-color: #075991;
 }
 
 .navbar-header {
@@ -165,7 +172,7 @@ input[type=checkbox] {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-    color: #fff;    
+    color: #fff;
 }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -177,12 +184,12 @@ input[type=checkbox] {
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:focus,
 .navbar-inverse .navbar-nav > .open > a:hover {
-    background-color: #1170b2;  
+    background-color: #1170b2;
 }
 
 .navbar-inverse .navbar-toggle:focus,
 .navbar-inverse .navbar-toggle:hover {
-    background-color: #1170b2;      
+    background-color: #1170b2;
 }
 
 .navbar-inverse .navbar-toggle {
@@ -197,6 +204,7 @@ input[type=checkbox] {
 
 .search-row {
     display: flex;
+    background-color: #fff;
 }
 
 .search-form {
@@ -218,23 +226,23 @@ input[type=checkbox] {
 
 .s-select {
     border: 1px solid #fae9a5;
-    padding: 0 5px; 
+    padding: 0 5px;
 }
 
 .search-btn {
     background: #faefc7;
-    border: 1px solid #fae9a5; 
+    border: 1px solid #fae9a5;
     box-shadow: 0 0 5px #fae9a5;
 }
 
 .search-tag {
     display: flex;
     align-items: center;
-    margin-left: 15px; 
+    margin-left: 15px;
 }
 
 .search-tag a {
-    margin-right: 5px; 
+    margin-right: 5px;
 }
 
 @media screen and (max-width: 768px) {
@@ -283,17 +291,24 @@ input[type=checkbox] {
     flex-direction: column;
     flex: 1;
     align-items: flex-end;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 .list-container {
     margin-top: 15px;
-    border: 1px solid; 
 }
 
-.list-head {
+[class*="list-"] {
+    margin-bottom: 15px;
+}
+
+.ls-head {
     display: flex;
     justify-content: space-between;
+    background-color: #fdfdfd;
+    padding: 15px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #f1f2f6;
 }
 
 .h-lt {
@@ -307,25 +322,26 @@ input[type=checkbox] {
     margin-left: 5px;
 }
 
-[class*="list-"] {
-    margin-bottom: 15px;
+.ls-body {
+    background-color: #fff;
+    padding: 15px;
 }
 
-.list-body {
-}
-
-.list-body .group {
-    border-bottom: 1px dashed #ccc;
+.ls-body .group {
     display: flex;
 }
 
+.ls-body .group:not(.last-group) {
+    border-bottom: 1px dashed #ccc;
+}
+
 @media screen and (max-width: 960px) {
-    .list-body .group {
+    .ls-body .group {
         flex-direction: column;
     }
 }
 
-.list-body .group .group-item {
+.ls-body .group .group-item {
     flex: 1;
     display: flex;
     align-items: center;
@@ -333,29 +349,29 @@ input[type=checkbox] {
     padding: 15px 0;
 }
 
-.list-body .group .group-item .item-title {
+.ls-body .group .group-item .item-title {
     margin-left: 5px;
     font-size: 14px;
 }
 
-.list-body .group .group-item .item-title .title-text a {
+.ls-body .group .group-item .item-title .title-text a {
     color: #075991;
     font-size: 16px;
     font-weight: 9000;
-    margin-right: 5px; 
+    margin-right: 5px;
 }
 
 .note-count {
     color: #ff6600
 }
 
-.list-body .group .group-item .item-title div,
-.list-body .group .group-item .item-title div a {
+.ls-body .group .group-item .item-title div,
+.ls-body .group .group-item .item-title div a {
     color: #444;
     font-size: 12px;
-    margin-top: 5px; 
+    margin-top: 5px;
 }
-    
+
 
 /*-------footer---------*/
 
@@ -363,4 +379,9 @@ input[type=checkbox] {
     margin-top: 15px;
     padding: 15px;
     border-top: 1px solid #ddd;
+    font-size: 12px;
+}
+
+.copyright > p {
+    line-height: 20px;
 }
