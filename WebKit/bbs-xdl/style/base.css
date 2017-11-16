@@ -254,6 +254,109 @@ input[type=checkbox] {
 
 /*-------mainer---------*/
 
+.mainer {
+    margin-top: 15px;
+}
+
+.sidebar-container {
+    display: flex;
+}
+
+.sidebar-left {
+    flex: 1.5;
+}
+
+.sidebar-right {
+    flex: 1;
+    display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+    .sidebar-right {
+        display: none;
+    }
+}
+
+.topban,
+.bottomban {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-end;
+    justify-content: space-between; 
+}
+
+.list-container {
+    margin-top: 15px;
+    border: 1px solid; 
+}
+
+.list-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.h-lt {
+    display: flex;
+    align-items: center;
+}
+
+.h-lt a:last-child {
+    color: #333;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+[class*="list-"] {
+    margin-bottom: 15px;
+}
+
+.list-body {
+}
+
+.list-body .group {
+    border-bottom: 1px dashed #ccc;
+    display: flex;
+}
+
+@media screen and (max-width: 960px) {
+    .list-body .group {
+        flex-direction: column;
+    }
+}
+
+.list-body .group .group-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 0;
+}
+
+.list-body .group .group-item .item-title {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.list-body .group .group-item .item-title .title-text a {
+    color: #075991;
+    font-size: 16px;
+    font-weight: 9000;
+    margin-right: 5px; 
+}
+
+.note-count {
+    color: #ff6600
+}
+
+.list-body .group .group-item .item-title div,
+.list-body .group .group-item .item-title div a {
+    color: #444;
+    font-size: 12px;
+    margin-top: 5px; 
+}
+    
+
 /*-------footer---------*/
 
 .footer {
