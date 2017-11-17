@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>详情</title>
+
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../style/base.css">
+  </head>
+  <body>
+    <div>
+      <div class="top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 col-xs-12 top-left">
+              <div><a href="#">设为首页</a></div>
+              <div><a href="#">收藏LAMP兄弟连</a></div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-xs-12 top-right">
+              <div><a href="#">搜索</a></div>
+              <div class="sort">
+                <a href="#">统计排行</a>
+                <div class="sort-item">
+                  <a href="#">基本信息</a>
+                  <a href="#">管理团队</a>
+                  <a href="#">管理统计</a>
+                  <a href="#">在线会员</a>
+                  <a href="#">会员排行</a>
+                  <a href="#">板块排行</a>
+                  <a href="#">帖子排行</a>
+                </div>
+              </div>
+              <div><a href="#">会员名列表</a></div>
+              <div class="serv">
+                <a href="#">社区服务</a>
+                <div class="serv-item">
+                  <a href="#">在线时间换粮</a>
+                </div>
+              </div>
+              <div><a href="#">精华区</a></div>
+              <div><a href="#">最新帖子</a></div>
+              <div class="apps">
+                <a href="#">社区应用</a>
+                <div class="apps-item">
+                  <a href="#">帖子</a>
+                  <a href="#">相册</a>
+                  <a href="#">日志</a>
+                  <a href="#">热榜</a>
+                  <a href="#">分享</a>
+                  <a href="#">记录</a>
+                </div>
+              </div>
+              <div><a href="#">推广链接</a></div>
+              <div><a href="#">帮助</a></div>
+            </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="container header">
+        <div class="row">
+          <div class="logo col-lg-4 col-md-4">
+            <a href="../index.html"><img src="../assets/img/logo.jpg" alt="logo"></a>
+          </div>
+          <div class="nobrother col-lg-4 col-md-4">
+            <img src="../assets/img/nobrother.jpg" alt="nobrother">
+          </div>
+          <div class="sign-box col-lg-4 col-md-4">
+            <form action="" method="">
+              <table class="sign-tab">
+                  <tbody>
+                    <tr>
+                      <td class="input-td">
+                        <div class="input-usr">
+                          <!-- <label for="pwuser">用户名</label> -->
+                          <input type="text" name="pwuser" id="pwuser" placeholder="输入用户名" style="color: rgb(136, 136, 136);">
+                        </div>
+                        <div class="input-pwd">
+                          <!-- <label for="showpwd" class="">密　码</label> -->
+                          <input type="password" name="pwpwd" id="showpwd" class="">
+                        </div>
+                      </td>
+                      <td class="signin-td">
+                        <div class="save-status">
+                          <input type="checkbox" id="head_checkbox" name="cktime" value="31536000">
+                          <label for="head_checkbox">记住登录</label>
+                        </div>
+                        <div class="signin-btn">
+                          <span><button type="submit" name="head_login" style="width:70px;">登录</button></span>
+                        </div>
+                      </td>
+                      <td class="signup-td">
+                        <div class="getpwd">
+                          <a href="#">找回密码</a>
+                        </div>
+                        <div class="signup-btn">
+                          <span>
+                            <button type="button" style="width:70px;" onclick="">注册</button>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav">
+        <div class="container">
+          <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <!-- <a class="navbar-brand" href="#"></a> -->
+              </div>
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">精品课程<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">PHP 培训</a></li>
+                      <li><a href="#">大数据技术</a></li>
+                      <li><a href="#">Java 培训</a></li>
+                      <li><a href="#">UI/UE 培训</a></li>
+                      <li><a href="#">Python 培训</a></li>
+                      <li><a href="#">云计算 Linux 培训</a></li>
+                      <li><a href="#">HTML5 培训</a></li>
+                    </ul>
+                    </li>
+                  <li class="active"><a href="#">兄弟连论坛<span class="sr-only">(current)</span></a></li>
+                  <li><a href="#">战地日记</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">技术交流<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">PHP 技术</a></li>
+                      <li><a href="#">大数据技术</a></li>
+                      <li><a href="#">Java 技术</a></li>
+                      <li><a href="#">UI/UE 全能设计</a></li>
+                      <li><a href="#">Python + 人工智能</a></li>
+                      <li><a href="#">云计算 Linux 技术</a></li>
+                      <li><a href="#">HTML5 技术</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">明哥聊求职</a></li>
+                  <li><a href="#">微电影</a></li>
+                  <li><a href="#">学习资源</a></li>
+                  <li><a href="#">视频教程</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">快速通道 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li role="separator" class="divider"></li>
+                      <li><div style="padding: 0 15px;">您还没有登录，快捷通道只有在登录后才能使用。<a href="#">立即登录</a>！</div></li>
+                      <li role="separator" class="divider"></li>
+                      <li><div style="padding: 0 15px;">还没有帐号？ 赶紧<a href="#">注册一个</a>！</div></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="container search">
+        <div class="search-row">
+          <form class="search-form" action="" method="">
+            <div class="input-search">
+              <input id="search_input" type="text" value="让学习成为一种习惯！" class="gray" name="keyword" onfocus="" onblur="">
+            </div>
+            <div class="dropdown s-select" onmouseout="this.firstChild.style.display='none';" onmouseover="this.firstChild.style.display='block';">
+              <h6 class="dropdown-toggle" data-toggle="dropdown">帖子<span class="caret"></span></h6>
+              <ul class="dropdown-menu" width="50px" onclick="">
+                <li type="thread">帖子</li>
+                <li type="user">用户</li>
+                <li type="forum">版块</li>
+              </ul>
+            </div>
+            <button type="submit" class="search-btn">搜索</button>
+          </form>
+          <div class="search-tag">
+            <span>热搜：</span>
+            <a href="#">PHP</a>
+            <a href="#">明哥</a>
+            <a href="#">Java</a>
+            <a href="#">大数据</a>
+            <a href="#">Python</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mainer">
+        <div class="nav-path">
+          <img src="../assets/img/ydjian.png">
+          <span>
+            <a href="#">LAMP 兄弟连</a>><a href="#">PHP 技术交流</a>
+          </span>
+        </div>
+        <div class="detail-container">
+          <div class="detail-head">
+            <div class="h-tp">
+              <div>
+                <img src="../assets/img/star.png" alt="star">
+                <strong>PHP 技术交流</strong>
+              </div>
+              <div>版主：<a href="#">远飞</a></div>
+            </div>
+            <div class="h-md">
+              <div><img src="../assets/img/PHP.png" alt="PHP"></img></div>
+              <div style="margin-left:15px;">
+                <p>今日：<span style="color:red;">3</span> | 主题：<span style="color:red;">10726</span> | 帖数：<span style="color:red;">93546</span></p>
+                <p>PHP 基础编程、疑难解答、学习和开发中的经验总结等。</p>
+              </div>
+            </div>
+            <div class="h-bm">
+              <div class="pg-num">
+                <span><a href="#">1</a></span>
+                <span><a href="#">2</a></span>
+                <span><a href="#">3</a></span>
+                <span><a href="#">4</a></span>
+                <span><a href="#">5</a></span>
+                <span><a href="#">6</a></span>
+                <span><a href="#">...537</a></span>
+                <span class="next-pg"><a href="#">下一页</a></span>
+              </div>
+              <div><a href="#"><img src="../assets/img/fatie.png" alt="fatie"></a></div>
+            </div>
+          </div>
+          <div class="detail-body notelist-tab">
+            <div class="tab-tp">
+              <p>
+                <strong style="margin-right: 25px;">全部</strong>
+                <strong style="margin-right: 25px;">精华</strong>
+                <strong style="margin-right: 25px;">投票</strong>
+                <strong style="margin-right: 25px;">悬赏</strong>
+                <strong style="margin-right: 25px;">商品</strong>
+              </p>
+              <p>
+                <span style="color:red;">全部</span> |
+                <span style="color:red;">已解决</span> |
+                <span style="color:red;">我要提问</span> |
+                <span style="color:red;">PHP</span> |
+                <span style="color:red;">其他</span> |
+                <span style="color:red;">经验技巧</span>
+              </p>
+              <div class="row-head">
+                <div class="row-head-lt">
+                  <span>排序：最新发帖</span> | <span>最新回复</span>
+                </div>
+                <div class="row-head-rt">
+                  <span>作者</span>
+                  <span>回复</span>
+                  <span>最后发表</span>
+                </div>
+              </div>
+            </div>
+            <div class="tab-bm">
+              <div class="tabls-1">
+                <div class="p-lt">
+                  <img src="../assets/img/tongzhi.png" alt="tongzhi">
+                  <span><a href="#">站点公告：《跟兄弟连学PHP》正式发售了！</a></span>
+                </div>
+                <div class="p-rt">
+                  <span>
+                    <img src="../assets/img/zuanshi.png" alt="zuanshi">
+                    <span><a href="user.html">海峰</a></span>
+                  </span>
+                  <span>27/5961</span>
+                  <span>20分钟之前</span>
+                </div>
+              </div>
+              <div class="tabls-2">
+                <div class="p-lt">
+                  <img src="../assets/img/tongzhi.png" alt="tongzhi">
+                  <span><a href="#">站点公告：《跟兄弟连学PHP》正式发售了！</a></span>
+                </div>
+                <div class="p-rt">
+                  <span>
+                    <img src="../assets/img/zuanshi.png" alt="zuanshi">
+                    <span><a href="user.html">海峰</a></span>
+                  </span>
+                  <span>27/5961</span>
+                  <span>20分钟之前</span>
+                </div>
+              </div>
+              <div class="tabls-3">
+                <div class="p-lt">
+                  <img src="../assets/img/tongzhi.png" alt="tongzhi">
+                  <span><a href="#">站点公告：《跟兄弟连学PHP》正式发售了！</a></span>
+                </div>
+                <div class="p-rt">
+                  <span>
+                    <img src="../assets/img/zuanshi.png" alt="zuanshi">
+                    <span><a href="user.html">海峰</a></span>
+                  </span>
+                  <span>27/5961</span>
+                  <span>20分钟之前</span>
+                </div>
+              </div>
+              <div class="tabls-4">
+                <div class="p-lt">
+                  <img src="../assets/img/tongzhi.png" alt="tongzhi">
+                  <span><a href="#">站点公告：《跟兄弟连学PHP》正式发售了！</a></span>
+                </div>
+                <div class="p-rt">
+                  <span>
+                    <img src="../assets/img/zuanshi.png" alt="zuanshi">
+                    <span><a href="user.html">海峰</a></span>
+                  </span>
+                  <span>27/5961</span>
+                  <span>20分钟之前</span>
+                </div>
+              </div>
+              <div class="tabls-5">
+                <div class="p-lt">
+                  <img src="../assets/img/tongzhi.png" alt="tongzhi">
+                  <span><a href="#">站点公告：《跟兄弟连学PHP》正式发售了！</a></span>
+                </div>
+                <div class="p-rt">
+                  <span>
+                    <img src="../assets/img/zuanshi.png" alt="zuanshi">
+                    <span><a href="user.html">海峰</a></span>
+                  </span>
+                  <span>27/5961</span>
+                  <span>20分钟之前</span>
+                </div>
+              </div>
+              <div class="tabls-6">
+                <div class="p-lt">
+                  <img src="../assets/img/tongzhi.png" alt="tongzhi">
+                  <span><a href="#">站点公告：《跟兄弟连学PHP》正式发售了！</a></span>
+                </div>
+                <div class="p-rt">
+                  <span>
+                    <img src="../assets/img/zuanshi.png" alt="zuanshi">
+                    <span><a href="user.html">海峰</a></span>
+                  </span>
+                  <span>27/5961</span>
+                  <span>20分钟之前</span>
+                </div>
+              </div>
+              <div class="tabls-7">
+                <div class="p-lt">
+                  <img src="../assets/img/tongzhi.png" alt="tongzhi">
+                  <span><a href="#">站点公告：《跟兄弟连学PHP》正式发售了！</a></span>
+                </div>
+                <div class="p-rt">
+                  <span>
+                    <img src="../assets/img/zuanshi.png" alt="zuanshi">
+                    <span><a href="user.html">海峰</a></span>
+                  </span>
+                  <span>27/5961</span>
+                  <span>20分钟之前</span>
+                </div>
+              </div>
+              <div class="tabls-8">
+                <div class="p-lt">
+                  <img src="../assets/img/tongzhi.png" alt="tongzhi">
+                  <span><a href="#">站点公告：《跟兄弟连学PHP》正式发售了！</a></span>
+                </div>
+                <div class="p-rt">
+                  <span>
+                    <img src="../assets/img/zuanshi.png" alt="zuanshi">
+                    <span><a href="user.html">海峰</a></span>
+                  </span>
+                  <span>27/5961</span>
+                  <span>20分钟之前</span>
+                </div>
+              </div>
+              <div class="tabls-9">
+                <div class="p-lt">
+                  <img src="../assets/img/tongzhi.png" alt="tongzhi">
+                  <span><a href="#">站点公告：《跟兄弟连学PHP》正式发售了！</a></span>
+                </div>
+                <div class="p-rt">
+                  <span>
+                    <img src="../assets/img/zuanshi.png" alt="zuanshi">
+                    <span><a href="user.html">海峰</a></span>
+                  </span>
+                  <span>27/5961</span>
+                  <span>20分钟之前</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-foot">
+              <div class="pg-num">
+                <span><a href="#">1</a></span>
+                <span><a href="#">2</a></span>
+                <span><a href="#">3</a></span>
+                <span><a href="#">4</a></span>
+                <span><a href="#">5</a></span>
+                <span><a href="#">6</a></span>
+                <span><a href="#">...537</a></span>
+                <span class="next-pg"><a href="#">下一页</a></span>
+              </div>
+              <div><a href="#"><img src="../assets/img/fatie.png" alt="fatie"></a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer">
+        <div align="center">
+          <div>
+            <div>
+              <span class=""><a id="" href="http://www.itxdl.cn/activity/about/contactus/" title="">联系我们</a></span>
+              <span class="">|</span><a href="#" rel="nofollow">清除Cookies</a>
+            </div>
+          </div>
+          <div>
+            <p>
+              Powered by phpwind v8.7&nbsp;Copyright Time now is:11-15 20:40 <br>&copy;
+              <a href="/" target="_blank"></a>  Copyright 易第优（北京）教育咨询股份有限公司 2006 - 2017 Edu Inc. <a href="http://www.miibeian.gov.cn" target="_blank">京ICP备11018177号</a>
+              <span>Total 0.007702(s) query 0, Time now is:11-15 20:43, Gzip disabled</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- END! -->
+    </div>
+  </body>
+</html>
+<script src="../vendor/jquery/jquery.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../script/main.js"></script>
