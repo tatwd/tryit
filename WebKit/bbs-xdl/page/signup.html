@@ -107,7 +107,12 @@
                         </div>
                         <div class="signup-btn">
                           <span>
-                            <button type="button" style="width:70px;" onclick="">注册</button>
+                            <script>
+                              var openSignUp = function () {
+                                window.open('signup.html');
+                              }
+                            </script>
+                            <button type="button" style="width:70px;" onclick="openSignUp();">注册</button>
                           </span>
                         </div>
                       </td>
@@ -209,7 +214,12 @@
           </div>
           <div class="to-signin">
             <h4 style="color:red;">已有账号？</h4>
-            <button type="button">去登录</button>
+            <script>
+              var openSignIn = function () {
+                window.open('signin.html');
+              }
+            </script>
+            <button type="button" onclick="openSignIn();">去登录</button>
           </div>
         </div>
       </div>

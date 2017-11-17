@@ -378,6 +378,8 @@ input[type=checkbox] {
 .sign-container {
   display: flex;
   justify-content: center;
+  background-color: #fff;
+  padding: 15px;
 }
 
 @media screen and (max-width: 768px) {
@@ -423,6 +425,9 @@ input[type=checkbox] {
 /*-------detail.html-------*/
 
 .detail-container {
+  background-color: #fff;
+  padding: 10px 15px;
+  margin-top: 15px;
 }
 
 .detail-head {
@@ -459,12 +464,17 @@ input[type=checkbox] {
 
 .notelist-tab .tab-tp > p {
   border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
+  padding: 5px 15px;
+}
+
+.notelist-tab .tab-tp > p:first-child {
+  background-color: #f1f2f6;
 }
 
 .row-head {
   display: flex;
   margin-bottom: 10px;
+  padding: 5px 15px;
 }
 
 .row-head-lt {
@@ -475,6 +485,10 @@ input[type=checkbox] {
   flex: 1;
   display: flex;
   justify-content: space-around;
+}
+
+.tab-bm {
+  padding: 5px 15px;
 }
 
 .tab-bm [class*="tabls-"] {
@@ -499,6 +513,8 @@ input[type=checkbox] {
   align-items: center;
   justify-content: space-between;
   margin: 15px 0;
+  background-color: #fff;
+  padding: 10px;
 }
 
 @media screen and (max-width:960px) {
@@ -524,6 +540,7 @@ input[type=checkbox] {
 
 .cmnt-user {
   border-top: 2px solid #333;
+  background-color: #f7f7f7
 }
 
 .cmnt-head {
@@ -588,7 +605,8 @@ input[type=checkbox] {
 
 .info-rt {
   flex: 6;
-  padding: 0 15px;
+  padding: 10px 15px;
+  background-color: #fff;
 }
 
 .cmnt-content {
@@ -619,13 +637,14 @@ input[type=checkbox] {
 .tip-text {
   border: 1px dashed #fae9a5;
   padding: 5px 15px;
-  /*background-color: #faefc7;*/
+  background-color: #fffae1;
 }
 
 .meta-kit div:last-child {
   border: 1px solid #ddd;
   margin-top: 15px;
   padding: 5px 15px;
+  background-color: #f9f9f9;
 }
 
 /*-------footer---------*/

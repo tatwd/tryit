@@ -107,7 +107,12 @@
                         </div>
                         <div class="signup-btn">
                           <span>
-                            <button type="button" style="width:70px;" onclick="">注册</button>
+                            <script>
+                              var openSignUp = function () {
+                                window.open('signup.html');
+                              }
+                            </script>
+                            <button type="button" style="width:70px;" onclick="openSignUp();">注册</button>
                           </span>
                         </div>
                       </td>
@@ -171,9 +176,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">快速通道 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li role="separator" class="divider"></li>
-                      <li><div style="padding: 0 15px;">您还没有登录，快捷通道只有在登录后才能使用。<a href="#">立即登录</a>！</div></li>
+                      <li><div style="padding: 0 15px;">您还没有登录，快捷通道只有在登录后才能使用。<a href="signin.html">立即登录</a>！</div></li>
                       <li role="separator" class="divider"></li>
-                      <li><div style="padding: 0 15px;">还没有帐号？ 赶紧<a href="#">注册一个</a>！</div></li>
+                      <li><div style="padding: 0 15px;">还没有帐号？ 赶紧<a href="signup.html">注册一个</a>！</div></li>
                     </ul>
                   </li>
                 </ul>
@@ -214,7 +219,7 @@
         <div class="nav-path">
           <img src="../assets/img/ydjian.png">
           <span>
-            <a href="#">LAMP 兄弟连</a>><a href="#">PHP 技术交流</a>
+            <a href="#">LAMP 兄弟连</a> > <a href="#">PHP 技术交流</a>
           </span>
         </div>
         <div class="detail-container">
