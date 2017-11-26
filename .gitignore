@@ -4,6 +4,7 @@ node_modules/
 # ignore asp.net bin dir and obj dir
 bin/
 obj/
-*.sln
 packages/
 .vs/
+
+*.rar
