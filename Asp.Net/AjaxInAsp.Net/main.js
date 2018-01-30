@@ -73,19 +73,6 @@ var dogo = (function () {
             this.xhr.setRequestHeader("Content-Type", `application/${this.setting.contentType}`); // json type
             this.xhr.send(JSON.stringify(this.setting.data));
 
-            //this.xhr.onreadystatechange = function () {
-            //    if (this.readyState == 4 && this.status == 200) {
-
-            //        var jsonStr = this.responseText;
-            //        var jsonObj = {};
-
-            //        if (jsonStr) {
-            //            jsonObj = JSON.parse(jsonStr);
-            //        }
-            //        that.data = jsonObj;
-            //    }
-            //};
-
             return this;
         };
 
@@ -98,52 +85,36 @@ var dogo = (function () {
                     var jsonObj = {};
 
                     if (jsonStr) {
-                        jsonObj = JSON.parse((JSON.parse(jsonStr)).d);
+                        var _data = JSON.parse(jsonStr).d;
+                        jsonObj = _data ? JSON.parse(_data) : null;
                     }
-                    that.data.push(jsonObj);
-                    // console.log(jsonStr, jsonObj, that.data);
 
-                    var index = setting.tmp.indexOf('{');
+                    jsonObj && that.data.push(jsonObj);
 
-                    setting.tmp = setting.tmp.replace(/{{[\w\s]+[\w\s]+[\w\s]+}}/, that.data[0].Name);
+                    // var index = setting.tmp.indexOf('{');
 
-                    // console.log(that.data);
-
-                    // console.log(/\{\{\s|\w\}\}/.test(setting.tmp));
-
-                    var element  = that.dom(setting.ele).all();
+                    var element = that.dom(setting.ele).all();
                     var template = document.createElement('template');
 
+                    if (that.data.length == 0) {
+                        element.innerHTML = "NULL";
+                        return;
+                    }
+
+                    setting.tmp = setting.tmp.replace(/{{.*}}/, that.data[0].Name);
                     template.innerHTML = setting.tmp;
                     
                     var clone = document.importNode(template.content, true);
+                    // element.appendChild(clone);
+                    element.innerHTML = clone.textContent || "NULL";
 
-                    //console.log(element.__proto__);
-                    // element.removeChild();
-                    element.appendChild(clone);
+                    that.data = [];
                 }
             };
         };
 
         return new Ajax(setting);
     };
-
-
-    // reader data to dom elements
-    //Dogo.prototype.render = function (setting) {
-    //    var element = this.dom(setting.ele).all();
-    //    var template = document.createElement('template');
-
-    //    console.log(this.data);
-
-    //    template.innerHTML = setting.tmp;
-
-    //    // console.log(element);
-
-    //    var clone = document.importNode(template.content, true);
-
-    //    element.appendChild(clone);
-    //};
 
     return new Dogo();
 })();
@@ -153,11 +124,11 @@ var $ = dogo;
 subBtn.onclick = function () {
     var text = input.value;
 
-    var foo = $.ajax({
+    $.ajax({
         url: "./DemoA.aspx/ServerMethod",
         contentType: 'json;charset=utf-8',
         data: {
-            id: input.value
+            id: Number(input.value)
         }
     }).post().render({
         ele: '#app',
