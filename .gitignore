@@ -1,7 +1,7 @@
 # ignore node_modules
 node_modules/
 
-# ignore asp.net bin dir and obj dir
+# ignore asp.net bin and obj dir
 bin/
 obj/
 packages/
