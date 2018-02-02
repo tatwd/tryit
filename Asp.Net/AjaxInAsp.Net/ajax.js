@@ -1,81 +1,95 @@
-﻿const ajax = function (
-    url,
-    settings = {
-        method: "GET",
-        contentType: "x-www-form-urlencoded",
-        data: null
-    }) {
+﻿const ajax = function (url, settings) {
 
+    // set default values
+    ({
+        method = 'GET',
+        responseType = '', // x-www-form-urlencoded
+        header = {},
+        timeout = 0,
+        data = null,
+        async = true
+    } = settings || {});
+
+    // get XMLHttpRequest object
     let getXhr = () => {
-        return new XMLHttpRequest();
+        return new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
     };
 
     return new Promise((resolve, reject) => {
         const xhr = getXhr();
-
-        xhr.open(settings.method, url);
+        
+        xhr.open(method, url, async);
 
         xhr.onreadystatechange = function () {
-            if (this.readyState !== 4) {
-                return;
-            }
+            if (this.readyState !== 4) return;
 
             this.status === 200
-                ? resolve(this.response)
+                ? resolve({
+                    _data: this.response,
+                    getJson: function () {
+                        let __data = typeof this._data === 'object'
+                            ? this._data
+                            : JSON.parse(this._data);
+                        
+                        return __data === null
+                            ? __data
+                            : (
+                                __data.d && __data.d !== ''
+                                ? JSON.parse(__data.d)
+                                : __data
+                            );
+                    },
+                    getText: function () {
+                        return this._data;
+                    }
+                })
                 : reject(new Error(this.statusText));
         }
 
-        xhr.responseType = settings.contentType;
-        xhr.setRequestHeader("Content-Type", `application/${settings.contentType}`);
+        xhr.timeout = timeout;
+        xhr.responseType = responseType;
 
-        settings.data
-            ? xhr.send(JSON.stringify(settings.data))
-            : xhr.send();
+        // set request header
+        for (let item in header) {
+            xhr.setRequestHeader(item, `application/${header[item]}`);
+        }
+
+        xhr.send(data);
     });
 };
 
 const dataContainer = document.querySelector('.data-container');
 
-ajax("../Demo.aspx/ServerMethod", {
-    method: "POST",
-    contentType: "json",
-    data: {
-        id: 1
+let url = {
+    test: 'test.json',
+    aspx: '../Demo.aspx/ServerMethod'
+};
+
+let settings = {
+    get: {
+        method: 'GET',
+        // responseType: 'json',
+        header: {
+            'content-type': 'json'
+        }
+    },
+    post: {
+        method: 'POST',
+        responseType: 'json',
+        header: {
+            'content-type': 'json'
+        },
+        data: JSON.stringify({
+            id: 1
+        })
     }
-})
+}
+// ajax(url.test, settings.get)
+ajax(url.aspx, settings.post)
+    .then(response => response.getJson())
     .then(data => {
-        //console.log(data)
         dataContainer.innerHTML = JSON.stringify(data);
-    }).catch(error => {
+    })
+    .catch(error => {
         dataContainer.innerHTML = error;
     });
-
-//const getJSON = function (url) {
-//    const promise = new Promise(function (resolve, reject) {
-//        const handler = function () {
-//            if (this.readyState !== 4) {
-//                return;
-//            }
-//            if (this.status === 200) {
-//                resolve(this.response);
-//            } else {
-//                reject(new Error(this.statusText));
-//            }
-//        };
-//        const client = new XMLHttpRequest();
-//        client.open("GET", url);
-//        client.onreadystatechange = handler;
-//        client.responseType = "json";
-//        client.setRequestHeader("Accept", "application/json");
-//        client.send();
-
-//    });
-
-//    return promise;
-//};
-
-//getJSON("/posts.json").then(function (json) {
-//    console.log('Contents: ' + json);
-//}, function (error) {
-//    console.error('出错了', error);
-//});
