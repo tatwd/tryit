@@ -67,6 +67,8 @@
     });
 };
 
+window.ajax = window.ajax || ajax;
+
 // test stuff
 //
 
