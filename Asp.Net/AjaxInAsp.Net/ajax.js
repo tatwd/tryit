@@ -1,19 +1,10 @@
 ﻿const ajax = function (url, settings) {
 
     // set default values
-    ({
-        method = 'GET',
-        responseType = '', // x-www-form-urlencoded
-        header = {},
-        timeout = 0,
-        data = null,
-        async = true
-    } = settings || {});
+    ({ method = 'GET', responseType = '', header = {}, timeout = 0, data = null, async = true } = settings || {});
 
     // get XMLHttpRequest object
-    let getXhr = () => {
-        return new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-    };
+    let getXhr = () => new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
 
     return new Promise((resolve, reject) => {
         const xhr = getXhr();
@@ -33,11 +24,7 @@
                         
                         return __data === null
                             ? __data
-                            : (
-                                __data.d && __data.d !== ''
-                                ? JSON.parse(__data.d)
-                                : __data
-                            );
+                            : (__data.d && __data.d !== '' ? JSON.parse(__data.d) : __data);
                     },
                     getText: function () {
                         return this._data;
