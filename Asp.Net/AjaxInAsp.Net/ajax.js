@@ -70,39 +70,39 @@
 // test stuff
 //
 
-const dataContainer = document.querySelector('.data-container');
+// const dataContainer = document.querySelector('.data-container');
 
-let url = {
-    test: 'test.json',
-    aspx: '../Demo.aspx/ServerMethod'
-};
+// let url = {
+//     test: 'test.json',
+//     aspx: '../Demo.aspx/ServerMethod'
+// };
 
-let settings = {
-    get: {
-        method: 'GET',
-        // responseType: 'json',
-        header: {
-            'content-type': 'json'
-        }
-    },
-    post: {
-        method: 'POST',
-        responseType: 'json',
-        header: {
-            'content-type': 'json'
-        },
-        data: JSON.stringify({
-            id: 1
-        }),
-    }
-}
+// let settings = {
+//     get: {
+//         method: 'GET',
+//         // responseType: 'json',
+//         header: {
+//             'content-type': 'json'
+//         }
+//     },
+//     post: {
+//         method: 'POST',
+//         responseType: 'json',
+//         header: {
+//             'content-type': 'json'
+//         },
+//         data: JSON.stringify({
+//             id: 1
+//         }),
+//     }
+// }
 
-ajax(url.test, settings.get)
-// ajax(url.aspx, settings.post)
-    .then(response => response.getJson())
-    .then(data => {
-        dataContainer.innerHTML = JSON.stringify(data);
-    })
-    .catch(error => {
-        dataContainer.innerHTML = error;
-    });
+// ajax(url.test, settings.get)
+// // ajax(url.aspx, settings.post)
+//     .then(response => response.getJson())
+//     .then(data => {
+//         dataContainer.innerHTML = JSON.stringify(data);
+//     })
+//     .catch(error => {
+//         dataContainer.innerHTML = error;
+//     });
