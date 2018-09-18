@@ -11,3 +11,13 @@ This is a test content.
 
 [test]: http://img.shields.io/badge/Hexo-2.4+-2BAF2B.svg?style=flat-square
 [test-url]: http://www.baidu.com
+
+
+add a remote called `upstream` if you want to contribute it:
+```bash
+git remote add upstream https://github.com/tatwd/test.git
+```
+then you can update your local repo:
+```bash
+git pull upstream master
+```
