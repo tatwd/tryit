@@ -6,5 +6,5 @@ bin/
 obj/
 packages/
 .vs/
-
+tmp/
 *.rar

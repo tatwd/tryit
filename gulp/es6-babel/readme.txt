@@ -1,1 +1,0 @@
-- gulp gulp-babel babel-core babel-preset-es2015
