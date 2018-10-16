@@ -1,0 +1,102 @@
+﻿body {
+    height: 100%;
+    background-color: #ddd;
+}
+
+#signForm {
+    padding: 15px;
+    /*background-color: #ddd;*/
+    text-align: center;
+}
+
+.container {
+    border: 2px solid #ddd;
+    background-color: #fff;
+    padding: 25px 35px 45px 35px;
+    display: inline-block;
+    width: 20%;
+}
+
+@media (max-width:768px) {
+    .container {
+        width: auto;
+    }
+}
+
+.title-box,
+.input-box {
+    padding: 15px;
+    font-size: 25px;
+}
+
+.input-box {
+    padding: 0;
+}
+
+.input-box div {
+    border: 1px solid #ddd;
+}
+
+.name,
+.email,
+.phone,
+.passwd,
+.confirm-passwd {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 0 15px 10px 15px;  /* default margin-top: 10px ?*/
+
+    position: relative;
+}
+
+.sign-btn {
+    padding: 8px 0;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/*.validatorBox {
+    border: 0;
+    visibility: hidden;
+}*/
+
+.validator {
+    color: red;
+    font-size: 12px;
+
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    /*transform: translate(0,0);*/
+    /*transition: 0.25s ease-out;*/
+}
+
+
+
+#nameBox,
+#emailBox,
+#phoneBox,
+#passwdBox,
+#confirmPasswdBox {
+    width: 100%;
+    border: 0;
+    outline: 0;
+}
+
+#signUpBtn {
+    font-size: larger;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+.label {
+    color: red;
+    /*background-color: #fff;*/
+    padding: 15px;
+    margin-top: 25px;
+}
