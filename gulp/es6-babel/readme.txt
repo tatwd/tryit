@@ -1,1 +1,5 @@
-- gulp gulp-babel babel-core babel-preset-es2015
+- gulp 
+- gulp-babel 
+- babel-core 
+- babel-preset-es2015
+- gulp-browserify
