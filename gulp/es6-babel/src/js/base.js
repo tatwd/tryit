@@ -5,7 +5,7 @@ class Pen {
 
   logger() {
     if (console) {
-      console.log(`${this.str} -- _king`);
+      console.log(`${this.str}`);
     }
   }
 }
