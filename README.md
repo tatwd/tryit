@@ -21,3 +21,11 @@ then you can update your local repo:
 ```bash
 git pull upstream master
 ```
+
+How to use **taobao** mirror to install packages:
+
+```bash
+npm install --registry=https://registry.npm.taobao.org
+```
+
+or use a `.npmrc` to change registry.
