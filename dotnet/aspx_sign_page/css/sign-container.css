@@ -1,40 +1,40 @@
 ﻿body {
-    height: 100%;
-    background-color: #ddd;
+  height: 100%;
+  background-color: #ddd;
 }
 
 #signForm {
-    padding: 15px;
-    /*background-color: #ddd;*/
-    text-align: center;
+  padding: 15px;
+  /*background-color: #ddd;*/
+  text-align: center;
 }
 
 .container {
-    border: 2px solid #ddd;
-    background-color: #fff;
-    padding: 25px 35px 45px 35px;
-    display: inline-block;
-    width: 20%;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  padding: 25px 35px 45px 35px;
+  display: inline-block;
+  width: 20%;
 }
 
-@media (max-width:768px) {
-    .container {
-        width: auto;
-    }
+@media (max-width: 768px) {
+  .container {
+    width: auto;
+  }
 }
 
 .title-box,
 .input-box {
-    padding: 15px;
-    font-size: 25px;
+  padding: 15px;
+  font-size: 25px;
 }
 
 .input-box {
-    padding: 0;
+  padding: 0;
 }
 
 .input-box div {
-    border: 1px solid #ddd;
+  border: 1px solid #ddd;
 }
 
 .name,
@@ -42,19 +42,19 @@
 .phone,
 .passwd,
 .confirm-passwd {
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    padding: 0 15px 10px 15px;  /* default margin-top: 10px ?*/
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  padding: 0 15px 10px 15px; /* default margin-top: 10px ?*/
 
-    position: relative;
+  position: relative;
 }
 
 .sign-btn {
-    padding: 8px 0;
-    border: 1px solid #ddd;
-    background-color: #ddd;
-    border-radius: 3px;
-    cursor: pointer;
+  padding: 8px 0;
+  border: 1px solid #ddd;
+  background-color: #ddd;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 /*.validatorBox {
@@ -63,40 +63,38 @@
 }*/
 
 .validator {
-    color: red;
-    font-size: 12px;
+  color: red;
+  font-size: 12px;
 
-    position: absolute;
-    top: 12px;
-    right: 15px;
+  position: absolute;
+  top: 12px;
+  right: 15px;
 
-    /*transform: translate(0,0);*/
-    /*transition: 0.25s ease-out;*/
+  /*transform: translate(0,0);*/
+  /*transition: 0.25s ease-out;*/
 }
-
-
 
 #nameBox,
 #emailBox,
 #phoneBox,
 #passwdBox,
 #confirmPasswdBox {
-    width: 100%;
-    border: 0;
-    outline: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
 }
 
 #signUpBtn {
-    font-size: larger;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    background-color: #ddd;
+  font-size: larger;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: #ddd;
 }
 
 .label {
-    color: red;
-    /*background-color: #fff;*/
-    padding: 15px;
-    margin-top: 25px;
+  color: red;
+  /*background-color: #fff;*/
+  padding: 15px;
+  margin-top: 25px;
 }

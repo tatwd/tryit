@@ -1,65 +1,70 @@
-﻿!function ($) {
+﻿!(function($) {
+  var FocusEvent = (function() {
+    function FocusEvent(elemt_str, validator) {
+      typeof elemt_str == 'string'
+        ? (this.element = document.getElementById(elemt_str))
+        : (this.element = null);
+      typeof validator == 'string'
+        ? (this.validator = validator)
+        : (this.validator = null);
+    }
 
-    var FocusEvent = function () {
-        function FocusEvent(elemt_str, validator) {
-            (typeof elemt_str == 'string') ? this.element = document.getElementById(elemt_str) : this.element = null;
-            (typeof validator == 'string') ? this.validator = validator : this.validator = null;
-        }
+    FocusEvent.prototype.addFocus = function(cliked) {
+      //if (cliked) {
+      //    return;
+      //}
 
-        FocusEvent.prototype.addFocus = function (cliked) {
-            //if (cliked) {
-            //    return;
-            //}
+      var ele = this.element;
+      var val = this.validator;
 
-            var ele = this.element;
-            var val = this.validator;
+      ele.addEventListener(
+        'focus',
+        function() {
+          var validatorName = this.parentElement.getElementsByClassName(val);
 
-            ele.addEventListener('focus', function () {
-                var validatorName = this.parentElement.getElementsByClassName(val);
+          for (var i = 0, length = validatorName.length; i < length; i++) {
+            validatorName[i].style.visibility = 'hidden';
+          }
 
-                for (var i = 0, length = validatorName.length; i < length; i++) {
-                    validatorName[i].style.visibility = 'hidden';
-                };
+          //toALL(validatorName, 'visibility');
 
-                //toALL(validatorName, 'visibility');
+          //this.parentElement.style.boxShadow = 'inset 0 1px 2px rgba(27,31,35,0.075)';
 
-                //this.parentElement.style.boxShadow = 'inset 0 1px 2px rgba(27,31,35,0.075)';
+          //clicked = !clicked;
+        },
+        false
+      );
+    };
 
-                //clicked = !clicked;
+    //var toAll = function (e, a) {
+    //    for (var i = 0, length = e.length; i < length; i++) {
+    //        //if (clicked)
+    //            e[i].style[a] = 'hidden';
+    //        //else
+    //        //    e[i].style[a] = 'visible';
+    //    };
+    //}
 
-            }, false);
-        };
+    //FocusEvent.prototype.removeFocus = function () {
+    //};
 
-        //var toAll = function (e, a) {
-        //    for (var i = 0, length = e.length; i < length; i++) {
-        //        //if (clicked)
-        //            e[i].style[a] = 'hidden';
-        //        //else
-        //        //    e[i].style[a] = 'visible';
-        //    };
-        //}
+    return FocusEvent;
+  })();
 
-        //FocusEvent.prototype.removeFocus = function () {
-        //};
+  //var ClickEvent = function () {
+  //}();
 
-        return FocusEvent;
-    }();
+  var clicked = false;
 
-    //var ClickEvent = function () {
-    //}();
+  //document.getElementsByClassName('sign')[0].addEventListener('click', function () {
+  //    clicked = !clicked;
+  //    if(clicked)
+  //        document.getElementsByClassName('validator')[0].style.visibility = '';
+  //}, false);
 
-    var clicked = false;
-
-    //document.getElementsByClassName('sign')[0].addEventListener('click', function () {
-    //    clicked = !clicked;
-    //    if(clicked)
-    //        document.getElementsByClassName('validator')[0].style.visibility = '';
-    //}, false);
-
-    (new FocusEvent('nameBox',          'validator')).addFocus(clicked);
-    (new FocusEvent('emailBox',         'validator')).addFocus(clicked);
-    (new FocusEvent('phoneBox',         'validator')).addFocus(clicked);
-    (new FocusEvent('passwdBox',        'validator')).addFocus(clicked);
-    (new FocusEvent('confirmPasswdBox', 'validator')).addFocus(clicked);
-
-}(window);
+  new FocusEvent('nameBox', 'validator').addFocus(clicked);
+  new FocusEvent('emailBox', 'validator').addFocus(clicked);
+  new FocusEvent('phoneBox', 'validator').addFocus(clicked);
+  new FocusEvent('passwdBox', 'validator').addFocus(clicked);
+  new FocusEvent('confirmPasswdBox', 'validator').addFocus(clicked);
+})(window);
