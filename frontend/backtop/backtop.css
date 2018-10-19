@@ -1,50 +1,50 @@
 body {
-    height: 4366px; /* 使页面有滑快 */
-    /* background-color: #ddd; */
+  height: 4366px; /* 使页面有滑快 */
+  /* background-color: #ddd; */
 }
 
 /* 返回顶部 */
 .backtop {
-    height: 50px;
-    width: 50px;
+  height: 50px;
+  width: 50px;
 
-    position: fixed;
-    bottom: 55px;
-    right: -60px;
-    z-index: 9999;
+  position: fixed;
+  bottom: 55px;
+  right: -60px;
+  z-index: 9999;
 
-    transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
+  transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
 
-    border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 2px #ddd;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px #ddd;
 
-    /* 使子元素所有方向上居中 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* 使子元素所有方向上居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 图标 */
 .backtop .icon {
-    height: 16px;
-    width: 16px;
-    border-top: 1px solid #278;
-    border-left: 1px solid #279;
-    margin-top: 8px; 
-    transform: rotate(45deg);
+  height: 16px;
+  width: 16px;
+  border-top: 1px solid #278;
+  border-left: 1px solid #279;
+  margin-top: 8px;
+  transform: rotate(45deg);
 }
 
 /* 激活状态 */
 .active {
-    right: 12px;
+  right: 12px;
 
-    -moz-transform: scale(1) rotate(-360deg) translate(0px);
-    -webkit-transform: scale(1) rotate(-360deg) translate(0px);
-    -o-transform: scale(1) rotate(-360deg) translate(0px);
-    transform: scale(1) rotate(-360deg) translate(0px);
+  -moz-transform: scale(1) rotate(-360deg) translate(0px);
+  -webkit-transform: scale(1) rotate(-360deg) translate(0px);
+  -o-transform: scale(1) rotate(-360deg) translate(0px);
+  transform: scale(1) rotate(-360deg) translate(0px);
 }
