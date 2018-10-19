@@ -1,0 +1,64 @@
+<script>
+  function handleError(evt) {
+    console.log(evt);
+  }
+  function handleLoad(evt) {
+    console.log(evt);
+  }
+  function handle(event) {
+    console.log(event);
+  }
+</script>
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet" onerror="handleError(event)" onload="handleLoad(event)">
+
+<style>
+  body {
+    font-family: 'Noto Serif', serif;
+  }
+</style>
+
+<div id="nameTag">Hello World!</div>
+
+<template id="nameTagTemplate">
+  <style>
+    .outer {
+      border: 2px solid brown;
+      font-size: 18px;
+      padding: 15px;
+      line-height: 1.5;
+    }
+  </style>
+
+  <div class="outer">
+    <div class="boilerplate">
+      Hi！I am
+    </div>
+    <div class="name">
+      Jaron King
+    </div>
+  </div>
+</template>
+
+<script>
+  var template = document.querySelector('#nameTagTemplate');
+  var shadow = document.querySelector('#nameTag')
+    .attachShadow({ mode: 'open' }); // createShadowRoot();
+  shadow.appendChild(template.content.cloneNode(true));
+
+  function html(...values) {
+    var [data, ...args] = values
+    var text = data.reduce(function (acc, cur, idx) {
+      acc += cur
+      if (idx < args.length) {
+        acc += args[idx]
+      }
+      return acc;
+    }, "")
+    return text;
+  }
+  var foo = 'foo';
+  var koo = 'koo';
+  var result = html`<p>these are ${foo} and ${koo}</p>`;
+  console.log(result);
+  // shadow.append(result);
+</script>
