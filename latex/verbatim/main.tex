@@ -2,12 +2,14 @@
 
 \documentclass[a4paper]{article}
 
-% listings 用于代码引用
 % color 用于颜色设定
-% fontspec 指定字体
-\usepackage{listings}
 \usepackage{color}
+
+% fontspec 指定字体
 \usepackage{fontspec}
+
+% listings 用于代码引用
+\usepackage{listings}
 
 % 自定义样式
 \lstdefinestyle{mystyle}{
@@ -47,6 +49,12 @@ print("Hello world!")
 \lstinputlisting[language=C++]{hello.cpp}
 
 % 行内代码引用
-Lorem ipsum dolor sit amet \lstinline{print "Hello World"} , consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet \lstinline{print "Hello World"} , consectetur
+adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+id est laborum.
 
 \end{document}
