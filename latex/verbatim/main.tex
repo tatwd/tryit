@@ -1,0 +1,52 @@
+% 插入代码
+
+\documentclass[a4paper]{article}
+
+% listings 用于代码引用
+% color 用于颜色设定
+% fontspec 指定字体
+\usepackage{listings}
+\usepackage{color}
+\usepackage{fontspec}
+
+% 自定义样式
+\lstdefinestyle{mystyle}{
+keywordstyle=\color{magenta},
+backgroundcolor=\color[gray]{0.95},
+commentstyle=\color[rgb]{0,0.6,0},
+basicstyle=\footnotesize\fontspec{Consolas},
+tabsize=2,
+keepspaces=true,
+showstringspaces=false,
+frame=single,
+}
+\lstset{style=mystyle}
+
+\begin{document}
+
+Hello world!
+
+% 使用 verbatim
+\begin{verbatim}
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+  printf("Hello world!\n");
+  return 0;
+}
+\end{verbatim}
+
+% 使用 listings
+\begin{lstlisting}[language=Python]
+# this is comment
+print("Hello world!")
+\end{lstlisting}
+
+% 载入外部代码文件
+\lstinputlisting[language=C++]{hello.cpp}
+
+% 行内代码引用
+Lorem ipsum dolor sit amet \lstinline{print "Hello World"} , consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{document}
