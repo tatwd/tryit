@@ -106,3 +106,17 @@ with tf.Session() as session:
           tf.get_default_session().run(_res))  # now y is 6
 
 print('End!')
+
+
+# Use `placeholder`
+p1 = tf.placeholder(tf.float32)
+p2 = tf.placeholder(tf.float32)
+sum = tf.add(p1, p2)
+print("Start a session ...")
+with tf.Session() as session:
+    # add `feed_dict` to init placeholders
+    print(session.run(sum, feed_dict={
+        p1: 2,
+        p2: 3
+    }))
+print('End!')
