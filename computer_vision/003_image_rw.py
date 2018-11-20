@@ -36,27 +36,28 @@ cv2.imwrite('grass2.png', img, [cv2.IMWRITE_PNG_COMPRESSION, 0])
 # row is y value
 
 """
+图像矩阵结构:
 
   (0, 0)
     +-----------> x(col)
     |
-    |    · （y, x)
+    |    · (x, y)
     |
     V
     y(row)
 
+读取像数点的方向: 先行后列
+Mat[<row>, <col>] or [<y>, <x>]
 """
-
-# Mat[<row>,  <col>] or [<y>, <x>]
 
 # BGR
 (b, g, r) = img[50, 50]
 print(b, g, r)
 
 # draw a blue line in the image
-# from (10, 50) and length is 100px
+# from (100, 50) and length is 100px
 for i in range(1, 100):
-    img[50, 50+i] = (255, 0, 0)
+    img[100, 50+i] = (255, 0, 0)
 
 cv2.imshow("Draw a blue line", img)
 cv2.waitKey(0)

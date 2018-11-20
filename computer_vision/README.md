@@ -2,13 +2,13 @@
 
 After clone this repo and change to this dir, and run:
 
-```
+```bash
 # create a venv
-py -3 -m venv env
+py -3.6 -m venv env36
 
-# active venv
-source env/Scripts/activate
-# or env/Scripts/activate.bat
+# active the env
+# or env36/Scripts/activate.bat
+source env36/Scripts/activate
 
 # upgrade pip
 python -m pip install --upgrade pip
