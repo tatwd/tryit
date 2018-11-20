@@ -79,12 +79,15 @@ print('End!')
 # 变量四则运算
 x = tf.constant(1)
 y = tf.Variable(3)
+
 res1 = tf.add(x, y)
-res2 = tf.subtract(x, y)
+# print(type(res1))
 
 # copy `res1` to `x`
-_res = tf.assign(y, res1)
+_res = tf.assign(y, res1)  # res1 => y
+# print(type(_res))
 
+res2 = tf.subtract(x, y)
 res3 = tf.multiply(x, y)
 res4 = tf.divide(x, y)
 init = tf.global_variables_initializer()
@@ -96,9 +99,10 @@ with tf.Session() as session:
     print(session.run(res3))
     print(session.run(res4))
 
-    print('session.run(_res)', session.run(_res))
-    print('_res.eval()', _res.eval())
+    # run a graph by defferent ways
+    print('session.run(_res)', session.run(_res))  # now y is 4
+    print('_res.eval()', _res.eval())  # now y is 5
     print('tf.get_default_session().run(_res)',
-          tf.get_default_session().run(_res))
+          tf.get_default_session().run(_res))  # now y is 6
 
 print('End!')
