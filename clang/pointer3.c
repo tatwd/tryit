@@ -48,7 +48,7 @@ void swap1(int *ap, int *bp)
 	*ap = *ap ^ *bp;
 }
 
-/* size 是对应指针类型的大小 */
+/* size 是 ap 所指地址的数据的大小 */
 void swap2(void *ap, void *bp, int size)
 {
 /*
