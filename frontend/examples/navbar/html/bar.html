@@ -1,0 +1,33 @@
+<!-- <script src="navbar.js"></script>
+<div is="app-navbar"></div> -->
+
+<style>
+  .link {
+    color: #42b983;
+    display: inline-block;
+  }
+  .link:not(:first-child) {
+    margin-left: 15px;
+  }
+  .link.active {
+    color: red;
+  }
+</style>
+
+<div class="navbar">
+  <a class="link" href="index.html">Home</a>
+  <a class="link" href="foo.html">Foo</a>
+  <a class="link" href="bar.html">Bar</a>
+</div>
+
+<h2>Bar</h2>
+
+<script>
+  var href = window.location.href;
+  var active = document.querySelector('.link .active');
+  var links = document.querySelectorAll('.navbar .link');
+  active && active.classList.remove('active');
+  links.forEach(
+    i => href.indexOf(i['href']) !== -1 && i.classList.add('active')
+  );
+</script>
