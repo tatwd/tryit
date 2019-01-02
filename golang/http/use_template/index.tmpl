@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Go HTML Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  {{/* template comment */}}
+  <h2>Some Request Header Info</h2>
+  <pre>
+<b>Method:</b> 
+{{if eq .Method "GET"}} 
+  GET 
+{{else}}
+  POST
+{{end}}
+
+<b>URL:</b> {{.URL}}
+
+<b>User-Agent:</b> {{.Header.Get "User-Agent"}}
+  </pre>
+
+  <h3>Range Header:</h3>
+  <pre>
+{{/* range 会改变 . 的作用域, with 也会 */}}
+{{range $key, $value := .Header}}
+    <b>Key:</b> {{$key}} <b>Value:</b> {{$value}}
+
+    {{/* 使用 $ 获取根对象 */}}
+    Mthod: {{$.Method}}
+{{end}}
+
+{{/* with 的用法 */}}
+{{with .URL}}
+  Scheme: {{.Scheme}}
+  Host: {{.Host}}
+  Path: {{.Path}}
+{{end}}
+  </pre>
+</body>
+</html>
