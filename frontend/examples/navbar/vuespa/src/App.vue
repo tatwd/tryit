@@ -2,6 +2,11 @@
   <div id="app">
     <navbar></navbar>
     <router-view></router-view>
+    <footer>
+      <a href="http://github.com/tatwd" target="_blank" rel="noopener noreferrer">
+        <code>@tatwd</code>
+      </a>
+    </footer>
   </div>
 </template>
 
