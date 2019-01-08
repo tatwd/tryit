@@ -4,11 +4,11 @@
     "title": "雕刻时光",
     "authors": [
       {
-        "name": "苏联,安德烈·塔可夫斯基",
+        "name": "前苏联,安德烈·塔可夫斯基",
         "type": "WRITER"
       },
       {
-        "name": "中国,张晓东",
+        "name": "张晓东",
         "type": "TRANSLATOR"
       }
     ],
@@ -21,6 +21,70 @@
   },
   {
     "isbn": null,
+    "title": "我只知道人是什么",
+    "authors": [
+      {
+        "name": "余华",
+        "type": "WRITER"
+      }
+    ],
+    "press": "译林出版社",
+    "publish_at": null,
+    "status": "READING",
+    "begin_at": "2019-01",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": null,
+    "title": "人类简史（新版）：从动物到上帝",
+    "authors": [
+      {
+        "name": "以色列,尤瓦尔·赫拉利",
+        "type": "WRITER"
+      }
+    ],
+    "press": "中信出版社",
+    "publish_at": null,
+    "status": "READING",
+    "begin_at": "2018",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": null,
+    "title": "我们生活在巨大的差距里",
+    "authors": [
+      {
+        "name": "余华",
+        "type": "WRITER"
+      }
+    ],
+    "press": "北京十月出版社",
+    "publish_at": "2015-02",
+    "status": "READING",
+    "begin_at": "2018",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": null,
+    "title": "世说新语",
+    "authors": [
+      {
+        "name": "南北朝,刘义庆",
+        "type": "WRITER"
+      }
+    ],
+    "press": "三秦出版社",
+    "publish_at": null,
+    "status": "READING",
+    "begin_at": "2018",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": null,
     "title": "基督山伯爵",
     "authors": [
       {
@@ -28,14 +92,30 @@
         "type": "WRITER"
       },
       {
-        "name": "中国,周克希",
+        "name": "周克希",
         "type": "TRANSLATOR"
       }
     ],
     "press": "译林出版社",
     "publish_at": null,
     "status": "READING",
-    "begin_at": null,
+    "begin_at": "2018",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": null,
+    "title": "赫逊河畔谈中国历史",
+    "authors": [
+      {
+        "name": "美籍华人,黄仁宇",
+        "type": "WRITER"
+      }
+    ],
+    "press": "生活·读书·新知三联书店",
+    "publish_at": null,
+    "status": "READING",
+    "begin_at": "2018",
     "end_at": null,
     "times": 0
   },
@@ -44,15 +124,47 @@
     "title": "且介亭杂文",
     "authors": [
       {
-        "name": "中国,鲁迅",
+        "name": "鲁迅",
         "type": "WRITER"
       }
     ],
     "press": "北京联合出版有限责任公司",
     "publish_at": "2014-11",
     "status": "FINISHED",
-    "begin_at": null,
+    "begin_at": "2018",
     "end_at": "2019-01",
+    "times": 1
+  },
+  {
+    "isbn": null,
+    "title": "浮生六记",
+    "authors": [
+      {
+        "name": "清,沈复",
+        "type": "WRITER"
+      }
+    ],
+    "press": "天津人民出版社",
+    "publish_at": "2015-08",
+    "status": "FINISHED",
+    "begin_at": "2018",
+    "end_at": "2018-12",
+    "times": 1
+  },
+  {
+    "isbn": null,
+    "title": "杂的文",
+    "authors": [
+      {
+        "name": "韩寒",
+        "type": "WRITER"
+      }
+    ],
+    "press": "天津人民出版社",
+    "publish_at": "2012-08",
+    "status": "FINISHED",
+    "begin_at": null,
+    "end_at": "2018",
     "times": 1
   }
 ]
