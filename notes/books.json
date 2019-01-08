@@ -36,18 +36,22 @@
     "times": 0
   },
   {
-    "isbn": null,
+    "isbn": "978-7-5086-6075-2",
     "title": "人类简史（新版）：从动物到上帝",
     "authors": [
       {
         "name": "以色列,尤瓦尔·赫拉利",
         "type": "WRITER"
+      },
+      {
+        "name": "林俊宏",
+        "type": "TRANSLATOR"
       }
     ],
     "press": "中信出版社",
-    "publish_at": null,
+    "publish_at": "2017-02",
     "status": "READING",
-    "begin_at": "2018",
+    "begin_at": "2018-12",
     "end_at": null,
     "times": 0
   },
@@ -63,7 +67,7 @@
     "press": "北京十月出版社",
     "publish_at": "2015-02",
     "status": "READING",
-    "begin_at": "2018",
+    "begin_at": "2018-12",
     "end_at": null,
     "times": 0
   },
@@ -79,7 +83,7 @@
     "press": "三秦出版社",
     "publish_at": null,
     "status": "READING",
-    "begin_at": "2018",
+    "begin_at": "2018-12",
     "end_at": null,
     "times": 0
   },
@@ -99,7 +103,7 @@
     "press": "译林出版社",
     "publish_at": null,
     "status": "READING",
-    "begin_at": "2018",
+    "begin_at": "2018-12",
     "end_at": null,
     "times": 0
   },
@@ -115,7 +119,7 @@
     "press": "生活·读书·新知三联书店",
     "publish_at": null,
     "status": "READING",
-    "begin_at": "2018",
+    "begin_at": "2018-12",
     "end_at": null,
     "times": 0
   },
@@ -131,7 +135,7 @@
     "press": "北京联合出版有限责任公司",
     "publish_at": "2014-11",
     "status": "FINISHED",
-    "begin_at": "2018",
+    "begin_at": "2018-12",
     "end_at": "2019-01",
     "times": 1
   },
@@ -147,8 +151,8 @@
     "press": "天津人民出版社",
     "publish_at": "2015-08",
     "status": "FINISHED",
-    "begin_at": "2018",
-    "end_at": "2018-12",
+    "begin_at": "2018-12-07",
+    "end_at": "2018-12-08",
     "times": 1
   },
   {
