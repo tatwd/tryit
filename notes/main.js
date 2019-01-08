@@ -1,11 +1,24 @@
 $(function() {
   var books = $('#books');
 
+  function loading(isLoading) {
+    var html = isLoading
+      ? `
+<div class="text-center loading">
+  <div class="spinner-grow text-secondary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>`
+      : '';
+    $(books).html(html);
+  }
+
   function failed(err) {
     console.log(err.status, err.statusText);
   }
 
   function succeeded(data) {
+    loading(false);
     var badges = {
       TODO: 'badge-secondary',
       READING: 'badge-info',
@@ -42,7 +55,10 @@ $(function() {
     });
   }
 
-  $.get('books.json')
-    .done(succeeded)
-    .fail(failed);
+  loading(true);
+  window.setTimeout(function() {
+    $.get('books.json')
+      .done(succeeded)
+      .fail(failed);
+  }, 500);
 });
