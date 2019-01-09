@@ -172,7 +172,7 @@
     "times": 1
   },
   {
-    "isbn": null,
+    "isbn": "978-7-2010-7829-8",
     "title": "杂的文",
     "authors": [
       {
@@ -181,7 +181,7 @@
       }
     ],
     "press": "天津人民出版社",
-    "publish_at": "2012-08",
+    "publish_at": "2013-01",
     "status": "FINISHED",
     "begin_at": "2018",
     "end_at": "2018",
