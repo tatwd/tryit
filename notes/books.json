@@ -1,5 +1,21 @@
 [
   {
+    "isbn": "978-7-2010-8193-9",
+    "title": "1988：我想和这个世界谈谈",
+    "authors": [
+      {
+        "name": "韩寒",
+        "type": "WRITER"
+      }
+    ],
+    "press": "天津人民出版社",
+    "publish_at": "2013-06",
+    "status": "READING",
+    "begin_at": "2019-01-09",
+    "end_at": null,
+    "times": 0
+  },
+  {
     "isbn": null,
     "title": "雕刻时光",
     "authors": [
