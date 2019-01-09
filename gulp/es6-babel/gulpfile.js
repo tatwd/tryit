@@ -1,31 +1,15 @@
-const gulp = require('gulp'),
-  babel = require('gulp-babel'),
-  browserify = require('gulp-browserify');
+var { task, src, dest } = require('gulp');
+var babel = require('gulp-babel');
 
-// es6 task
-gulp.task('es6', () => {
-  return gulp
-    .src('src/js/*.js')
-    .pipe(
-      babel({
-        presets: ['es2015']
-      })
-    )
-    .pipe(gulp.dest('dist/js/'));
-});
+// Use .babelrc instead
+// var options = {
+//   presets: ['@babel/preset-env']
+// };
 
-gulp.task('browserify', ['es6'], () => {
-  gulp
-    .src('dist/js/test.js')
-    .pipe(
-      browserify({
-        //
-      })
-    )
-    .pipe(gulp.dest('dist/'));
-});
+function default_task(cb) {
+  return src('src/*.js')
+    .pipe(babel())
+    .pipe(dest('dist'));
+}
 
-// default task
-gulp.task('default', ['browserify'], () => {
-  gulp.watch('src/js/*.js', ['browserify']); // watch js
-});
+task('default', default_task);
