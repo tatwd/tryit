@@ -1,3 +1,3 @@
 <template>
-  <div>Others</div>
+  <h2>Bar</h2>
 </template>
