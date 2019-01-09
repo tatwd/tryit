@@ -50,9 +50,23 @@ $(function() {
 </li>`;
     };
 
+    var counting = function(count) {
+      var html = '';
+      Object.keys(badges).forEach(i => {
+        html += `<span class="mx-1 badge ${badges[i]}">${count[i] || 0}</span>`;
+      });
+      return html;
+    };
+
+    var n = {};
+
     data.forEach(i => {
-      var html = $(books).append(h(i));
+      $(books).append(h(i));
+      if (!n[i.status]) n[i.status] = 1;
+      else n[i.status]++;
     });
+
+    $('#counter').html(counting(n));
   }
 
   loading(true);
