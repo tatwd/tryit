@@ -6,13 +6,9 @@
 [test]: http://img.shields.io/badge/Hexo-2.4+-2BAF2B.svg?style=flat-square
 [test-url]: http://www.baidu.com
 
-表情使用：
+表情使用：`:emoji_word:`
 
-```
-:emoji_word:
-```
-
-如：`:+1:` :+1: `:smile:` :smile: `:fire:` :fire: `:clap:` :clap: `:dog:` :dog:
+如：`:+1:` :+1:，`:smile:` :smile:，`:fire:` :fire:， `:clap:` :clap:，`:dog:` :dog:
 
 add a remote called `upstream` if you want to contribute it:
 ```bash
