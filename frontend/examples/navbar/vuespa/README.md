@@ -1,6 +1,6 @@
 # vuespa
 
-demo: [here](https://tatwd.github.io/test/frontend/examples/navbar/vuespa/dist/)
+demo: [here](https://tatwd.github.io/tryit/frontend/examples/navbar/vuespa/dist/)
 
 ## Project setup
 ```
