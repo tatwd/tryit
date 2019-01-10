@@ -10,3 +10,5 @@ tmp/
 *.rar
 *.user
 *.exe
+
+*.pdb
