@@ -1,6 +1,6 @@
 var { src, watch, series } = require('gulp');
 var browserSync = require('browser-sync').create();
-var reload = browserSync.reload;
+var { reload, init } = browserSync;
 
 var SRC_URL = {
   CSS: 'src/css/*.css',
@@ -10,7 +10,7 @@ var SRC_URL = {
 
 function css(next) {
   src(SRC_URL.CSS).pipe(
-    browserSync.reload({
+    reload({
       stream: true
     })
   );
@@ -18,7 +18,8 @@ function css(next) {
 }
 
 function serve(next) {
-  browserSync.init({
+  // init a server
+  init({
     server: {
       baseDir: 'src',
       index: 'demo.html'

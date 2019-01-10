@@ -4,6 +4,10 @@ p {
   padding: 0;
 }
 
+h2 {
+  text-align: center;
+}
+
 p {
   background-color: #ddd;
   text-align: center;
