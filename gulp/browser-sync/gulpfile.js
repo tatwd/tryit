@@ -1,40 +1,35 @@
-// load plugins
-var gulp = require('gulp');
+var { src, watch, series } = require('gulp');
 var browserSync = require('browser-sync').create();
+var reload = browserSync.reload;
 
-// static server to listen css + html files
-gulp.task('serve', function() {
-  //place code for your default tast here
+var SRC_URL = {
+  CSS: 'src/css/*.css',
+  JS: 'src/js/*.js',
+  HTML: 'src/*.html'
+};
+
+function css(next) {
+  src(SRC_URL.CSS).pipe(
+    browserSync.reload({
+      stream: true
+    })
+  );
+  next();
+}
+
+function serve(next) {
   browserSync.init({
     server: {
-      baseDir: './src', // base directory
-      index: 'demo.html' // default open the file
+      baseDir: 'src',
+      index: 'demo.html'
     }
   });
 
-  gulp.watch('src/css/*.css', ['css']);
-  gulp.watch('src/js/*.js', ['js']);
-  gulp.watch('src/*.html').on('change', browserSync.reload);
-});
+  watch(SRC_URL.CSS, css);
+  watch(SRC_URL.JS).on('change', reload);
+  watch(SRC_URL.HTML).on('change', reload);
 
-// listen css files
-gulp.task('css', function() {
-  return gulp.src('src/css/*.css').pipe(
-    browserSync.reload({
-      // loads the changed css
-      stream: true
-    })
-  );
-});
+  next();
+}
 
-// listen js files
-gulp.task('js', function() {
-  return gulp.src('src/js/*.js').pipe(
-    browserSync.reload({
-      // loads the changed js
-      stream: true
-    })
-  );
-});
-
-gulp.task('default', ['serve']); // serve then defalut
+exports.default = series(serve);

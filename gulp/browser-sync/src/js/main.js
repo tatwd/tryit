@@ -1,5 +1,5 @@
 window.onload = function() {
-  var p = document.getElementsByTagName('p')[0];
+  var p = document.querySelector('p');
   p.innerHTML = 'Welcome to use Browser-sync with Gulp!';
-  console.log('load me!');
+  console.log('Loaded me!');
 };

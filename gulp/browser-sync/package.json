@@ -1,16 +1,15 @@
 {
-  "name": "gulp-test",
+  "name": "gulp-with-browser-sync",
   "version": "1.0.0",
   "description": "A test project to use gulp.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp"
+    "dev": "gulp"
   },
   "author": "_king",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.3",
-    "gulp": "^3.9.1"
+    "gulp": "^4.0.0"
   }
 }

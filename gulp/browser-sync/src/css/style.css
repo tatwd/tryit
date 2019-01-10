@@ -1,13 +1,13 @@
-body {
+body,
+p {
   margin: 0;
   padding: 0;
 }
 
-body p {
+p {
   background-color: #ddd;
   text-align: center;
   color: #444;
   padding: 15px;
-
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
