@@ -104,7 +104,7 @@
     "times": 0
   },
   {
-    "isbn": null,
+    "isbn": "978-7-5447-3159-1",
     "title": "基督山伯爵",
     "authors": [
       {
@@ -117,11 +117,11 @@
       }
     ],
     "press": "译林出版社",
-    "publish_at": null,
-    "status": "READING",
+    "publish_at": "2013-08",
+    "status": "FINISHED",
     "begin_at": "2018-12",
-    "end_at": null,
-    "times": 0
+    "end_at": "2019-01-11",
+    "times": 1
   },
   {
     "isbn": null,
@@ -156,7 +156,7 @@
     "times": 1
   },
   {
-    "isbn": null,
+    "isbn": "978-7-201-12081-2",
     "title": "浮生六记",
     "authors": [
       {
@@ -165,7 +165,7 @@
       }
     ],
     "press": "天津人民出版社",
-    "publish_at": "2015-08",
+    "publish_at": "2017-07",
     "status": "FINISHED",
     "begin_at": "2018-12-07",
     "end_at": "2018-12-08",
