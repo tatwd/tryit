@@ -8,7 +8,7 @@
 
 表情使用：`:emoji_word:`
 
-如：`:+1:` :+1:，`:smile:` :smile:，`:fire:` :fire:， `:clap:` :clap:，`:dog:` :dog:
+:+1: :smile: :fire: :clap: :dog:
 
 add a remote called `upstream` if you want to contribute it:
 ```bash
