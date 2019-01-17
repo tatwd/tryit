@@ -7,4 +7,4 @@ for (var i = 0, len = strs.length; i < len; ++i) {
     return s;
   }, '');
 }
-console.log(strs.join(''));
+console.log(strs.join(' '));
