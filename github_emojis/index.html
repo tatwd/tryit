@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GitHub Emojis</title>
+    <style>
+      html {
+        font-size: 12px;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        font-size: 1.45rem;
+      }
+      a {
+        text-decoration: none;
+      }
+      .container {
+        max-width: 666px;
+        margin: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .uppercase {
+        text-transform: uppercase;
+      }
+      .search-input {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px 10px;
+        border-radius: 3px;
+        border: 0;
+        border: 1px solid orange;
+        outline: 0;
+      }
+      .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      .code {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        background-color: #eee;
+        padding: 2px 5px;
+      }
+      .emoji {
+        float: left;
+        width: 50%;
+      }
+      @media (max-width: 425px) {
+        .emoji {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="uppercase">GitHub Emojis</h1>
+      <p>
+        Created by
+        <a
+          class="text-danger text-uppercase"
+          href="http://github.com/tatwd"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color:lightcoral"
+        >
+          _king
+        </a>.
+      </p>
+      <section>
+        <h2>API</h2>
+        <p><code class="code">https://api.github.com/emojis</code></p>
+      </section>
+      <section>
+        <h2>Usage</h2>
+        <p><code class="code">:emoji:</code></p>
+      </section>
+      <section>
+        <h2>Search</h2>
+        <p>
+          <input
+            type="text"
+            class="search-input"
+            name="search_text"
+            placeholder="请输入关键字 😘"
+          />
+        </p>
+      </section>
+      <section>
+        <h2>List</h2>
+        <div id="emojis" class="clearfix"><!-- placeholder --></div>
+      </section>
+      <footer><p>Power by GitHub</p></footer>
+    </div>
+  </body>
+</html>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"
+></script>
+<script>
+  var apiUrl = 'https://api.github.com/emojis';
+  var emojis = $('#emojis');
+  var search_input = $('input[name="search_text"]');
+  var render = function(k, v, i) {
+    window.setTimeout(function() {
+      var search_text = search_input.val();
+      emojis.append(`
+<p class="emoji" data-emoji="${k}" style="display:${search_text ? (k.indexOf(search_text) !== -1 ? 'none' : 'block') : 'block'}">
+  <img src="${v}" alt=":${k}:" width="22" style="vertical-align: middle;margin-right: 3px;">
+  <code class="code">:${k}:</code>
+</p>
+      `);
+    }, i);
+  };
+
+  search_input.on('input', function(evt) {
+    var val = evt.target.value;
+    if (val === '') {
+      emojis.children().show();
+      return;
+    }
+    emojis.children().each(function(i, el) {
+      var cur = $(el);
+      if (cur.attr('data-emoji').indexOf(val) !== -1) {
+        cur.show();
+      } else {
+        cur.hide();
+      }
+    });
+  });
+
+  $.get(apiUrl)
+    .done(function(data) {
+      var i = 0;
+      for (var k in data) {
+        if (data.hasOwnProperty(k)) {
+          render(k, data[k], ++i);
+        }
+      }
+    })
+    .fail(function(err) {
+      console.log(err);
+    });
+</script>
