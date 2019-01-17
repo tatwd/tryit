@@ -10,6 +10,8 @@
 
 :+1: :smile: :fire: :clap: :dog:
 
+[more](https://tatwd.github.io/tryit/github_emojis/)
+
 add a remote called `upstream` if you want to contribute it:
 ```bash
 git remote add upstream https://github.com/tatwd/test.git
