@@ -17,7 +17,7 @@
         padding: 0;
       }
       p, input {
-        font-size: 1.45rem;
+        font-size: 1.15rem;
       }
       a {
         text-decoration: none;
@@ -34,13 +34,11 @@
       .search-input, .search-input:focus {
         display: block;
         width: 100%;
-        /* box-sizing: border-box; */
         padding: 8px 10px;
         margin: 0;
         line-height: 1.5;
         border-radius: 3px;
-        /* border: 0; */
-        border: 1px solid orange;
+        border: 1px solid lightcoral;
         outline: 0;
         -ms-progress-appearance: unset;
              -webkit-appearance: none;
@@ -73,16 +71,16 @@
     <div class="container">
       <h1 class="uppercase">GitHub Emojis</h1>
       <p>
-        Created by
+        by
         <a
-          class="text-danger text-uppercase"
+          class="uppercase"
           href="http://github.com/tatwd"
           target="_blank"
           rel="noopener noreferrer"
           style="color:lightcoral"
         >
           _king
-        </a>.
+        </a>
       </p>
       <section>
         <h2>API</h2>
@@ -107,6 +105,7 @@
         <h2>List</h2>
         <div id="emojis" class="clearfix"><!-- placeholder --></div>
       </section>
+      <hr style="border:1px solid #eee">
       <footer><p>Power by GitHub</p></footer>
     </div>
   </body>
