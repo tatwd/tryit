@@ -1,0 +1,6 @@
+{
+  "name": "atou",
+  "bin": {
+    "atou": "atou"
+  }
+}
