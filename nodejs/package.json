@@ -1,6 +1,7 @@
 {
   "name": "atou",
   "bin": {
-    "atou": "atou"
+    "atou": "atou",
+    "utoe": "utoe"
   }
 }
