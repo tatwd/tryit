@@ -2,6 +2,6 @@
   "name": "atou",
   "bin": {
     "atou": "atou",
-    "utoe": "utoe"
+    "utoa": "utoa"
   }
 }

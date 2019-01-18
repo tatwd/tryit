@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+function getEmoji(point) {
+  /*
+  if (point < 0x10000) return String.fromCharCode(point);
+  var offset = point - 0x10000,
+    lead = 0xd800 + (offset >> 10),
+    trail = 0xdc00 + (offset & 0x3ff);
+  return String.fromCharCode(lead, trail);
+  */
+  return String.fromCodePoint(point); 
+}
+
+var strs = process.argv.slice(2);
+for (var i = 0, len = strs.length; i < len; ++i) {
+  var num = parseInt(strs[i], 16);
+  var emoji = getEmoji(num);
+  strs[i] = emoji;
+}
+console.log(strs.join(' '));
+// eg. node utoe 0x1f604
