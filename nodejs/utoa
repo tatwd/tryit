@@ -19,3 +19,5 @@ for (var i = 0, len = strs.length; i < len; ++i) {
 }
 console.log(strs.join(' '));
 // eg. node utoe 0x1f604
+// More details to visit:
+// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint
