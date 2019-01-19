@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-function getEmoji(point) {
+function utoa(point) {
   /*
   if (point < 0x10000) return String.fromCharCode(point);
   var offset = point - 0x10000,
@@ -8,13 +8,13 @@ function getEmoji(point) {
     trail = 0xdc00 + (offset & 0x3ff);
   return String.fromCharCode(lead, trail);
   */
-  return String.fromCodePoint(point); 
+  return String.fromCodePoint(point);
 }
 
 var strs = process.argv.slice(2);
 for (var i = 0, len = strs.length; i < len; ++i) {
   var num = parseInt(strs[i], 16);
-  var emoji = getEmoji(num);
+  var emoji = utoa(num);
   strs[i] = emoji;
 }
 console.log(strs.join(' '));

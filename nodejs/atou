@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 
-var strs = process.argv.slice(2).concat('😘');
+function atou(c) {
+  return `\\u${c.charCodeAt(0).toString(16)}`;
+}
+
+var strs = process.argv.slice(2);
+if (!strs.length) strs.push('😘');
 for (var i = 0, len = strs.length; i < len; ++i) {
   strs[i] = strs[i].split('').reduce((s, i) => {
-    s += `\\u${i.charCodeAt(0).toString(16)}`;
+    s += atou(i);
     return s;
   }, '');
 }
