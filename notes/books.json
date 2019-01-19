@@ -1,6 +1,38 @@
 [
   {
     "isbn": null,
+    "title": "流浪地球",
+    "authors": [
+      {
+        "name": "刘慈欣",
+        "type": "WRITER"
+      }
+    ],
+    "press": "山西春秋电子音像出版社",
+    "publish_at": "2014-07",
+    "status": "FINISHED",
+    "begin_at": "2019-01-19",
+    "end_at": "2019-01-19",
+    "times": 1
+  },
+  {
+    "isbn": null,
+    "title": "乡村教师",
+    "authors": [
+      {
+        "name": "刘慈欣",
+        "type": "WRITER"
+      }
+    ],
+    "press": "长江文艺出版社",
+    "publish_at": "2012-09",
+    "status": "READING",
+    "begin_at": "2019-01-19",
+    "end_at": "2019-01-19",
+    "times": 1
+  },
+  {
+    "isbn": null,
     "title": "三体（全集）",
     "authors": [
       {
