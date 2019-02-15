@@ -1,5 +1,14 @@
 $(function() {
   var books = $('#books');
+  var badges = {
+    TODO: 'badge-secondary',
+    READING: 'badge-info',
+    FINISHED: 'badge-success'
+  };
+  var authorTypes = {
+    WRITER: '作者',
+    TRANSLATOR: '译者'
+  };
 
   function loading(isLoading) {
     var html = isLoading
@@ -19,15 +28,7 @@ $(function() {
 
   function succeeded(data) {
     loading(false);
-    var badges = {
-      TODO: 'badge-secondary',
-      READING: 'badge-info',
-      FINISHED: 'badge-success'
-    };
-    var authorTypes = {
-      WRITER: '作者',
-      TRANSLATOR: '译者'
-    };
+
     var h = function(i) {
       var authors = i.authors.reduce((r, i) => {
         var t = authorTypes[i.type];
