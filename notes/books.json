@@ -36,8 +36,12 @@
     "title": "剑桥中国史（全集）",
     "authors": [
       {
-        "name": "[美]费正清,[英]崔瑞德等",
+        "name": "[美]费正清,[英]崔瑞德 等",
         "type": "WRITER"
+      },
+      {
+        "name": "杨品泉 等",
+        "type": "TRANSLATOR"
       }
     ],
     "press": "中国社会科学出版社",
