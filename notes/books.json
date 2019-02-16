@@ -26,10 +26,10 @@
     ],
     "press": "浙江文艺出版社",
     "publish_at": "2013-04",
-    "status": "READING",
+    "status": "FINISHED",
     "begin_at": "2019-02-11",
-    "end_at": null,
-    "times": 0
+    "end_at": "2019-02-16",
+    "times": 1
   },
   {
     "isbn": null,
@@ -56,7 +56,7 @@
     "title": "时间简史（插图本）",
     "authors": [
       {
-        "name": "英,史蒂芬·霍金",
+        "name": "[英]史蒂芬·霍金",
         "type": "WRITER"
       },
       {
