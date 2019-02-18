@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Writing</title>
+    <style>
+      .container {
+        max-width: 520px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section>
+        <h2 class="poetry--title"></h2>
+        <div class="poetry--text"></div>
+        <div class="poetry--create_at"></div>
+      </section>
+    </div>
+    <script>
+      var poetryTitle = document.querySelector('.poetry--title');
+      var poetryText = document.querySelector('.poetry--text');
+      var poetryCreateAt = document.querySelector('.poetry--create_at');
+      var poetry = {
+        title: '故事',
+        text: [
+          '海滩上行走的脚印',
+          '座头鲸不惜搁浅来闻',
+          '\n',
+          '石板沿着山路爬行',
+          '披的是月光打下的白霜',
+          '\n',
+          '谁家灶里跳跃的火焰',
+          '是那个人清亮的眼吗',
+          '\n',
+          '从夜空的最深处',
+          '有人在说着星星的话'
+        ],
+        created_at: '2015-01-14'
+      };
+      poetryTitle.innerHTML = poetry.title;
+      poetryText.innerHTML = poetry.text.reduce((s, i) => {
+        if (i === '\n') {
+          s += '<br>'
+        } else {
+          i = i.replace(/\s/g, '&nbsp;&nbsp;');
+          s += `<p>${i}</p>`;
+        }
+        return s;
+      }, '');
+      poetryCreateAt.innerHTML = poetry.created_at.replace(/-/g, '.');
+    </script>
+  </body>
+</html>
