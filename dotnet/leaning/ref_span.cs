@@ -1,3 +1,7 @@
+/*
+ * 扩展 ReadonlySpan 类
+ * 添加 ParseToInt 方法
+ */
 public static class ReadonlySpanExtension
 {
     public static int ParseToInt(this System.ReadOnlySpan<char> rspan)
@@ -42,22 +46,21 @@ class ref_span
         string s = "content-length:123";
         var watch = new System.Diagnostics.Stopwatch();
         watch.Start();
-        for (int j = 0; j < 100000; j++)
+        for (int i = 0; i < 100000; i++)
             int.Parse(s.Substring(15));
         watch.Stop();
         utils.print("String Substring Convert:\n\tTime Elapsed: {0}ms", watch.ElapsedMilliseconds.ToString("N0"));
     }
 
-    // using SpaReadOnlySpan
+    // using ReadOnlySpan
     static void toint2()
     {
         string s = "content-length:123";
         var watch = new System.Diagnostics.Stopwatch();
         System.ReadOnlySpan<char> span = s.ToCharArray();
-        span.Slice(15).ParseToInt();
         watch.Start();
-        for (int j = 0; j < 100000; j++)
-            int.Parse(s.Substring(15));
+        for (int i = 0; i < 100000; i++)
+            span.Slice(15).ParseToInt();
         watch.Stop();
         utils.print("ReadOnlySpan Convert:\n\tTime Elapsed: {0}ms", watch.ElapsedMilliseconds.ToString("N0"));
     }
