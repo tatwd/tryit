@@ -6,6 +6,7 @@
         // expr_yield.run();
         // expr_checked_unchecked.run();
         // expr_lock.run();
-        type_delegate.run();
+        // type_delegate.run();
+        attributes.run();
     }
 }
