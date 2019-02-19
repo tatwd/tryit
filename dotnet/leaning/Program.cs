@@ -7,6 +7,7 @@
         // expr_checked_unchecked.run();
         // expr_lock.run();
         // type_delegate.run();
-        attributes.run();
+        // attributes.run();
+        type_string.run();
     }
 }
