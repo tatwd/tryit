@@ -1,5 +1,10 @@
 class utils
 {
+    public static void print(string fmt, params object[] args)
+    {
+        System.Console.WriteLine(fmt, args);
+    }
+
     public static void print(System.Collections.IEnumerable e)
     {
         var en = e.GetEnumerator();
@@ -11,7 +16,6 @@ class utils
                 System.Console.Write($", {en.Current}");
         }
         System.Console.WriteLine(" ]");
-
     }
 
     public static void print(object e)
@@ -21,10 +25,14 @@ class utils
         System.Console.Write("{");
         if (len > 0)
         {
-            System.Console.Write($" {arr[0].Name}: {arr[0].GetValue(e)}");
-            for (int i = 1; i < len; i++)
-                System.Console.Write($", {arr[i].Name}: {arr[i].GetValue(e)}");
+            if (arr[0].CanRead && arr[0].CanWrite)
+            {
+                System.Console.Write($" {arr[0].Name}: {arr[0].GetValue(e)}");
+                for (int i = 1; i < len; i++)
+                    if (arr[i].CanRead && arr[i].CanWrite)
+                        System.Console.Write($", {arr[i].Name}: {arr[i].GetValue(e)}");
+            }
+            System.Console.WriteLine(" }");
         }
-        System.Console.WriteLine(" }");
     }
 }
