@@ -49,7 +49,8 @@ class ref_span
         for (int i = 0; i < 100000; i++)
             int.Parse(s.Substring(15));
         watch.Stop();
-        utils.print("String Substring Convert:\n\tTime Elapsed: {0}ms", watch.ElapsedMilliseconds.ToString("N0"));
+        utils.print("String Substring Convert:\n\tTime Elapsed: {0}ms",
+            watch.ElapsedMilliseconds.ToString("N0"));
     }
 
     // using ReadOnlySpan
@@ -62,7 +63,8 @@ class ref_span
         for (int i = 0; i < 100000; i++)
             span.Slice(15).ParseToInt();
         watch.Stop();
-        utils.print("ReadOnlySpan Convert:\n\tTime Elapsed: {0}ms", watch.ElapsedMilliseconds.ToString("N0"));
+        utils.print("ReadOnlySpan Convert:\n\tTime Elapsed: {0}ms",
+            watch.ElapsedMilliseconds.ToString("N0"));
     }
 
     static void try_span()
