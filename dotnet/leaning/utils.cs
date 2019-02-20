@@ -32,7 +32,7 @@ class utils
                     if (arr[i].CanRead && arr[i].CanWrite)
                         System.Console.Write($", {arr[i].Name}: {arr[i].GetValue(e)}");
             }
-            System.Console.WriteLine(" }");
         }
+        System.Console.WriteLine(" }");
     }
 }
