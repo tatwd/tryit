@@ -25,7 +25,7 @@ class expr_try_catch_finaly
         return null;
     }
 
-    static int question2()
+    static int? question2()
     {
         try
         {
@@ -44,7 +44,7 @@ class expr_try_catch_finaly
             // Run this before return value
             utils.print("finaly run!");
         }
-        return 0;
+        return null;
     }
 
     public static void run()
