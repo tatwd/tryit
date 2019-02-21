@@ -8,5 +8,8 @@ func main() {
 	// server2()
 
 	// v3: customize a server
-	server3()
+	// server3()
+
+	// v4: hosting a static html
+	server4()
 }
