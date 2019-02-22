@@ -9,7 +9,7 @@ then add the database provider reference that you need, e.g.
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 ```
 
-1. Database first:
+Database first:
 
 ```bash
 dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
