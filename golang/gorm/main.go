@@ -10,10 +10,15 @@ import (
 
 // PmMaterial is a model of `pm_material` table
 type PmMaterial struct {
-	gorm.Model
 	ID        string     `json:"id"`
 	Title     string     `json:"title"`
-	CreatedAt *time.Time `json:"created_at"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt *time.Time `json:"updated_at"`
+}
+
+// TableName override
+func (PmMaterial) TableName() string {
+	return "pm_material"
 }
 
 func main() {
@@ -26,24 +31,31 @@ func main() {
 	}
 	defer db.Close()
 
+	// db.SingularTable(true)
+
 	// 生成数据库表
-	db.AutoMigrate(&PmMaterial{})
+	// db.AutoMigrate(&PmMaterial{})
 	if !db.HasTable("pm_material") {
 		fmt.Println("no pm_material")
 		return
+		// db.CreateTable(&PmMaterial{})
 	}
 
 	// 新增一条数据
-	now := time.Now().UTC()
-	db.Create(&PmMaterial{ID: "1235", Title: "hello world", CreatedAt: &now})
+	// now := time.Now().UTC()
+	db.Create(&PmMaterial{ID: "1237", Title: "hello world"})
+
+	// n, _ := time.Now().MarshalJSON()
+	// n := time.Now().Format("2006-01-08 15:04:05")
+	// fmt.Println(string(n))
 
 	// 查询
-	// var item PmMaterial
-	// db.First(&item, "1235")
-	// fmt.Println(item)
+	var item PmMaterial
+	db.First(&item, "1235")
+	fmt.Println(item)
 
 	// 更新
-	// db.Model(&item).Update("Title", "Hi")
+	// db.Model(&item).Update("title", "jaron")
 
 	// 删除
 	// db.Delete(&item)
