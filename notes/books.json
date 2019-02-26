@@ -120,7 +120,7 @@
     "times": 1
   },
   {
-    "isbn": null,
+    "isbn": "978-7-5502-3551-9",
     "title": "而已集",
     "authors": [
       {
@@ -130,10 +130,10 @@
     ],
     "press": "北京联合出版有限责任公司",
     "publish_at": "2014-10",
-    "status": "READING",
+    "status": "FINISHED",
     "begin_at": "2019-01-12",
-    "end_at": null,
-    "times": 0
+    "end_at": "2019-02-25",
+    "times": 1
   },
   {
     "isbn": "978-7-2010-8193-9",
@@ -276,7 +276,7 @@
     "times": 0
   },
   {
-    "isbn": null,
+    "isbn": "978-7-5502-3563-2",
     "title": "且介亭杂文",
     "authors": [
       {
