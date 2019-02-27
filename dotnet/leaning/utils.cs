@@ -1,38 +1,60 @@
 class utils
 {
-    public static void print(string fmt, params object[] args)
+    public static void println(string fmt, params object[] args)
     {
         System.Console.WriteLine(fmt, args);
     }
 
-    public static void print(System.Collections.IEnumerable e)
+    public static void print(string fmt, params object[] args)
     {
-        var en = e.GetEnumerator();
-        System.Console.Write("[");
-        if (en.MoveNext())
-        {
-            System.Console.Write($" {en.Current}");
-            while (en.MoveNext())
-                System.Console.Write($", {en.Current}");
-        }
-        System.Console.WriteLine(" ]");
+        System.Console.Write(fmt, args);
     }
 
-    public static void print(object e)
+    public static string print(System.Collections.IEnumerable e)
+    {
+        var en = e.GetEnumerator();
+        var str = new System.Text.StringBuilder("[");
+        if (en.MoveNext())
+        {
+            if (!en.Current.GetType().IsPrimitive) 
+            {
+                str.Append(print(en.Current, false));
+            }
+            else 
+            {
+                str.Append($" {en.Current}");
+                while (en.MoveNext())
+                    str.Append($", {en.Current}");
+            }
+        }
+        str.Append("]");
+        System.Console.WriteLine(str.ToString());
+        return str.ToString();
+    }
+
+    public static string print(object e, bool is_print = true)
     {
         var arr = e.GetType().GetProperties();
         var len = arr.Length;
-        System.Console.Write("{");
+        var str = new System.Text.StringBuilder("{");
         if (len > 0)
         {
-            if (arr[0].CanRead && arr[0].CanWrite)
+            if (arr[0].CanRead)
             {
-                System.Console.Write($" {arr[0].Name}: {arr[0].GetValue(e)}");
+                str.Append($" {arr[0].Name}: {arr[0].GetValue(e)}");
                 for (int i = 1; i < len; i++)
-                    if (arr[i].CanRead && arr[i].CanWrite)
-                        System.Console.Write($", {arr[i].Name}: {arr[i].GetValue(e)}");
+                    if (arr[i].CanRead)
+                        str.Append($", {arr[i].Name}: {arr[i].GetValue(e)}");
             }
         }
-        System.Console.WriteLine(" }");
+        str.Append(" }");
+        if (is_print) System.Console.Write(str.ToString());
+        return str.ToString();
+    }
+    public static string println(object e)
+    {
+        var str = print(e, false);
+        System.Console.WriteLine(str);
+        return str;
     }
 }
