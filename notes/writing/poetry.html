@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Writing</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+    <style>
+      .poetry--text {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="margin-top:25px">
+      <section>
+        <h2 class="poetry--title"></h2>
+        <div class="poetry--text"></div>
+      </section>
+      <p><a href="./index.html" style="font-size:16px;color:black;text-decoration: none;">&larr;</a></p>
+
+    </div>
+    <script>
+      var title = decodeURI(location.search).split('=')[1]
+      var poetries = JSON.parse(localStorage.getItem('poetries'))
+      var poetry = poetries.find(u => u.title == title)
+
+      var poetryTitle = document.querySelector('.poetry--title');
+      var poetryText = document.querySelector('.poetry--text');
+      var poetryCreateAt = document.querySelector('.poetry--create_at');
+
+      poetryTitle.innerHTML = poetry.title;
+      poetryText.innerHTML = poetry.text.reduce((s, i) => {
+        if (i === '') {
+          s += '<br>'
+        } else {
+          i = i.replace(/\s/g, '&nbsp;&nbsp;');
+          s += `<p>${i}</p>`;
+        }
+        return s;
+      }, '');
+      // poetryCreateAt.innerHTML = poetry.created_at.replace(/-/g, '.');
+    </script>
+  </body>
+</html>
