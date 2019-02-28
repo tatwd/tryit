@@ -351,8 +351,24 @@
     "press": "天津人民出版社",
     "publish_at": "2013-01",
     "status": "FINISHED",
-    "begin_at": "2018",
+    "begin_at": "2018-12",
     "end_at": "2018",
     "times": 1
+  },
+  {
+    "isbn": "978-7-549-53081-6",
+    "title": "文学回忆录（全集）",
+    "authors": [
+      {
+        "name": "[美籍华人]木心讲述,陈丹青笔录",
+        "type": "WRITER"
+      }
+    ],
+    "press": "广西师范大学出版社",
+    "publish_at": "2013-01",
+    "status": "READING",
+    "begin_at": "2018-12",
+    "end_at": null,
+    "times": 0
   }
 ]
