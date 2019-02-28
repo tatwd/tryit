@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Event & User Agent</title>
+    <style>
+      p {font-size: 20px;}
+    </style>
+  </head>
+  <body>
+    <p>
+      <button id="btn" style="font-size:inherit">Get User Agent</button>
+    </p>
+    <p id="ua"></p>
+    <script>
+      function addEvent(el, type, fn, flag) {
+        if (el.addEventListener) {
+          el.addEventListener(type, fn, flag || false);
+        } else {
+          el.attachEvent('on' + type, fn);
+        }
+      }
+
+      function getBrowserVersion() {
+        var ua = navigator.userAgent.toLowerCase();
+        console.log(ua);
+        if (ua.indexOf('msie 7.0') != -1) return 'IE7';
+        if (ua.indexOf('msie 8.0') != -1) return 'IE8';
+        if (ua.indexOf('msie 9.0') != -1) return 'IE9';
+        if (ua.indexOf('msie 10.0') != -1) return 'IE10';
+        if (ua.indexOf('rv:11.0') != -1) return 'IE11';
+        if (ua.indexOf('edge') != -1) return 'Edge';
+        return undefined;
+      }
+
+      var btn = document.getElementById('btn');
+      var ua = document.getElementById('ua')
+      addEvent(btn, 'click', function(evt) {
+        var bv = getBrowserVersion();
+        console.log(bv);
+        ua.innerHTML = navigator.userAgent;
+        // console.log(evt)
+        // console.log('stopPropagation', evt.stopPropagation)
+        // console.log('cancelBubble', evt.cancelBubble)
+        // console.log('preventDefault', evt.preventDefault)
+        // console.log('returnValue', evt.returnValue)
+      });
+    </script>
+  </body>
+</html>
