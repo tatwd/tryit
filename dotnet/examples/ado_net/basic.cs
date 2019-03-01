@@ -34,7 +34,7 @@ class basic
             // 同时此方法也返回一个 Bool 值, 表明下一行是否可用, True 则可用, False 则到达结果集末尾
             while (reader.Read())
             {
-                 // GetOrdinal 获取对应列的序号
+                // GetOrdinal 获取对应列的序号
                 int index = reader.GetOrdinal("login");
                 System.Console.WriteLine("\n[login] index: {0}", index);
 
@@ -66,7 +66,7 @@ class basic
 
             // 新增数据
             string sql3 = string.Format(@"INSERT INTO [TUser]
-                                          VALUES('c@test.com', 'Carbon', 'car123', '{0}', '{0}')", System.DateTime.UtcNow);
+                                          VALUES('d@test.com', 'David', 'david123', '{0}', '{0}')", System.DateTime.UtcNow);
             var cmd3 = new System.Data.SqlClient.SqlCommand(sql3, conn);
             using(cmd3)
             {
@@ -78,20 +78,25 @@ class basic
             var sql4 = @"UPDATE [TUser] 
                          SET [Password] = @Password, [UpdatedAt] = @UpdatedAt 
                          WHERE [Id] = @Id";
-            using(var cmd4 = new System.Data.SqlClient.SqlCommand(sql4, conn))
+            using(var cmd4 = conn.CreateCommand())
             {
-                cmd4.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] 
+                cmd4.CommandText = sql4;
+                cmd4.CommandType = System.Data.CommandType.Text;
+                cmd4.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[]
                 {
-                    new System.Data.SqlClient.SqlParameter("@Password", "abc_abc"),
+                    new System.Data.SqlClient.SqlParameter("@Password", "hello_world"),
                     new System.Data.SqlClient.SqlParameter("@UpdatedAt", System.DateTime.UtcNow),
                     new System.Data.SqlClient.SqlParameter("@Id", 5),
                 });
 
+                // SqlCommand.Prepare method requires all parameters to have an explicitly set type.
+                // cmd4.Prepare(); 
+                
                 // var r = cmd1.ExecuteNonQuery();
                 var r = cmd4.ExecuteReader();
                 System.Console.WriteLine(r.RecordsAffected);
             }
-            
+
         }
         catch (System.Exception ex)
         {
