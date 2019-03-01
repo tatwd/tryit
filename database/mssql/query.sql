@@ -12,3 +12,7 @@ from [TUser]
 select [Id]
 from [TUser]
 where [Name] = 'jaron'
+
+-- select distinct
+select distinct [Name]
+from [TUser]
