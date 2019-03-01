@@ -1,10 +1,10 @@
 class basic
 {
     static System.Data.SqlClient.SqlConnection conn = null;
+    static string connStr = "server=localhost;user id=sa;database=TestDb;pwd=root123;";
     static basic()
     {
         // 获取数据库连接对象
-        string connStr = "server=localhost;user id=sa;database=TestDb;pwd=root123;";
         conn = new System.Data.SqlClient.SqlConnection(connStr);
         System.Console.WriteLine("inited!");
     }
@@ -14,7 +14,7 @@ class basic
         try
         {
             // 手动连接
-            // conn.ConnectionString = "server=localhost;user id=sa;database=TestDb;pwd=root123;";
+            conn.ConnectionString = connStr;
             conn.Open();
 
             // 创建数据库执行对象
@@ -34,17 +34,25 @@ class basic
             // 同时此方法也返回一个 Bool 值, 表明下一行是否可用, True 则可用, False 则到达结果集末尾
             while (reader.Read())
             {
+                 // GetOrdinal 获取对应列的序号
+                int index = reader.GetOrdinal("login");
+                System.Console.WriteLine("\n[login] index: {0}", index);
+
                 // 此时 reader 为当前行
                 for (int col = 0; col < reader.FieldCount; col++)
                 {
                     var fieldName = reader.GetName(col);
                     var val = reader[col];
+                    var dtype = reader.GetDataTypeName(col);
+                    if (dtype == "datetime")
+                    {
+                        // https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/standard-date-and-time-format-strings?view=netcore-2.2
+                        var utc = System.DateTime.SpecifyKind(reader.GetDateTime(col), System.DateTimeKind.Utc);
+                        val = string.Format("\"{0:O}\"", utc);
+                    }
                     System.Console.Write("{0}: {1} ", fieldName, val);
+                    System.Console.WriteLine(dtype);
                 }
-
-                // GetOrdinal 获取对应列的序号
-                int index = reader.GetOrdinal("login");
-                System.Console.WriteLine("\n[login] index: {0}", index);
             }
             reader.Close();
             cmd1.Dispose();
@@ -57,15 +65,33 @@ class basic
             cmd2.Dispose();
 
             // 新增数据
-            var now = System.DateTime.UtcNow;
-            string sql3 = string.Format(
-                @"insert into [TUser]([Login], [Name], [Password], [CreatedAt], [UpdatedAt])
-                  values('a@test.com', 'Bob', 'bob123', '{0}', '{0}')", now);
+            string sql3 = string.Format(@"INSERT INTO [TUser]
+                                          VALUES('c@test.com', 'Carbon', 'car123', '{0}', '{0}')", System.DateTime.UtcNow);
             var cmd3 = new System.Data.SqlClient.SqlCommand(sql3, conn);
-            using(cmd3) {
+            using(cmd3)
+            {
                 int rows = cmd3.ExecuteNonQuery();
                 System.Console.WriteLine(rows);
             }
+
+            // 修改
+            var sql4 = @"UPDATE [TUser] 
+                         SET [Password] = @Password, [UpdatedAt] = @UpdatedAt 
+                         WHERE [Id] = @Id";
+            using(var cmd4 = new System.Data.SqlClient.SqlCommand(sql4, conn))
+            {
+                cmd4.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] 
+                {
+                    new System.Data.SqlClient.SqlParameter("@Password", "abc_abc"),
+                    new System.Data.SqlClient.SqlParameter("@UpdatedAt", System.DateTime.UtcNow),
+                    new System.Data.SqlClient.SqlParameter("@Id", 5),
+                });
+
+                // var r = cmd1.ExecuteNonQuery();
+                var r = cmd4.ExecuteReader();
+                System.Console.WriteLine(r.RecordsAffected);
+            }
+            
         }
         catch (System.Exception ex)
         {
@@ -75,7 +101,7 @@ class basic
         {
             System.Console.WriteLine("正在关闭连接...Done!");
             conn.Close();
-            // conn.Dispose();
+            conn.Dispose();
         }
     }
 }
