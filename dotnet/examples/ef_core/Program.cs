@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace dotnet_ef
+namespace ef_core
 {
     using Models;
 

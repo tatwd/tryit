@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace dotnet_ef.Models
+namespace ef_core.Models
 {
     public partial class TUser
     {
