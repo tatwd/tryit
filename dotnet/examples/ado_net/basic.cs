@@ -11,7 +11,6 @@ class basic
 
     public static void run()
     {
-        
         try
         {
             // 手动连接
@@ -56,6 +55,17 @@ class basic
             int count = (int) cmd2.ExecuteScalar();
             System.Console.WriteLine("users count: {0}", count);
             cmd2.Dispose();
+
+            // 新增数据
+            var now = System.DateTime.UtcNow;
+            string sql3 = string.Format(
+                @"insert into [TUser]([Login], [Name], [Password], [CreatedAt], [UpdatedAt])
+                  values('a@test.com', 'Bob', 'bob123', '{0}', '{0}')", now);
+            var cmd3 = new System.Data.SqlClient.SqlCommand(sql3, conn);
+            using(cmd3) {
+                int rows = cmd3.ExecuteNonQuery();
+                System.Console.WriteLine(rows);
+            }
         }
         catch (System.Exception ex)
         {
