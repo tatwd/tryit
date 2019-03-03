@@ -8,19 +8,20 @@ $(function() {
       var from = Number(item.yearfrom);
       var to = Number(item.yearto);
       var span = Math.abs(to - from) + 1;
-      if (from < 0) from = '前 ' + -from;
-      if (to < 0) to = '前 ' + -to;
-      s += `<div class="col-sm-4 pb-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="lead">${item.title}</h5>
-                <p class="card-text">
-                  ${from} ~ ${to} 年 <br>
-                  <small>历时：${span} 年</small>
-                </p>
-              </div>
-            </div>
-          </div>`;
+      from = from < 0 ? '前 ' + -from : ' ' + from;
+      to = to < 0 ? '前 ' + -to : ' ' + to;
+      s += `
+<div class="col-sm-4 pb-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="lead">${item.title}</h5>
+      <p class="card-text">
+        公元${from} ~ ${to} 年 <br>
+        <small>历时：${span} 年</small>
+      </p>
+    </div>
+  </div>
+</div>`;
     });
     dynastiesDom.html(s);
   };
