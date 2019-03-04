@@ -12,7 +12,7 @@ $(function() {
       to = to < 0 ? '前 ' + -to : ' ' + to;
       s += `
 <div class="col-sm-4 pb-3">
-  <div class="card">
+  <div class="card border-0 bg-light">
     <div class="card-body">
       <h5 class="lead">${item.title}</h5>
       <p class="card-text">
