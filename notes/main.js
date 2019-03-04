@@ -7,7 +7,8 @@ $(function() {
   };
   var authorTypes = {
     WRITER: '作者',
-    TRANSLATOR: '译者'
+    TRANSLATOR: '译者',
+    EDITOR: '编者'
   };
 
   function loading(isLoading) {
