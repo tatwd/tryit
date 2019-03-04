@@ -17,7 +17,7 @@ $(function() {
       <h5 class="lead">${item.title}</h5>
       <p class="card-text">
         公元${from} ~ ${to} 年 <br>
-        <small>历时：${span} 年</small>
+        <small>历时约：${span} 年</small>
       </p>
     </div>
   </div>
