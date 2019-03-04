@@ -23,8 +23,8 @@ func (PmMaterial) TableName() string {
 
 func main() {
 	// 建立连接
-	str := "server=localhost;user id=sa;password=root123;database=test_erp_sys;"
-	// str := "sqlserver://sa:root123@localhost:1433?database=test_erp_sys"
+	str := "server=localhost;user id=sa;password=my_pwd;database=test_db;"
+	// str := "sqlserver://sa:my_pwd@localhost:1433?database=test_db"
 	db, err := gorm.Open("mssql", str)
 	if err != nil {
 		panic(err.Error())
