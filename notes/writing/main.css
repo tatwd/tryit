@@ -2,6 +2,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Noto Serif SC', serif;
+  background-color: rgb(246, 246, 246);
 }
 
 h2,
@@ -12,6 +13,18 @@ p {
 p {
   line-height: 1.5;
   margin-bottom: 12px;
+}
+
+a {
+  border-bottom: 1.5px solid #666;
+}
+
+.border--none {
+  border: none;
+}
+
+.text-decoration--none {
+  text-decoration: none;
 }
 
 .container {

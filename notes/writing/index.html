@@ -37,7 +37,7 @@
         var render = function (data) {
           var s = ''
           $.each(data, function (index, item) {
-            s += `<p><a class="poetry-link" href="./poetry.html?title=${encodeURI(item.title)}">${item.title}</a></p>`
+            s += `<p><a class="poetry-link text-decoration--none" href="./poetry.html?title=${encodeURI(item.title)}">${item.title}</a></p>`
           })
           titleLinks.html(s)
         }
