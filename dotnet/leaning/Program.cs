@@ -11,6 +11,7 @@
         // type_string.run();
         // ref_span.run();
         // expr_try_catch_finaly.run();
-        expr_linq.run();
+        // expr_linq.run();
+        oop_inherit.run();
     }
 }
