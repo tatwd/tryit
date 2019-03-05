@@ -1,0 +1,56 @@
+<style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    overflow: hidden;
+    height: 1000px;
+    background-color: bisque;
+    margin-left: -200px;
+    transition: all 0.3s ease-out;
+  }
+  .container.show {
+    margin-left: 0;
+  }
+  .left {
+    float: left;
+    width: 200px;
+    height: 100%;
+    background-color: antiquewhite;
+  }
+  .right {
+    float: left;
+    height: 100%;
+  }
+  .box {
+    position: fixed;
+    height: 300px;
+    width: 200px;
+    background-color: whitesmoke;
+  }
+</style>
+
+<div style="padding:15px;"><button id="btn">toggle</button></div>
+<div class="container">
+  <div class="left">
+    <div class="box">
+      Left
+    </div>
+  </div>
+  <div class="right">
+    Right
+  </div>
+</div>
+
+<script>
+  var container = document.querySelector('.container');
+  var btn = document.querySelector('#btn');
+  btn.addEventListener('click', () => {
+    if (container.classList.contains('show')) {
+      container.classList.remove('show');
+    } else {
+      container.classList.add('show');
+    }
+  });
+</script>
