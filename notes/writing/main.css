@@ -33,3 +33,29 @@ a {
   padding-left: 15px;
   padding-right: 15px;
 }
+
+/* bouncing-loader */
+@keyframes bouncing-loader {
+  to {
+    opacity: 0.1;
+    transform: translate3d(0, -12px, 0);
+  }
+}
+.bouncing-loader {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.bouncing-loader > .bouncing-loader--item {
+  display: inline-block;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background: #8385aa;
+  animation: bouncing-loader 0.6s infinite alternate;
+}
+.bouncing-loader > .bouncing-loader--item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.bouncing-loader > .bouncing-loader--item:nth-child(3) {
+  animation-delay: 0.4s;
+}

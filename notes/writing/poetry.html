@@ -17,7 +17,13 @@
     <div class="container" style="margin-top:25px">
       <section>
         <h2 class="poetry--title"></h2>
-        <div class="poetry--text"></div>
+        <div class="poetry--text">
+          <div class="bouncing-loader">
+            <span class="bouncing-loader--item"></span>
+            <span class="bouncing-loader--item"></span>
+            <span class="bouncing-loader--item"></span>
+          </div>
+        </div>
       </section>
       <p><a class="border--none text-decoration--none" href="./index.html" style="font-size:16px;color:black;">&larr;</a></p>
 
@@ -32,16 +38,17 @@
       var poetryCreateAt = document.querySelector('.poetry--create_at');
 
       poetryTitle.innerHTML = poetry.title;
-      poetryText.innerHTML = poetry.text.reduce((s, i) => {
-        if (i === '') {
-          s += '<br>'
-        } else {
-          i = i.replace(/\s/g, '&nbsp;&nbsp;');
-          s += `<p>${i}</p>`;
-        }
-        return s;
-      }, '');
-      // poetryCreateAt.innerHTML = poetry.created_at.replace(/-/g, '.');
+      setTimeout(function() {
+        poetryText.innerHTML = poetry.text.reduce((s, i) => {
+          if (i === '') {
+            s += '<br>'
+          } else {
+            i = i.replace(/\s/g, '&nbsp;&nbsp;');
+            s += `<p>${i}</p>`;
+          }
+          return s;
+        }, '');
+      }, 500);
     </script>
   </body>
 </html>
