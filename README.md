@@ -4,7 +4,7 @@
 [![1]](#)  [![2]](#)
 
 [1]: https://img.shields.io/github/languages/count/tatwd/tryit.svg
-[2]: https://img.shields.io/github/languages/top/tatwd/tryit.svg
+[2]: https://img.shields.io/github/languages/top/tatwd/tryit.svg?color=red
 
 表情使用：`:emoji_word:`
 
