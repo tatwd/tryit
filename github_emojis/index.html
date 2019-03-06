@@ -24,7 +24,7 @@
         color: lightcoral
       }
       .container {
-        max-width: 666px;
+        max-width: 766px;
         margin: auto;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
@@ -60,6 +60,7 @@
       .emoji {
         float: left;
         width: 50%;
+        line-height: 1.5;
       }
       @media (max-width: 425px) {
         .emoji {
@@ -128,13 +129,30 @@
   var render = function(k, v, i) {
     window.setTimeout(function() {
       var search_text = search_input.val();
-      emojis.append(`
+      // var s = '';
+      // if (v.indexOf('unicode') !== -1) {
+      //   var unicode = v.replace(/(.*\/)*([^.]+).*/ig,"$2");
+      //   // if (unicode.indexOf('-') === -1) {
+      //   //   s = String.fromCodePoint(parseInt(unicode, 16))
+      //   // }
+      //   var ss = []
+      //   unicode.split('-').forEach(i => {
+      //     ss.push(String.fromCodePoint(parseInt(i, 16)))
+      //   })
+      //   s = ss.join('&zwj;');
+      // }
+      var emoji_img = `<img src="${v}" alt=":${k}:" width="22" style="vertical-align: middle;margin-right: 3px;">`
+      // var emoji = `<span style="margin-right:3px;">${s}</span>`
+      // var emoji = !s
+      //   ? `<img src="${v}" alt=":${k}:" width="22" style="vertical-align: middle;margin-right: 3px;">`
+      //   : `<span style="width:22px;display:inline-block;text-align:center;vertical-align:middle;font-size:16px;margin-right:3px;">${s}</span>`;
+      var html = `
 <p class="emoji" data-emoji="${k}" style="display:${search_text ? (k.indexOf(search_text) !== -1 ? 'none' : 'block') : 'block'}">
-  <img src="${v}" alt=":${k}:" width="22" style="vertical-align: middle;margin-right: 3px;">
-  <code class="code">:${k}:</code>
-</p>
-      `);
-    }, i);
+  ${emoji_img}
+  <code class="code" style="vertical-align:middle;">:${k}:</code>
+</p>`;
+      emojis.append(html);
+    }, i * 10);
   };
 
   search_input.on('input', function(evt) {
