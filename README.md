@@ -1,10 +1,10 @@
 # tryit
 实验场
 
-[![test]][test-url]
+[![1]](#)  [![2]](#)
 
-[test]: http://img.shields.io/badge/Hexo-2.4+-2BAF2B.svg?style=flat-square
-[test-url]: http://www.baidu.com
+[1]: https://img.shields.io/github/languages/count/tatwd/tryit.svg
+[2]: https://img.shields.io/github/languages/top/tatwd/tryit.svg
 
 表情使用：`:emoji_word:`
 
