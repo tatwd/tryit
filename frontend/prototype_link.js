@@ -100,7 +100,6 @@ a 和 b 继承关系（当 B.prototype = a）：
     bar: 'B',
     __proto__: {
       foo: 'A',
-      constructor: function A(){...},
       __proto__: {
         name: 'jaron',
         constructor: function A(){...},
