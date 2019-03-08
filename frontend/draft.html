@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Sandbox</title>
+<style>
+
+</style>
+</head>
+
+<body>
+<div id="coords"></div>
+<img src="//avatars1.githubusercontent.com/u/16670044?s=460&v=4" alt="avatar" width="200">
+<p id="text"></p>
+<script>
+  window.addEventListener('hashchange', (evt) => {
+    console.log(evt.oldURL)
+    console.log(evt.newURL)
+  })
+  window.addEventListener('visibilitychange', (evt) => {
+    var vs = document.visibilityState
+    switch (vs) {
+      case 'prerender':
+        break;
+      case 'hidden':
+        break;
+      case 'visible':
+        break;
+    }
+    console.log(vs)
+  })
+  document.onreadystatechange = function(evt) {
+    console.log(document.readyState)
+  }
+
+  navigator.geolocation.getCurrentPosition((pos)=>{
+    var crd = pos.coords;
+    console.log(crd)
+    document.querySelector('#coords').innerHTML = crd.latitude + ' ' + crd.longitude
+  });
+  console.log(navigator.onLine)
+  window.addEventListener('offline', networkStatus)
+  window.addEventListener('online', networkStatus)
+  function networkStatus(evt) {
+    console.log(evt)
+  }
+  // navigator.vibrate(100)
+  var logo = document.querySelector('img')
+  var text = document.querySelector('#text')
+  window.addEventListener('deviceorientation', (evt) => {
+    console.log(evt)
+    var s = `rotate(${evt.gamma ||  0}deg)
+    rotate3d(1, 0, 0, ${evt.beta * -1}deg)`
+    console.log(s)
+    logo.style.transform = s;
+    text.innerHTML = s;
+  })
+
+  window.addEventListener('devicelight', (evt) => {
+    console.log(evt.value)
+  })
+</script>
+</body>
+
+</html>
