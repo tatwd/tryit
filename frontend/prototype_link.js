@@ -37,7 +37,7 @@ a 的结构：
 */
 
 a.name = 'leo';
-console.log(a.name === a.__proto__.name); // true
+console.log(a.name === a.__proto__.name); // false
 console.log(A.prototype instanceof Object); // true
 console.log(a.constructor === A); // true
 console.log(a.__proto__ === A.prototype); // true
