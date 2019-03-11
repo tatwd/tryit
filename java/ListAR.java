@@ -9,6 +9,7 @@ public class ListAR {
 			add("3");
 		}};
 
+		// 无法删除连续的重复元素
 		// for (int i = 0; i < items.size(); i++) {
 		// 	if (items.get(i).equals("1")) {
 		// 		items.remove(i);
