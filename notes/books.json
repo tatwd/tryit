@@ -1,5 +1,21 @@
 [
   {
+    "isbn": "9787516813003",
+    "title": "简明日本史",
+    "authors": [
+      {
+        "name": "陈恭禄",
+        "type": "WRITER"
+      }
+    ],
+    "press": "台海出版社",
+    "publish_at": "2017-03",
+    "status": "READING",
+    "begin_at": "2019-03-24",
+    "end_at": null,
+    "times": 0
+  },
+  {
     "isbn": "9787559608888",
     "title": "金圣叹选批唐诗六百首",
     "authors": [
