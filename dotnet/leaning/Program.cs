@@ -13,6 +13,7 @@
         // expr_try_catch_finaly.run();
         // expr_linq.run();
         // oop_inherit.run();
-        list_operator.run();
+        // list_operator.run();
+        reflection.run();
     }
 }
