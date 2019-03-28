@@ -14,6 +14,7 @@
         // expr_linq.run();
         // oop_inherit.run();
         // list_operator.run();
-        reflection.run();
+        // reflection.run();
+        dispose_pattern.run();
     }
 }
