@@ -1,5 +1,37 @@
 [
   {
+    "isbn": "9787530216781",
+    "title": "平凡的世界（全三册）",
+    "authors": [
+      {
+        "name": "路遥",
+        "type": "WRITER"
+      }
+    ],
+    "press": "北京十月文艺出版社",
+    "publish_at": "2017-06",
+    "status": "READING",
+    "begin_at": "2019-04-04",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": "9787530216699",
+    "title": "万寿寺",
+    "authors": [
+      {
+        "name": "王小波",
+        "type": "WRITER"
+      }
+    ],
+    "press": "北京十月文艺出版社",
+    "publish_at": "2017-09",
+    "status": "READING",
+    "begin_at": "2019-04-02",
+    "end_at": null,
+    "times": 0
+  },
+  {
     "isbn": "9787516813003",
     "title": "简明日本史",
     "authors": [
