@@ -4,7 +4,12 @@ using System.Threading.Tasks;
 
 namespace MiniAspNet.V2_1
 {
-    public class MyHttpServer
+    public interface IServer
+    {
+        Task StartAsync(RequestDelegate handler);
+    }
+
+    public class MyHttpServer : IServer
     {
         private readonly HttpListener _listener;
         private readonly string _uri;

@@ -41,8 +41,10 @@ namespace MiniAspNet.V2_1
 
         public NameValueCollection Headers => _httpReponseFeature.Headers;
         public Stream Body => _httpReponseFeature.Body;
-        public int StatusCode => _httpReponseFeature.StatusCode;
-
-
+        public int StatusCode
+        {
+            get { return _httpReponseFeature.StatusCode; }
+            set { _httpReponseFeature.StatusCode = value; }
+        }
     }
 }
