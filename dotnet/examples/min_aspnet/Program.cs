@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Text;
 using System.IO;
 
-using MiniAspNet.V2_1;
+using MiniAspNet.V3;
 
 namespace MiniAspNet
 {
@@ -13,16 +13,40 @@ namespace MiniAspNet
         static async Task Main(string[] args)
         {
             string uri = "http://localhost:5000/";
-            await new MyHttpServer(uri)
-                .StartAsync(FooHandler);
+            IServer server = new MyHttpServer(uri);
+            var handler = new ApplicationBuilder()
+                .Use(FooMiddleware)
+                .Use(BarMiddleware)
+                .Use(BazMiddleware)
+                .Build();
+            await server.StartAsync(handler);
         }
 
-        static async Task FooHandler(HttpContext ctx)
+        static RequestDelegate FooMiddleware(RequestDelegate next)
         {
-            var html = await Task.Run(() =>
-                File.ReadAllBytes("index.html"));
-            var task = ctx.Response.Body.WriteAsync(html);
-            await task;
+            return async context => {
+                await context.Response.Body.WriteAsync(
+                    Encoding.UTF8.GetBytes("Foo=>"));
+                await next(context);
+            };
+        }
+
+        static RequestDelegate BarMiddleware(RequestDelegate next)
+        {
+            return async context => {
+                await context.Response.Body.WriteAsync(
+                    Encoding.UTF8.GetBytes("Bar=>"));
+                await next(context);
+            };
+        }
+
+        static RequestDelegate BazMiddleware(RequestDelegate next)
+        {
+            return async context => {
+                await context.Response.Body.WriteAsync(
+                    Encoding.UTF8.GetBytes("Baz"));
+                await next(context);
+            };
         }
     }
 }
