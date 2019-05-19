@@ -18,6 +18,7 @@
         // dispose_pattern.run();
         // multi_threading.run();
         // parallel_tasks.run();
-        async_await.run();
+        // async_await.run();
+        key_staic.run();
     }
 }
