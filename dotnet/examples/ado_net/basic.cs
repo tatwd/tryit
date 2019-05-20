@@ -75,8 +75,8 @@ class basic
             }
 
             // 修改
-            var sql4 = @"UPDATE [TUser] 
-                         SET [Password] = @Password, [UpdatedAt] = @UpdatedAt 
+            var sql4 = @"UPDATE [TUser]
+                         SET [Password] = @Password, [UpdatedAt] = @UpdatedAt
                          WHERE [Id] = @Id";
             using(var cmd4 = conn.CreateCommand())
             {
@@ -90,8 +90,8 @@ class basic
                 });
 
                 // SqlCommand.Prepare method requires all parameters to have an explicitly set type.
-                // cmd4.Prepare(); 
-                
+                // cmd4.Prepare();
+
                 // var r = cmd1.ExecuteNonQuery();
                 var r = cmd4.ExecuteReader();
                 System.Console.WriteLine(r.RecordsAffected);
