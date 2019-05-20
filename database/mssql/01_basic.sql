@@ -20,3 +20,8 @@ go
 -- 获取数据库支持的所有数据类型
 select name from systypes
 go
+
+-- 获取数据表的索引信息
+select name from sysindexkeys
+where id = object_id('表名')
+go
