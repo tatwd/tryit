@@ -1,11 +1,12 @@
 class basic
 {
-    static System.Data.SqlClient.SqlConnection conn = null;
-    static string connStr = "server=localhost;user id=sa;database=TestDb;pwd=root123;";
+    // static System.Data.SqlClient.SqlConnection conn = null;
+    static MySql.Data.MySqlClient.MySqlConnection conn = null;
+    static string connStr = "server=localhost;user id=root;database=mytest;pwd=test123;";
     static basic()
     {
         // 获取数据库连接对象
-        conn = new System.Data.SqlClient.SqlConnection(connStr);
+        conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
         System.Console.WriteLine("inited!");
     }
 
@@ -17,6 +18,32 @@ class basic
             conn.ConnectionString = connStr;
             conn.Open();
 
+            string tab = "tusers";
+            string sql3 = $"INSERT INTO {tab} VALUES(default, @str)";
+            var cmd3 = new MySql.Data.MySqlClient.MySqlCommand(sql3, conn);
+            cmd3.Parameters.AddWithValue("@str", "👏");
+            using(cmd3)
+            {
+                int rows = cmd3.ExecuteNonQuery();
+                System.Console.WriteLine(rows);
+            }
+
+            string sql1 = $"select * from {tab}";
+            var cmd1 = new MySql.Data.MySqlClient.MySqlCommand(sql1, conn);
+            MySql.Data.MySqlClient.MySqlDataReader reader = cmd1.ExecuteReader();
+            while (reader.Read())
+            {
+                // 此时 reader 为当前行
+                for (int col = 0; col < reader.FieldCount; col++)
+                {
+                    var fieldName = reader.GetName(col);
+                    var val = reader[col];
+                    System.Console.Write("{0}: {1}\n", fieldName, val);
+                }
+            }
+            reader.Close();
+            cmd1.Dispose();
+/*
             // 创建数据库执行对象
             string sql1 = "SELECT * FROM [TUser]";
             var cmd1 = new System.Data.SqlClient.SqlCommand(sql1, conn);
@@ -96,7 +123,7 @@ class basic
                 var r = cmd4.ExecuteReader();
                 System.Console.WriteLine(r.RecordsAffected);
             }
-
+*/
         }
         catch (System.Exception ex)
         {
