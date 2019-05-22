@@ -125,9 +125,13 @@ class basic
             }
 */
         }
+        catch(MySql.Data.MySqlClient.MySqlException ex)
+        {
+            System.Console.WriteLine("MySqlException: {0}", ex.Message);
+        }
         catch (System.Exception ex)
         {
-            System.Console.WriteLine(ex.Message);
+            System.Console.WriteLine("Exception: {0}", ex.Message);
         }
         finally
         {
