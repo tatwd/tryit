@@ -13,4 +13,8 @@ tmp/
 
 *.pdb
 
+*.out
+*.swp
+*.swap
+
 .vscode/
