@@ -13,6 +13,7 @@ tmp/
 
 *.pdb
 
+*.o
 *.out
 *.swp
 *.swap
