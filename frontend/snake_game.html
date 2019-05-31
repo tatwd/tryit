@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <style>
+  * { padding:0; margin:0; box-sizing:border-box; }
+  body { width:100vw; height:100vh; overflow:hidden; }
+  #app { width:100%; }
+  </style>
+</head>
+<body>
+  <canvas id="app"></canvas>
+</body>
+</html>
+
+<script>
+var canvas = document.getElementById('app')
+  , ctx = canvas.getContext('2d')
+  , SIZE = 8
+  , COUNT = 15
+  , L = SIZE * COUNT
+  , X0 = 10
+  , Y0 = 10
+  , DIR = { L: 0, U: 1, R: 2, D: 3 };
+
+// random a position
+function randomPosition() {
+  return Math.random() * (COUNT) ^ 0;
+}
+
+// draw lines of the yard
+function drawYard() {
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(X0, Y0, X0+L, Y0+L);
+  ctx.fill();
+
+  for (var i = 0; i <= COUNT; i++) {
+    ctx.strokeStyle = "blue";
+    ctx.beginPath();
+    ctx.moveTo(X0, Y0 + SIZE * i);
+    ctx.lineTo(X0 + L, Y0 + SIZE * i);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(X0 + SIZE * i, Y0);
+    ctx.lineTo(X0 + SIZE * i, Y0 + L);
+    ctx.closePath();
+    ctx.stroke();
+  }
+}
+
+// init a  node
+function initNode(row, col, prev, next) {
+  return {
+    row, col,
+    prev: prev || null,
+    next: next || null
+  };
+}
+
+// draw a node
+function drawNode(node) {
+  ctx.fillRect(
+    X0 + node.col * SIZE,
+    Y0 + node.row * SIZE,
+    SIZE, SIZE);
+}
+
+// init a egg
+function initEgg() {
+  return initNode(randomPosition(), randomPosition());
+}
+
+// draw egg
+function drawEgg(egg) {
+  ctx.fillStyle = "rgb(255,0,0)";
+  drawNode(egg);
+  ctx.restore();
+}
+
+// init a snake
+function initSnake() {
+  var head = initNode(randomPosition(), randomPosition())
+    , tail = head;
+  return { head, tail, dir: DIR.U };
+};
+
+// draw a snake
+function drawSnake(snake) {
+  ctx.fillStyle = "rgb(0,200,0)";
+  var node = snake.head;
+  while(node) {
+    drawNode(node);
+    node = node.next;
+  }
+  ctx.restore();
+}
+
+// re appear the egg
+function reAppear(egg) {
+  egg.row = randomPosition();
+  egg.col = randomPosition();
+}
+
+// eat egg
+function eatEgg(snake, egg) {
+  if (snake.head.row === egg.row && snake.head.col === egg.col) {
+    timing -= 10;
+    appendSnakeHead(snake, egg);
+    reAppear(egg);
+    return;
+  }
+}
+
+// move the snake
+function moveSnake(snake) {
+  appendSnakeHead(snake);
+  deleteSnakeTail(snake);
+  boundaryCheck(snake);
+}
+
+// delete snake tail
+function deleteSnakeTail(snake) {
+  if (!snake.tail) return;
+  snake.tail = snake.tail.prev;
+  snake.tail.next.prev = null;
+  snake.tail.next = null;
+}
+
+// delete snake tail
+function appendSnakeTail(snake) {
+  if (!snake.tail) return;
+  snake.tail = snake.tail.prev;
+  snake.tail.next.prev = null;
+  snake.tail.next = null;
+}
+
+// append snake head
+function appendSnakeHead(snake, node) {
+  var node = null;
+  switch(snake.dir) {
+  case DIR.U:
+    node = initNode(snake.head.row - 1, snake.head.col);
+    break;
+  case DIR.R:
+    node = initNode(snake.head.row, snake.head.col + 1);
+    break;
+  case DIR.D:
+    node = initNode(snake.head.row + 1, snake.head.col);
+    break;
+  case DIR.L:
+    node = initNode(snake.head.row, snake.head.col - 1);
+    break;
+  }
+  node.next = snake.head;
+  snake.head.prev = node;
+  snake.head = node;
+}
+
+function boundaryCheck(snake) {
+  if (snake.head.row < 0) snake.head.row = COUNT - 1;
+  else if (snake.head.row > COUNT - 1) snake.head.row = 0;
+  if (snake.head.col < 0) snake.head.col = COUNT - 1;
+  else if (snake.head.col > COUNT - 1) snake.head.col = 0;
+}
+
+// init the game
+var snake = initSnake()
+  , egg = initEgg()
+  , timing = 1000;
+
+// loop the game
+function loopGame() {
+  drawYard();
+  drawEgg(egg);
+  drawSnake(snake);
+  setTimeout(() => {
+    moveSnake(snake);
+    eatEgg(snake, egg);
+    loopGame();
+  }, timing);
+}
+
+// control the snake
+window.addEventListener('keydown', function(evt) {
+  var dir = snake.dir;
+  switch (evt.keyCode) {
+  case 37: dir !== DIR.R && (dir = DIR.L); break;
+  case 38: dir !== DIR.D && (dir = DIR.U); break;
+  case 39: dir !== DIR.L && (dir = DIR.R); break;
+  case 40: dir !== DIR.U && (dir = DIR.D); break;
+  }
+  snake.dir = dir;
+});
+loopGame();
+</script>
