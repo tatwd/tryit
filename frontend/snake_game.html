@@ -129,14 +129,6 @@ function deleteSnakeTail(snake) {
   snake.tail.next = null;
 }
 
-// delete snake tail
-function appendSnakeTail(snake) {
-  if (!snake.tail) return;
-  snake.tail = snake.tail.prev;
-  snake.tail.next.prev = null;
-  snake.tail.next = null;
-}
-
 // append snake head
 function appendSnakeHead(snake, node) {
   var node = null;
