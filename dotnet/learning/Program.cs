@@ -1,4 +1,4 @@
-﻿public class Program
+public class Program
 {
     static void Main(string[] args)
     {
@@ -19,6 +19,7 @@
         // multi_threading.run();
         // parallel_tasks.run();
         // async_await.run();
-        key_staic.run();
+        // key_staic.run();
+        datetime.run();
     }
 }
