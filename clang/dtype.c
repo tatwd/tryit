@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <conio.h>
 
 int main(void)
@@ -13,11 +13,11 @@ int main(void)
 	weight = 50.5;
 	height = 181.1;
 	sex = 'M';
-	
+
 	printf("age=%d, weight=%f, height=%g, sex=%c\n",
 		age, weight, height, sex);
 	printf("Size of float is %d bytes.\n", sizeof(double));
-	
+
 	getch();
-	return 0; 
+	return 0;
 }
