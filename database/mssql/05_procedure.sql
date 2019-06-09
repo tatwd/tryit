@@ -22,3 +22,19 @@ go
 -- drop procedure <procedure_name>
 drop procedure mycout
 go
+
+
+-- 分页
+create procedure get_student_by_page (
+    @page int = 1,
+    @top int = 10
+)
+as
+begin 
+    select top @top * 
+    from (
+        select row_number() over(order by id asc) as 'row', * 
+        from t_student
+    ) as stu 
+    where row > (@page - 1) * @top
+end
