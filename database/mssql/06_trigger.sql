@@ -11,3 +11,12 @@ begin
     if @age > 120 
         rollback transaction -- 撤销操作
 end
+
+-- delete 类型触发器
+-- 会为插入记录创建一张内存临时表 deleted
+-- TODO: add example
+
+-- update 类型触发器
+-- 会先建立 deleted 表
+-- 再建立 inserted 表
+-- TODO: add example
