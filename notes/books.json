@@ -1,5 +1,25 @@
 [
   {
+    "isbn": "9787544271707",
+    "title": "伊豆的舞女",
+    "authors": [
+      {
+        "name": "[日]川端康成",
+        "type": "WRITER"
+      },
+      {
+         "name": "叶渭渠,唐月梅",
+         "type": "TRANSLATOR"
+      }
+    ],
+    "press": "南海出版公司",
+    "publish_at": "2014-07",
+    "status": "FINISHED",
+    "begin_at": "2019-05-06",
+    "end_at": "2019-07-10",
+    "times": 1
+  },
+  {
     "isbn": "9787530216910",
     "title": "六神磊磊读唐诗",
     "authors": [
