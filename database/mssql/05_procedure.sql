@@ -31,7 +31,7 @@ create procedure get_student_by_page (
 )
 as
 begin 
-    select top @top * 
+    select top (@top) * 
     from (
         select row_number() over(order by id asc) as 'row', * 
         from t_student
