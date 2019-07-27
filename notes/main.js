@@ -7,8 +7,10 @@ $(function() {
   };
   var authorTypes = {
     WRITER: '作者',
+    WRITER_ZHU: '注解',
     TRANSLATOR: '译者',
-    EDITOR: '编者'
+    EDITOR: '编者',
+    EDITOR_JD: '校点'
   };
 
   function loading(isLoading) {

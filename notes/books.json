@@ -1,5 +1,45 @@
 [
   {
+    "isbn": "978-7-5325-6946-5",
+    "title": "世说新语",
+    "authors": [
+      {
+        "name": "[南朝宋]刘义庆",
+        "type": "WRITER"
+      },
+      {
+         "name": "[南朝梁]刘孝标",
+         "type": "WRITER_ZHU"
+      },
+      {
+         "name": "徐传武",
+         "type": "EDITOR_JD"
+      }
+    ],
+    "press": "上海古籍出版社",
+    "publish_at": "2017-09",
+    "status": "READING",
+    "begin_at": "2019-07-27",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": "9787020051601",
+    "title": "喻世明言",
+    "authors": [
+      {
+        "name": "[明]冯梦龙",
+        "type": "WRITER"
+      }
+    ],
+    "press": "人民文学出版社",
+    "publish_at": "2016-02",
+    "status": "READING",
+    "begin_at": "2019-07-13",
+    "end_at": null,
+    "times": 0
+  },
+  {
     "isbn": "9787544271707",
     "title": "伊豆的舞女",
     "authors": [
