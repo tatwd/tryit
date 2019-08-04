@@ -70,10 +70,10 @@
     ],
     "press": "北京十月文艺出版社",
     "publish_at": "2017-07",
-    "status": "READING",
+    "status": "FINISHED",
     "begin_at": "2019-04-06",
-    "end_at": null,
-    "times": 0
+    "end_at": "2019-08-04",
+    "times": 1
   },
   {
     "isbn": "9787530216781",
