@@ -434,10 +434,10 @@
     ],
     "press": "中信出版社",
     "publish_at": "2017-02",
-    "status": "READING",
+    "status": "FINISHED",
     "begin_at": "2018-12",
-    "end_at": null,
-    "times": 0
+    "end_at": "2019-08-21",
+    "times": 1
   },
   {
     "isbn": null,
