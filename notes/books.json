@@ -1,5 +1,21 @@
 [
   {
+    "isbn": "978-7-108-06370-0",
+    "title": "七缀集",
+    "authors": [
+      {
+        "name": "钱锺书",
+        "type": "WRITER"
+      }
+    ],
+    "press": "生活·读书·新知三联书店",
+    "publish_at": "2019-01",
+    "status": "READING",
+    "begin_at": "2019-08-24",
+    "end_at": null,
+    "times": 0
+  },
+  {
     "isbn": "9787532772322",
     "title": "枪炮、病菌与钢铁：人类社会的命运（修订版）",
     "authors": [
