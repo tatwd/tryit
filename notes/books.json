@@ -226,10 +226,10 @@
     ],
     "press": "中信出版设",
     "publish_at": "2012-05",
-    "status": "READING",
+    "status": "FINISHED",
     "begin_at": "2019-02-27",
-    "end_at": null,
-    "times": 0
+    "end_at": "2019-09-10",
+    "times": 1
   },
   {
     "isbn": "978-7-201-08894-5",
