@@ -431,7 +431,7 @@
     "press": "译林出版社",
     "publish_at": "2018-07",
     "status": "FINISHED",
-    "begin_at": "2019-01",
+    "begin_at": "2019-01-01",
     "end_at": "2019-03-19",
     "times": 1
   },
@@ -451,7 +451,7 @@
     "press": "中信出版社",
     "publish_at": "2017-02",
     "status": "FINISHED",
-    "begin_at": "2018-12",
+    "begin_at": "2018-12-16",
     "end_at": "2019-08-21",
     "times": 1
   },
@@ -467,7 +467,7 @@
     "press": "北京十月出版社",
     "publish_at": "2015-02",
     "status": "READING",
-    "begin_at": "2018-12",
+    "begin_at": "2018-12-07",
     "end_at": null,
     "times": 0
   },
@@ -483,7 +483,7 @@
     "press": "三秦出版社",
     "publish_at": null,
     "status": "READING",
-    "begin_at": "2018-12",
+    "begin_at": "2018-12-05",
     "end_at": null,
     "times": 0
   },
@@ -503,7 +503,7 @@
     "press": "译林出版社",
     "publish_at": "2013-08",
     "status": "FINISHED",
-    "begin_at": "2018-12",
+    "begin_at": "2018-12-09",
     "end_at": "2019-01-11",
     "times": 1
   },
@@ -519,7 +519,7 @@
     "press": "生活·读书·新知三联书店",
     "publish_at": null,
     "status": "READING",
-    "begin_at": "2018-12",
+    "begin_at": "2018-12-02",
     "end_at": null,
     "times": 0
   },
@@ -535,8 +535,8 @@
     "press": "北京联合出版有限责任公司",
     "publish_at": "2014-11",
     "status": "FINISHED",
-    "begin_at": "2018-12",
-    "end_at": "2019-01",
+    "begin_at": "2018-12-03",
+    "end_at": "2019-01-06",
     "times": 1
   },
   {
@@ -567,8 +567,8 @@
     "press": "天津人民出版社",
     "publish_at": "2013-01",
     "status": "FINISHED",
-    "begin_at": "2018-12",
-    "end_at": "2018",
+    "begin_at": "2018-12-03",
+    "end_at": "2018-12-07",
     "times": 1
   },
   {
@@ -583,7 +583,7 @@
     "press": "广西师范大学出版社",
     "publish_at": "2013-01",
     "status": "READING",
-    "begin_at": "2018-12",
+    "begin_at": "2018-12-02",
     "end_at": null,
     "times": 0
   }
