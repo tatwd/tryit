@@ -41,7 +41,7 @@
       <script>
         !(function() {
           var timespan = document.querySelector('#timespan');
-          var startedAt = new Date(timespan.dataset.startedAt).getTime();
+          var startedAt = new Date(timespan.dataset.startedAt);
           var html = function (d, h, m, s) {
             return `Runing ${d} 天 ${h} 小时 ${m} 分 ${s} 秒`
           };
@@ -53,9 +53,7 @@
             var m = now.getMinutes();
             var s = now.getSeconds();
             timespan.innerHTML = html(d, h, m, s)
-            setTimeout(() => {
-              start();
-            }, 1000);
+            window.setTimeout(start, 1000);
           };
           start();
         })();
