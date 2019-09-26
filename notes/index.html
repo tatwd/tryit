@@ -13,6 +13,16 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
+    <style>
+      /*html { content: ""; }
+      @media (prefers-color-schema: light) { html { content: "light"; } }
+      @media (prefers-color-schema: dark) { html { content: "dark"; } }*/
+      body[theme="dark"],
+      body[theme="dark"] .list-group-item { 
+        background-color: #343a40;
+        color: #f8f9fa; 
+      }
+    </style>
   </head>
   <body>
     <div class="container my-3" style="max-width: 666px">
@@ -80,5 +90,12 @@
       crossorigin="anonymous"
     ></script>
     <script src="main.js"></script>
+    <script>
+      !(function(){
+        var dateNow = new Date();
+        var h = dateNow.getHours();
+        if (h > 18) document.body.setAttribute('theme', 'dark');
+      })();
+    </script>
   </body>
 </html>
