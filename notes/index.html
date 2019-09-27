@@ -94,7 +94,7 @@
       !(function(){
         var dateNow = new Date();
         var h = dateNow.getHours();
-        if (h > 18) document.body.setAttribute('theme', 'dark');
+        if (h < 6 || h >= 18) document.body.setAttribute('theme', 'dark');
       })();
     </script>
   </body>
