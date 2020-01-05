@@ -12,6 +12,7 @@
         "type": "EDITOR_JD"
       }
     ],
+	"type": 1,
     "press": "浙江古籍出版社",
     "publish_at": "2018-11",
     "status": "READING",
@@ -28,6 +29,7 @@
         "type": "WRITER"
       }
     ],
+	"type": 1,
     "press": "生活·读书·新知三联书店",
     "publish_at": "2019-01",
     "status": "READING",
@@ -48,6 +50,7 @@
          "type": "TRANSLATOR"
       }
     ],
+	"type": 1,
     "press": "上海译文出版社",
     "publish_at": "2016-07",
     "status": "READING",
@@ -72,6 +75,7 @@
          "type": "EDITOR_JD"
       }
     ],
+	"type": 1,
     "press": "上海古籍出版社",
     "publish_at": "2017-09",
     "status": "READING",
@@ -108,6 +112,7 @@
          "type": "TRANSLATOR"
       }
     ],
+	"type": 1,
     "press": "南海出版公司",
     "publish_at": "2014-07",
     "status": "FINISHED",
@@ -468,6 +473,7 @@
         "type": "TRANSLATOR"
       }
     ],
+	"type": 1,
     "press": "中信出版社",
     "publish_at": "2017-02",
     "status": "FINISHED",
@@ -520,6 +526,7 @@
         "type": "TRANSLATOR"
       }
     ],
+	"type": 1,
     "press": "译林出版社",
     "publish_at": "2013-08",
     "status": "FINISHED",
@@ -568,6 +575,7 @@
         "type": "WRITER"
       }
     ],
+	"type": 1,
     "press": "天津人民出版社",
     "publish_at": "2017-07",
     "status": "FINISHED",
