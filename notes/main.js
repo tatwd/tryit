@@ -12,6 +12,10 @@ $(function() {
     EDITOR: '编者',
     EDITOR_JD: '校点'
   };
+  var bookType = {
+    0: '电子书',
+    1: '纸质书'
+  };
 
   function loading(isLoading) {
     var html = isLoading
@@ -43,6 +47,7 @@ $(function() {
 <li class="list-group-item">
   <p class="lead">${i.title}</p>
   <p class="text-muted">
+    <span>${bookType[i.type || 0]}</span>
     <span>${authors}</span>
     <span>${i.press}</span>
     <span>${i.publish_at ? i.publish_at + ' 版' : ''}</span>
