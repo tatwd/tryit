@@ -19,6 +19,9 @@
         font-size: 18px;
         color: #234;
       }
+      .badge--light {
+        color: #456;
+      }
     </style>
   </head>
   <body>
@@ -42,17 +45,17 @@
     ></script>
     <script>
       $(function() {
-        var titleLinks = $('.title-links');
+        var $titleLinks = $('.title-links');
         var render = function(data) {
           var s = '';
           $.each(data, function(index, item) {
             s += `<p><a class="poetry-link text-decoration--none" href="./poetry.html?title=${encodeURI(
               item.title
-            )}">${item.title}</a></p>`;
+            )}">${item.title}</a> <small class='badge--light'>${item.type === 1 ? '[旧诗]' : ''}</small></p>`;
           });
-          titleLinks.html(s);
+          $titleLinks.html(s);
         };
-        setTimeout(function() {
+        window.setTimeout(function() {
           $.get('./poetries.json')
             .done(function(data, type, xhr) {
               var lastModified = localStorage.getItem('last_modified');
@@ -70,6 +73,7 @@
             })
             .fail(function(res) {
               console.log(res);
+              $titleLinks.html('获取数据失败，可以打开控制台查询错误信息！');
             });
         }, 500);
       });

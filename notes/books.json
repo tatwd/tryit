@@ -1,5 +1,22 @@
 [
   {
+    "isbn": "978-7-5325-8563-5",
+    "title": "中国近代史（全二册）",
+    "authors": [
+      {
+        "name": "陈恭禄",
+        "type": "WRITER"
+      }
+    ],
+	"type": 1,
+    "press": "上海古籍出版社",
+    "publish_at": "2019-04",
+    "status": "READING",
+    "begin_at": "2019-12-01",
+    "end_at": null,
+    "times": 0
+  },
+  {
     "isbn": "978-7-5540-1327-4",
     "title": "陶菴夢憶 西湖夢尋",
     "authors": [
