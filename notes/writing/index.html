@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -49,9 +49,9 @@
         var render = function(data) {
           var s = '';
           $.each(data, function(index, item) {
-            s += `<p><a class="poetry-link text-decoration--none" href="./poetry.html?title=${encodeURI(
-              item.title
-            )}">${item.title}</a> <small class='badge--light'>${item.type === 1 ? '[旧诗]' : ''}</small></p>`;
+            s += `<p><a class="poetry-link text-decoration--none" title="写于${item.created_at}" href="./poetry.html?key=${encodeURI(
+              index
+            )}">${item.title}</a> <small class='badge--light'>${item.type === 1 ? '[旧体]' : ''}</small></p>`;
           });
           $titleLinks.html(s);
         };

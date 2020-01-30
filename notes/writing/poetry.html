@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,13 +29,13 @@
 
     </div>
     <script>
-      var title = decodeURI(location.search).split('=')[1]
-      var poetries = JSON.parse(localStorage.getItem('poetries'))
-      var poetry = poetries.find(u => u.title == title)
+      var key = decodeURI(location.search).split('=')[1];
+      var poetries = JSON.parse(localStorage.getItem('poetries'));
+      var poetry = poetries[key];//poetries.find(u => u.title == key)
 
       var poetryTitle = document.querySelector('.poetry--title');
       var poetryText = document.querySelector('.poetry--text');
-      var poetryCreateAt = document.querySelector('.poetry--create_at');
+      //var poetryCreateAt = document.querySelector('.poetry--create_at');
 
       poetryTitle.innerHTML = poetry.title;
       setTimeout(function() {
