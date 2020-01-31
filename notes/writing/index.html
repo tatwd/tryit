@@ -25,17 +25,11 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <h2>旧的印记</h2>
-      <p>
-        <small><b>2013 ~ 2016</b></small>
-      </p>
-      <div class="title-links">
-        <div class="bouncing-loader">
-          <span class="bouncing-loader--item"></span>
-          <span class="bouncing-loader--item"></span>
-          <span class="bouncing-loader--item"></span>
-        </div>
+    <div class="container" id="poetries">
+      <div class="bouncing-loader">
+        <span class="bouncing-loader--item"></span>
+        <span class="bouncing-loader--item"></span>
+        <span class="bouncing-loader--item"></span>
       </div>
     </div>
     <script
@@ -46,35 +40,69 @@
     <script>
       $(function() {
         var $titleLinks = $('.title-links');
-        var render = function(data) {
+        var $poetries = $('#poetries');
+        var renderHTML = function (year, data) {
           var s = '';
           $.each(data, function(index, item) {
-            s += `<p><a class="poetry-link text-decoration--none" title="写于${item.created_at}" href="./poetry.html?key=${encodeURI(
-              index
-            )}">${item.title}</a> <small class='badge--light'>${item.type === 1 ? '[旧体]' : ''}</small></p>`;
+            s += `
+<p><a
+  class="poetry-link text-decoration--none"
+  title="写于${item.created_at}"
+  href="./poetry.html?key=${encodeURI(index)}"
+>${item.title}</a> <small class='badge--light'>${item.type === 1 ? '[旧体]' : ''}</small>
+</p>`;
           });
-          $titleLinks.html(s);
+          return `
+<section>
+  <p><small><b>${year}</b></small></p>
+  <div class="title-links">${s || '无'}</div>
+</section>`;
         };
-        window.setTimeout(function() {
+        var render = function($el, data) {
+          data = reducePoetries(data);
+          var s = '';
+          for (var year in data) {
+            if (!data.hasOwnProperty(year)) continue;
+            s = renderHTML(year, data[year]) + s;
+          }
+          $el.html(s || '无');
+        };
+        var reducePoetries = function (poetries) {
+          return poetries.reduce(function (ret, cur) {
+            var key = new Date(cur.created_at).getFullYear();
+            if (!ret[key]) ret[key] = [];
+            ret[key].push(cur);
+            return ret;
+          }, {});
+        };
+        var fetchPoetries = function (cb) {
           $.get('./poetries.json')
             .done(function(data, type, xhr) {
-              var lastModified = localStorage.getItem('last_modified');
-              var nowLastModified = new Date(
-                xhr.getResponseHeader('last-modified')
-              )
-                .getTime()
-                .toString();
-              console.log(lastModified, nowLastModified);
-              if (!lastModified || lastModified != nowLastModified) {
-                localStorage.setItem('last_modified', nowLastModified);
-                localStorage.setItem('poetries', JSON.stringify(data));
-              }
-              render(data);
+              cb && cb(data, xhr);
             })
             .fail(function(res) {
               console.log(res);
-              $titleLinks.html('获取数据失败，可以打开控制台查询错误信息！');
+              $poetries.html('获取数据失败，可以打开控制台查询错误信息！');
             });
+        };
+
+        window.setTimeout(function() {
+          var data = JSON.parse(localStorage.getItem('poetries')) || [];
+          render($poetries, data);
+          fetchPoetries(function(data, xhr) {
+            var lastModified = localStorage.getItem('last_modified');
+            var nowLastModified = new Date(
+              xhr.getResponseHeader('last-modified')
+            )
+              .getTime()
+              .toString();
+            console.log(lastModified, nowLastModified);
+            if (!lastModified || lastModified != nowLastModified) {
+              localStorage.setItem('last_modified', nowLastModified);
+              localStorage.setItem('poetries', JSON.stringify(data));
+              render($poetries, data);
+            }
+          });
         }, 500);
       });
     </script>
