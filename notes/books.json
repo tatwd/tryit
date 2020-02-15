@@ -1,5 +1,25 @@
 [
   {
+    "isbn": "978-7-544745239",
+    "title": "牛津通识读本：数学（中文版）",
+    "authors": [
+      {
+        "name": "[英]蒂莫西·高尔斯（William Timothy Gower）",
+        "type": "WRITER"
+      },
+      {
+        "name": "刘熙",
+        "type": "TRANSLATOR"
+      }
+    ],
+    "press": "译林出版设",
+    "publish_at": "2014-03",
+    "status": "READING",
+    "begin_at": "2019-12-14",
+    "end_at": null,
+    "times": 0
+  },
+  {
     "isbn": "978-7-5325-8563-5",
     "title": "中国近代史（全二册）",
     "authors": [
@@ -8,7 +28,7 @@
         "type": "WRITER"
       }
     ],
-	"type": 1,
+    "type": 1,
     "press": "上海古籍出版社",
     "publish_at": "2019-04",
     "status": "READING",
@@ -29,7 +49,7 @@
         "type": "EDITOR_JD"
       }
     ],
-	"type": 1,
+    "type": 1,
     "press": "浙江古籍出版社",
     "publish_at": "2018-11",
     "status": "READING",
@@ -46,7 +66,7 @@
         "type": "WRITER"
       }
     ],
-	"type": 1,
+    "type": 1,
     "press": "生活·读书·新知三联书店",
     "publish_at": "2019-01",
     "status": "READING",
@@ -67,7 +87,7 @@
          "type": "TRANSLATOR"
       }
     ],
-	"type": 1,
+    "type": 1,
     "press": "上海译文出版社",
     "publish_at": "2016-07",
     "status": "READING",
@@ -92,7 +112,7 @@
          "type": "EDITOR_JD"
       }
     ],
-	"type": 1,
+    "type": 1,
     "press": "上海古籍出版社",
     "publish_at": "2017-09",
     "status": "READING",
@@ -129,7 +149,7 @@
          "type": "TRANSLATOR"
       }
     ],
-	"type": 1,
+    "type": 1,
     "press": "南海出版公司",
     "publish_at": "2014-07",
     "status": "FINISHED",
@@ -490,7 +510,7 @@
         "type": "TRANSLATOR"
       }
     ],
-	"type": 1,
+    "type": 1,
     "press": "中信出版社",
     "publish_at": "2017-02",
     "status": "FINISHED",
@@ -543,7 +563,7 @@
         "type": "TRANSLATOR"
       }
     ],
-	"type": 1,
+    "type": 1,
     "press": "译林出版社",
     "publish_at": "2013-08",
     "status": "FINISHED",
@@ -592,7 +612,7 @@
         "type": "WRITER"
       }
     ],
-	"type": 1,
+    "type": 1,
     "press": "天津人民出版社",
     "publish_at": "2017-07",
     "status": "FINISHED",
