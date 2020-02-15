@@ -18,9 +18,9 @@
       @media (prefers-color-schema: light) { html { content: "light"; } }
       @media (prefers-color-schema: dark) { html { content: "dark"; } }*/
       body[theme="dark"],
-      body[theme="dark"] .list-group-item { 
+      body[theme="dark"] .list-group-item {
         background-color: #343a40;
-        color: #f8f9fa; 
+        color: #f8f9fa;
       }
     </style>
   </head>
@@ -47,13 +47,13 @@
       </div> -->
     </div>
     <footer class="text-center">
-      <p id="timespan" data-started-at="2019-01-08"></p>
+      <p id="timespan" data-started-at="2019-01-08" title="开始于 2019-01-08"></p>
       <script>
         !(function() {
           var timespan = document.querySelector('#timespan');
           var startedAt = new Date(timespan.dataset.startedAt);
-          var html = function (d, h, m, s) {
-            return `Runing ${d} 天 ${h} 小时 ${m} 分 ${s} 秒`
+          var html = function (y, d, h, m, s) {
+            return `Runing ${y > 0 ? y + ' 年 ': ''}${d} 天 ${h} 小时 ${m} 分 ${s} 秒`;
           };
           var start = function() {
             var now = new Date();
@@ -62,7 +62,9 @@
             var h = now.getHours();
             var m = now.getMinutes();
             var s = now.getSeconds();
-            timespan.innerHTML = html(d, h, m, s)
+            var y = ~~(d / 365.5);
+            if (y > 0) d = ~~(d - y * 365.5);
+            timespan.innerHTML = html(y, d, h, m, s);
             window.setTimeout(start, 1000);
           };
           start();
