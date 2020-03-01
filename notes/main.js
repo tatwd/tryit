@@ -1,20 +1,21 @@
 $(function() {
-  var books = $('#books');
+  var books = $("#books");
   var badges = {
-    TODO: 'badge-secondary',
-    READING: 'badge-info',
-    FINISHED: 'badge-success'
+    TODO: "badge-secondary",
+    READING: "badge-info",
+    FINISHED: "badge-success"
   };
   var authorTypes = {
-    WRITER: '作者',
-    WRITER_ZHU: '注解',
-    TRANSLATOR: '译者',
-    EDITOR: '编者',
-    EDITOR_JD: '校点'
+    WRITER: "作者",
+    WRITER_ZHU: "注解",
+    WRITER_PD: "评点",
+    TRANSLATOR: "译者",
+    EDITOR: "编者",
+    EDITOR_JD: "校点"
   };
   var bookType = {
-    0: '电子书',
-    1: '纸质书'
+    0: "电子书",
+    1: "纸质书"
   };
 
   function loading(isLoading) {
@@ -25,7 +26,7 @@ $(function() {
     <span class="sr-only">Loading...</span>
   </div>
 </div>`
-      : '';
+      : "";
     $(books).html(html);
   }
 
@@ -41,7 +42,7 @@ $(function() {
         var t = authorTypes[i.type];
         r += `${t}: ${i.name} `;
         return r;
-      }, '');
+      }, "");
 
       return `
 <li class="list-group-item">
@@ -50,17 +51,17 @@ $(function() {
     <span>${bookType[i.type || 0]}</span>
     <span>${authors}</span>
     <span>${i.press}</span>
-    <span>${i.publish_at ? i.publish_at + ' 版' : ''}</span>
+    <span>${i.publish_at ? i.publish_at + " 版" : ""}</span>
   </p>
   <p class="mb-1 text-muted">
     <span class="badge badge-pill ${badges[i.status]}">${i.status}</span>
-    <span>${i.begin_at || '-'} to ${i.end_at || '-'}</span>
+    <span>${i.begin_at || "-"} to ${i.end_at || "-"}</span>
   </p>
 </li>`;
     };
 
     var counting = function(count) {
-      var html = '';
+      var html = "";
       Object.keys(badges).forEach(i => {
         html += `<span class="mx-1 badge ${badges[i]}">${count[i] || 0}</span>`;
       });
@@ -75,12 +76,12 @@ $(function() {
       else n[i.status]++;
     });
 
-    $('#counter').html(counting(n));
+    $("#counter").html(counting(n));
   }
 
   loading(true);
   window.setTimeout(function() {
-    $.get('books.json')
+    $.get("books.json")
       .done(succeeded)
       .fail(failed);
   }, 500);
