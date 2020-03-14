@@ -1,0 +1,158 @@
+<style>
+svg {
+  border: 1px solid #999;
+  overflow: scroll;
+}
+.node rect {
+  stroke: #333;
+  stroke-width: 1.5px; 
+  fill: #fff;
+}
+.edgePath path.path {
+  stroke: #333;
+  stroke-width: 1.5px;
+  fill: none;
+}
+</style>
+
+<svg height="560" width="520"></svg>
+
+<!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+<script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
+<script src="https://dagrejs.github.io/project/graphlib-dot/latest/graphlib-dot.js"></script>
+<script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+<script>
+// 根据data构建出tree
+function buildTree(data) {
+  var dict1 = {}; // item.id->item
+  var dict2 = {}; // item.pid->[item...]
+
+  // 初始化根节点
+  dict1[0] = {
+    id: 0,
+    name: 'root',
+    children: []
+  };
+
+  for (var item of data) {
+    var id = item.id; // 节点id
+    var pid = item.pid; // 父节点id
+
+    // 判断当前节点是否在dict1中
+    if (dict1[id] != undefined) continue;
+
+    // 判断当前节点的父节点是否在dict1中
+    if (dict1[pid] != undefined) {
+      dict1[pid].children.push(item);
+    }
+    // 判断当前节点的父节点是否在dict2中
+    else if (dict2[pid] != undefined) {
+      dict2[pid].push(item);
+    } else {
+      dict2[pid] = [item];
+    }
+
+    item.children = [];
+
+    // 判断dict2中是否有当前节点的子节点
+    if (dict2[id] != undefined) {
+      item.children.push(...dict2[id]); //取出dict2[id]的元素
+      dict2[id] = undefined; // 清除已分配节点!
+    }
+
+    // 将当前节点加入dict1
+    dict1[id] = item;
+  }
+
+  return dict1[0]; // 返回根节点
+}
+
+// 从data中构建出符合cb条件的tree
+function buildTreeBy(data, cb) {
+  var tree = buildTree(data);
+
+  // 剪除不符合条件的节点
+  // 符合条件的将保留其子节点
+  var cutLeavesByJsID = function(tree, cb) {
+    var newChildren = [];
+    for (var item of tree.children) {
+      if (cb(item)) {
+        newChildren.push(item);
+        continue;
+      }
+
+      cutLeavesByJsID(item, cb);
+      if (item.children.length) {
+        newChildren.push(item);
+      }
+    }
+    tree.children = newChildren;
+  };
+
+  cutLeavesByJsID(tree, cb);
+  return tree;
+}
+
+//测试数据
+var data = [
+  { id: 1, name: 'a', pid: 0, jsid: '1001,' },
+  { id: 2, name: 'b', pid: 1, jsid: '1001,1002,' },
+  { id: 3, name: 'c', pid: 6, jsid: '1005,' },
+  { id: 4, name: 'd', pid: 7, jsid: '1006,1002,' },
+  { id: 5, name: 'e', pid: 2, jsid: '1007,1011,' },
+  { id: 6, name: 'f', pid: 1, jsid: '1008,' },
+  { id: 7, name: 'g', pid: 0, jsid: '1009,' },
+  { id: 8, name: 'h', pid: 4, jsid: '1010,' },
+  { id: 9, name: 'i', pid: 4, jsid: '1011,' },
+  { id: 10, name: 'j', pid: 4, jsid: '1011,1012,2012,' },
+  { id: 11, name: 'k', pid: 10, jsid: '1013,1012,' },
+  { id: 12, name: 'l', pid: 11, jsid: '2013,1011,' }
+];
+// 0->1->6->3
+// 0->1->2->5
+// 0->7->4->8
+// 0->7->4->9
+// 0->7->4->10
+// 0->7->->4->10->11
+// 0->7->->4->10->11->12
+//var ret = buildTree(data);
+var ret = buildTreeBy(data, item => {
+  item.checked = item.jsid.indexOf('1002,') != -1;
+  return item.checked;
+});
+console.log(ret);
+
+//以下使用D3.js和dagre.js进行数据可视化
+var root = d3.hierarchy(ret, d => d.children);
+console.log(root);
+
+var grap = digraph(root.copy().each(renderNode));
+d3.select('svg')
+  .append('g')
+  .call(dagreD3.render(), grap);
+
+function renderNode(d) {
+  return (d.label = `#${d.data.id}: ${d.data.name}${
+    d.data.checked ? '*' : ''
+  }`);
+}
+
+function digraph(hierarchy) {
+  var dot = graphlibDot;
+  var id = new Map(hierarchy.descendants().map((node, i) => [node, i]));
+  return dot.read(`digraph {
+  rankdir = TB;
+  node [fontname="var(--sans-serif)" fontsize=12];
+  edge [fontname="var(--sans-serif)" fontsize=12];
+  ${hierarchy
+    .descendants()
+    .map(node => `"${id.get(node)}" [label="${node.label}"]`)
+    .join('; ')}
+  ${hierarchy
+    .links()
+    .map(({ source, target }) => `"${id.get(source)}" -> "${id.get(target)}"`)
+    .join('; ')}
+  }`);
+}
+</script>
