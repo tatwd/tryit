@@ -634,7 +634,7 @@
     "times": 1
   },
   {
-    "isbn": null,
+    "isbn": "978-7-108053695",
     "title": "赫逊河畔谈中国历史",
     "authors": [
       {
@@ -643,11 +643,11 @@
       }
     ],
     "press": "生活·读书·新知三联书店",
-    "publish_at": null,
-    "status": "READING",
+    "publish_at": "2015-08",
+    "status": "FINISHED",
     "begin_at": "2018-12-02",
-    "end_at": null,
-    "times": 0
+    "end_at": "2020-03-18",
+    "times": 1
   },
   {
     "isbn": "978-7-5502-3563-2",
