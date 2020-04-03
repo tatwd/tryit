@@ -1,17 +1,32 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <uv.h>
 
-int main(void) 
+int64_t counter = 0;
+
+void wait_for_while(uv_idle_t *handle)
 {
-    uv_loop_t *loop = malloc(sizeof(uv_loop_t));
-    uv_loop_init(loop);
+	counter++;
 
-    printf("Now quitting.\n");
-    uv_run(loop, UV_RUN_DEFAULT);
+	if (counter >= 10e6) {
+		printf("%d\n", *(int*)handle->data);
+		uv_idle_stop(handle);
+	}
+}
 
-    uv_loop_close(loop);
-    free(loop);
+int main(void)
+{
+	uv_idle_t idler;
 
-    return 0;
+	uv_idle_init(uv_default_loop(), &idler);
+	
+	/*idler.data like a context*/
+	int d = 2;
+	idler.data = (void *)&d;
+	uv_idle_start(&idler, wait_for_while);
+
+	printf("ilding...\n");
+	uv_run(uv_default_loop(), UV_RUN_DEFAULT);
+	uv_loop_close(uv_default_loop());
+
+	return 0;
 }
