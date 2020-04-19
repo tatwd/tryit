@@ -1,5 +1,77 @@
 [
   {
+    "isbn": "978-7-108063960",
+    "title": "拓跋史探（修订版）",
+    "authors": [
+      {
+        "name": "田余庆",
+        "type": "WRITER"
+      }
+    ],
+    "press": "生活·读书·新知三联书店有限公司",
+    "publish_at": "2018-12",
+    "status": "READING",
+    "begin_at": "2020-04-16",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": "978-7-5325-7847-4",
+    "title": "尚书",
+    "authors": [
+      {
+        "name": "曾运乾",
+        "type": "EIDTOR_ZHU"
+      },
+      {
+        "name": "黄曙辉",
+        "type": "EDITOR_JD"
+      }
+    ],
+    "press": "上海古籍出版社",
+    "publish_at": "2016-01",
+    "status": "READING",
+    "begin_at": "2020-04-15",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": "978-7-5325-7275-5",
+    "title": "左传（全二册）",
+    "authors": [
+      {
+        "name": "[战国]左丘明",
+        "type": "WRITER"
+      },
+      {
+        "name": "[西晋]杜预",
+        "type": "EDITOR_JJ"
+      }
+    ],
+    "press": "上海古籍出版社",
+    "publish_at": "2015-07",
+    "status": "READING",
+    "begin_at": "2020-04-15",
+    "end_at": null,
+    "times": 0
+  },
+  {
+    "isbn": "978-7-918009000",
+    "title": "史记（公版）",
+    "authors": [
+      {
+        "name": "[汉]司马迁",
+        "type": "WRITER"
+      }
+    ],
+    "press": "中信出版社",
+    "publish_at": "2018-04",
+    "status": "READING",
+    "begin_at": "2020-04-09",
+    "end_at": null,
+    "times": 0
+  },
+  {
     "isbn": "978-7-513303033",
     "title": "福尔摩斯探案集（图注本）（套装全册）",
     "authors": [

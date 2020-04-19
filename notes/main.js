@@ -1,9 +1,9 @@
-$(function() {
+$(function () {
   var books = $("#books");
   var badges = {
     TODO: "badge-secondary",
     READING: "badge-info",
-    FINISHED: "badge-success"
+    FINISHED: "badge-success",
   };
   var authorTypes = {
     WRITER: "作者",
@@ -11,11 +11,12 @@ $(function() {
     WRITER_PD: "评点",
     TRANSLATOR: "译者",
     EDITOR: "编者",
-    EDITOR_JD: "校点"
+    EDITOR_JD: "校点",
+    EDITOR_JJ: "集解",
   };
   var bookType = {
     0: "电子书",
-    1: "纸质书"
+    1: "纸质书",
   };
 
   function loading(isLoading) {
@@ -37,7 +38,7 @@ $(function() {
   function succeeded(data) {
     loading(false);
 
-    var h = function(i) {
+    var h = function (i) {
       var authors = i.authors.reduce((r, i) => {
         var t = authorTypes[i.type];
         r += `${t}: ${i.name} `;
@@ -60,9 +61,9 @@ $(function() {
 </li>`;
     };
 
-    var counting = function(count) {
+    var counting = function (count) {
       var html = "";
-      Object.keys(badges).forEach(i => {
+      Object.keys(badges).forEach((i) => {
         html += `<span class="mx-1 badge ${badges[i]}">${count[i] || 0}</span>`;
       });
       return html;
@@ -70,7 +71,7 @@ $(function() {
 
     var n = {};
 
-    data.forEach(i => {
+    data.forEach((i) => {
       $(books).append(h(i));
       if (!n[i.status]) n[i.status] = 1;
       else n[i.status]++;
@@ -80,9 +81,7 @@ $(function() {
   }
 
   loading(true);
-  window.setTimeout(function() {
-    $.get("books.json")
-      .done(succeeded)
-      .fail(failed);
+  window.setTimeout(function () {
+    $.get("books.json").done(succeeded).fail(failed);
   }, 500);
 });
