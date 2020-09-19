@@ -1,10 +1,12 @@
 
-test: libmy.so test.o cp2cs
-	cc test.o -L. -lmy -Wl,-rpath=. -g -o test.out
+test: test.out
 	./test.out
 
+test.out: libmy.so test.o cp2cs
+	cc test.o -L. -lmy -Wl,-rpath=. -g -o test.out
+
 libmy.so: mylib.c
-	cc mylib.c -Wall -fPIC -shared -o libmy.so
+	cc mylib.c -Wall -fPIC -shared -g -o libmy.so
 
 test.o: test.c
 	cc test.c -Wall -c

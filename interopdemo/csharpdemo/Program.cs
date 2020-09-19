@@ -3,8 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace csharpdemo
 {
-
-    public static class MyMath
+    public static class MyLib
     {
         [DllImport("my", EntryPoint = "myadd")]
         public static extern int Add(int a, int b);
@@ -20,24 +19,32 @@ namespace csharpdemo
     {
         static void Main(string[] args)
         {
-            var sum = MyMath.Add(1, 2);
-            Console.WriteLine(sum);
+            try
+            {
+                var sum = MyLib.Add(1, 2);
+                Console.WriteLine(sum);
 
-            const string s = "Hello World!\n";
-            var ret = MyMath.Hello(s.ToCharArray(), s.Length);
-            Console.WriteLine(ret);
-            ret = MyMath.Hello(null, s.Length);
-            Console.WriteLine(ret);
-            ret = MyMath.Hello(s.ToCharArray(), 0);
-            Console.WriteLine(ret);
+                const string s = "Hello World!\n";
+                var ret = MyLib.Hello(s.ToCharArray(), s.Length);
+                Console.WriteLine(ret);
+                ret = MyLib.Hello(null, s.Length);
+                Console.WriteLine(ret);
+                ret = MyLib.Hello(s.ToCharArray(), 0);
+                Console.WriteLine(ret);
 
-            const string str = "你好!\n";
-            ret = MyMath.Say(str);
-            // Console.WriteLine(ret);
-            // ret = MyMath.Say(null);
-            // Console.WriteLine(ret);
-            // ret = MyMath.Say("");
-            // Console.WriteLine(ret);
+                const string str = "你好!\n";
+                ret = MyLib.Say(str);
+                Console.WriteLine(ret);
+                ret = MyLib.Say(null);
+                Console.WriteLine(ret);
+                ret = MyLib.Say("");
+                Console.WriteLine(ret);
+            }
+            catch (DllNotFoundException ex)
+            {
+                Console.WriteLine("先到 clibdemo 编译动态链接库 libmy.so => make");
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

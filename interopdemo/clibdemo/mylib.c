@@ -1,58 +1,62 @@
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
-#include <wchar.h>
 #include <string.h>
+#include <wchar.h>
 
 #include "mylib.h"
 
-int myadd(int a, int b) 
+// my string length count
+static size_t mystrlen(const char *str)
 {
-    printf("myadd: now in myadd\n");
-    return a + b;
+	size_t len = strlen(str);
+	if (len == 0) {
+		return 0;
+	}
+
+	// convert char to wchar and count length
+	// reset stdout
+	// freopen(NULL, "w", stdout);
+	setlocale(LC_ALL, "zh_CN.utf8");
+	wchar_t wstr[len];
+	mbstowcs(wstr, str, len);
+	return wcslen(wstr);
 }
 
-int myhello(char str[], int len) 
+int myadd(int a, int b)
 {
-    if (str == NULL) {
-        printf("myhello: null string\n");
-        return 1;
-    }
-    if (len == 0) {
-        printf("myhello: empty string\n");
-        return 2;
-    }
-    printf("myhello(has %d chars): %s", len, str);
-    return 0;
+	printf("myadd: now in myadd\n");
+	return a + b;
 }
 
-int mysay(const char *str) 
+int myhello(char str[], int len)
 {
-    // reset stdout
-    // freopen(NULL, "w", stdout);
-    setlocale(LC_ALL, "zh_CN.utf8");
+	if (str == NULL) {
+		printf("myhello: null string\n");
+		return 1;
+	}
+	if (len == 0) {
+		printf("myhello: empty string\n");
+		return 2;
+	}
+	printf("myhello(has %d chars): %s", len, str);
+	return 0;
+}
 
-    if (str == NULL) {
-        printf("mysay: null string\n");
-        return 1;
-    }
+int mysay(const char *str)
+{
+	if (str == NULL) {
+		printf("mysay: null string\n");
+		return 1;
+	}
 
-    int len = strlen(str);
-    if (len == 0) {
-        printf("mysay: empty string\n");
-        return 2;
-    }
+	size_t len = strlen(str);
+	size_t wlen = mystrlen(str);
+	if (wlen == 0) {
+		printf("mysay: empty string\n");
+		return 2;
+	}
 
-    // convert char to wchar and count length
-    wchar_t wstr[len];
-    mbstowcs(wstr, str, len);
-
-    int wlen = wcslen(wstr);
-    if (wlen == 0) {
-        printf("mysay: empty string\n");
-        return 2;
-    }
-
-    printf("mysay(has %d chars, %d wchars): %s", len, wlen, str);
-    return 0;
+	printf("mysay(has %ld chars, %ld wchars): %s", len, wlen, str);
+	return 0;
 }
