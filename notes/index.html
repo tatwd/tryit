@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <base href="./" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Notes</title>
     <link
       rel="stylesheet"
@@ -28,7 +28,12 @@
     <div class="container my-3" style="max-width: 666px">
       <div class="text-center mb-3">
         <h3 class="text-uppercase">阅读清单</h3>
-        <a class="text-danger text-uppercase" href="http://github.com/tatwd" target="_blank" rel="noopener noreferrer">
+        <a
+          class="text-danger text-uppercase"
+          href="http://github.com/tatwd"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           _king
         </a>
         <div id="counter">
@@ -47,15 +52,21 @@
       </div> -->
     </div>
     <footer class="text-center">
-      <p id="timespan" data-started-at="2019-01-08" title="开始于 2019-01-08"></p>
+      <p
+        id="timespan"
+        data-started-at="2019-01-08"
+        title="开始于 2019-01-08"
+      ></p>
       <script>
-        !(function() {
-          var timespan = document.querySelector('#timespan');
+        !(function () {
+          var timespan = document.querySelector("#timespan");
           var startedAt = new Date(timespan.dataset.startedAt);
           var html = function (y, d, h, m, s) {
-            return `Runing ${y > 0 ? y + ' 年 ': ''}${d} 天 ${h} 小时 ${m} 分 ${s} 秒`;
+            return `Runing ${
+              y > 0 ? y + " 年 " : ""
+            }${d} 天 ${h} 小时 ${m} 分 ${s} 秒`;
           };
-          var start = function() {
+          var start = function () {
             var now = new Date();
             var span = now - startedAt;
             var d = ~~(span / (1 * 24 * 60 * 60 * 1000));
@@ -72,15 +83,16 @@
       </script>
       <p>
         Power by
-        <a href="https://github.com/tatwd/tryit" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a
+          href="https://github.com/tatwd/tryit"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
       </p>
     </footer>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -93,10 +105,10 @@
     ></script>
     <script src="main.js"></script>
     <script>
-      !(function(){
+      !(function () {
         var dateNow = new Date();
         var h = dateNow.getHours();
-        if (h < 6 || h >= 18) document.body.setAttribute('theme', 'dark');
+        if (h < 6 || h >= 18) document.body.setAttribute("theme", "dark");
       })();
     </script>
     <!--<span id="theme-status"></span>
