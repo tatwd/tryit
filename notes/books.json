@@ -1,5 +1,21 @@
 [
   {
+    "isbn": "978-7-550235502",
+    "title": "朝花夕拾",
+    "authors": [
+      {
+        "name": "鲁迅",
+        "type": "WRITER"
+      }
+    ],
+    "press": "北京联合出版有限责任公司",
+    "publish_at": "2014-10",
+    "status": "FINISHED",
+    "begin_at": "2020-09-04",
+    "end_at": "2020-09-21",
+    "times": 1
+  },
+  {
     "isbn": "978-7-532575107",
     "title": "水浒传注评本",
     "authors": [
