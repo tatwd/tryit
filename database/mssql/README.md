@@ -1,1 +1,0 @@
-Microsoft SQL Server 数据库不区分大小写。

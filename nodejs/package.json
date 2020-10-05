@@ -1,7 +1,0 @@
-{
-  "name": "atou",
-  "bin": {
-    "atou": "atou",
-    "utoa": "utoa"
-  }
-}
