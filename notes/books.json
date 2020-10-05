@@ -1,5 +1,21 @@
 [
   {
+    "isbn": "978-7-503470592",
+    "title": "蜀山剑侠传（第一卷）",
+    "authors": [
+      {
+        "name": "还珠楼主",
+        "type": "WRITER"
+      }
+    ],
+    "press": "中国文史出版社",
+    "publish_at": "2016-01",
+    "status": "FINISHED",
+    "begin_at": "2020-09-03",
+    "end_at": "2020-10-02",
+    "times": 1
+  },
+  {
     "isbn": "978-7-550235502",
     "title": "朝花夕拾",
     "authors": [
