@@ -21,3 +21,13 @@ IDENTIFIED BY 'test123';
 INSERT INTO mysql.user(Host,User,authentication_string,Select_priv,Insert_priv,Update_priv,Delete_priv,Create_priv,Drop_priv)
 VALUES('localhost', 'jaron', PASSWORD('test123'), 'Y', 'Y', 'Y', 'Y', 'Y', 'Y');
 FLUSH PRIVILEGES; -- 重读授权表
+
+# 查看用户权限
+show grants for 'test'@'%'
+
+# 给已存在的用户添加权限
+grant ALTER,CREATE Temporary Tables on test_db.* to test
+
+# 撤销用户 test 在 test 数据库上所以的权限
+revoke all on test.* from test
+
