@@ -1,5 +1,21 @@
 [
   {
+    "isbn": "978-7-559629999",
+    "title": "古代汉语常识",
+    "authors": [
+      {
+        "name": "王力",
+        "type": "WRITER"
+      }
+    ],
+    "press": "北京联合出版公司",
+    "publish_at": "2019-06",
+    "status": "FINISHED",
+    "begin_at": "2020-10-28",
+    "end_at": "2020-11-01",
+    "times": 1
+  },
+  {
     "isbn": "978-7-550251427",
     "title": "隐公元年：一部另类的中国思想史",
     "authors": [
@@ -8,7 +24,7 @@
         "type": "WRITER"
       }
     ],
-    "press": "北京联合出版社",
+    "press": "北京联合出版公司",
     "publish_at": "2015-09",
     "status": "READING",
     "begin_at": "2020-10-23",
