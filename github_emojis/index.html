@@ -195,6 +195,7 @@
       var cacheVal = JSON.parse(localStorage.getItem("LOCAL_EMOJIS"));
       console.log(cacheVal);
       if (cacheVal) {
+        emojisEl.innerHTML = "";
         emojisUrls = cacheVal;
         hits = cacheVal.slice(0);
         render();
@@ -202,7 +203,6 @@
 
       makeAjax().send(apiUrl, function (res, xhr) {
         if (xhr.status === 200) {
-          emojisEl.innerHTML = "";
           var data = JSON.parse(res);
           emojisUrls = [];
           for (var k in data) {
@@ -212,6 +212,7 @@
           }
           localStorage.setItem("LOCAL_EMOJIS", JSON.stringify(emojisUrls));
           if (!cacheVal) {
+            emojisEl.innerHTML = "";
             hits = emojisUrls.slice(0);
             render();
           }
