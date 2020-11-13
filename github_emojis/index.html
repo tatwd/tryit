@@ -202,6 +202,7 @@
 
       makeAjax().send(apiUrl, function (res, xhr) {
         if (xhr.status === 200) {
+          emojisEl.innerHTML = "";
           var data = JSON.parse(res);
           emojisUrls = [];
           for (var k in data) {
