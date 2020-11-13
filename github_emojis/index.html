@@ -2,11 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>GitHub Emojis</title>
+    <title>GitHub emojisEl</title>
     <style>
-      *, ::after, ::before {
+      *,
+      ::after,
+      ::before {
         box-sizing: border-box;
       }
       html {
@@ -16,12 +21,13 @@
         margin: 0;
         padding: 0;
       }
-      p, input {
+      p,
+      input {
         font-size: 1.15rem;
       }
       a {
         text-decoration: none;
-        color: lightcoral
+        color: lightcoral;
       }
       .container {
         max-width: 766px;
@@ -32,7 +38,8 @@
       .uppercase {
         text-transform: uppercase;
       }
-      .search-input, .search-input:focus {
+      .search-input,
+      .search-input:focus {
         display: block;
         width: 100%;
         padding: 8px 10px;
@@ -42,12 +49,12 @@
         border: 1px solid lightcoral;
         outline: 0;
         -ms-progress-appearance: unset;
-             -webkit-appearance: none;
-                -moz-appearance: none;
-                     appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
       }
       .clearfix::after {
-        content: '';
+        content: "";
         display: block;
         clear: both;
       }
@@ -71,7 +78,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="uppercase">GitHub Emojis</h1>
+      <h1 class="uppercase">GitHub emojisEl</h1>
       <p>
         by
         <a
@@ -85,7 +92,7 @@
       </p>
       <section>
         <h2>API</h2>
-        <p><code class="code">https://api.github.com/emojis</code></p>
+        <p><code class="code">https://api.github.com/emojisEl</code></p>
       </section>
       <section>
         <h2>Usage</h2>
@@ -105,82 +112,111 @@
       <section>
         <h2>List</h2>
         <div id="emojis" class="clearfix"><!-- placeholder --></div>
+        <a id="more" href="javascript:;" style="font-size: 18px; display: none"
+          >more</a
+        >
       </section>
-      <hr style="border:1px solid #eee">
+      <hr style="border: 1px solid #eee" />
       <footer>
         <p>
           Power by
-          <a href="https://github.com/tatwd/tryit/tree/master/github_emojis" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a
+            href="https://github.com/tatwd/tryit/tree/master/github_emojisEl"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
           at 2019-01-17.
         </p>
       </footer>
     </div>
   </body>
 </html>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"
-></script>
+<script src="https://unpkg.com/tinykit@0.1.7/dist/bundle.umd.js"></script>
 <script>
-  var apiUrl = 'https://api.github.com/emojis';
-  var emojis = $('#emojis');
-  var search_input = $('input[name="search_text"]');
-  var render = function(k, v, i) {
-    window.setTimeout(function() {
-      var search_text = search_input.val();
-      // var s = '';
-      // if (v.indexOf('unicode') !== -1) {
-      //   var unicode = v.replace(/(.*\/)*([^.]+).*/ig,"$2");
-      //   // if (unicode.indexOf('-') === -1) {
-      //   //   s = String.fromCodePoint(parseInt(unicode, 16))
-      //   // }
-      //   var ss = []
-      //   unicode.split('-').forEach(i => {
-      //     ss.push(String.fromCodePoint(parseInt(i, 16)))
-      //   })
-      //   s = ss.join('&zwj;');
-      // }
-      var emoji_img = `<img src="${v}" alt=":${k}:" width="22" style="vertical-align: middle;margin-right: 3px;">`
-      // var emoji = `<span style="margin-right:3px;">${s}</span>`
-      // var emoji = !s
-      //   ? `<img src="${v}" alt=":${k}:" width="22" style="vertical-align: middle;margin-right: 3px;">`
-      //   : `<span style="width:22px;display:inline-block;text-align:center;vertical-align:middle;font-size:16px;margin-right:3px;">${s}</span>`;
-      var html = `
-<p class="emoji" data-emoji="${k}" style="display:${search_text ? (k.indexOf(search_text) !== -1 ? 'none' : 'block') : 'block'}">
-  ${emoji_img}
-  <code class="code" style="vertical-align:middle;">:${k}:</code>
-</p>`;
-      emojis.append(html);
-    }, i * 10);
+  var apiUrl = "https://api.github.com/emojis";
+  var emojisEl = document.querySelector("#emojis");
+  var searchInputEl = document.querySelector('input[name="search_text"]');
+  var moreEl = document.querySelector("#more");
+
+  var { makeAjax, loading } = tinykit;
+  var emojisUrls = [];
+  var hits = [];
+  var lastIndex = 0;
+  var limit = 20;
+
+  var render = function () {
+    var len = (lastIndex + 1) * limit;
+    var hitsLen = hits.length;
+    for (var i = lastIndex * limit; i < len && i < hitsLen; i++) {
+      (function (idx) {
+        var item = hits[idx];
+        var html = `
+  <p class="emoji" data-emoji="${item.key}">
+    <img src="${item.val}" alt=":${item.key}:" width="22" style="vertical-align: middle;margin-right: 3px;">
+    <code class="code" style="vertical-align:middle;">:${item.key}:</code>
+  </p>`;
+        emojisEl.innerHTML += html;
+      })(i);
+    }
+    lastIndex++;
+    if ((lastIndex + 1) * limit < hitsLen) {
+      moreEl.style.display = "block";
+    }
   };
 
-  search_input.on('input', function(evt) {
-    var val = evt.target.value;
-    if (val === '') {
-      emojis.children().show();
-      return;
+  searchInputEl.addEventListener("input", function (evt) {
+    console.log(evt.timeStamp);
+    if (evt.timeStamp > 2000) {
+      moreEl.style.display = "none";
+      loading(
+        function () {
+          var val = evt.target.value;
+          hits = emojisUrls.filter(function (item) {
+            return item.key.indexOf(val) !== -1;
+          });
+          if (hits.length) {
+            emojisEl.innerHTML = "";
+            lastIndex = 0;
+            render();
+          } else emojisEl.innerHTML = "Not found!";
+        },
+        { el: emojisEl }
+      );
     }
-    emojis.children().each(function(i, el) {
-      var cur = $(el);
-      if (cur.attr('data-emoji').indexOf(val) !== -1) {
-        cur.show();
-      } else {
-        cur.hide();
-      }
-    });
   });
 
-  $.get(apiUrl)
-    .done(function(data) {
-      var i = 0;
-      for (var k in data) {
-        if (data.hasOwnProperty(k)) {
-          render(k, data[k], ++i);
-        }
+  moreEl.addEventListener("click", function () {
+    render();
+  });
+
+  loading(
+    function () {
+      var cacheVal = JSON.parse(localStorage.getItem("LOCAL_EMOJIS"));
+      console.log(cacheVal);
+      if (cacheVal) {
+        emojisUrls = cacheVal;
+        hits = cacheVal.slice(0);
+        render();
       }
-    })
-    .fail(function(err) {
-      console.log(err);
-    });
+
+      makeAjax().send(apiUrl, function (res, xhr) {
+        if (xhr.status === 200) {
+          var data = JSON.parse(res);
+          emojisUrls = [];
+          for (var k in data) {
+            if (data.hasOwnProperty(k)) {
+              emojisUrls.push({ key: k, val: data[k] });
+            }
+          }
+          localStorage.setItem("LOCAL_EMOJIS", JSON.stringify(emojisUrls));
+          if (!cacheVal) {
+            hits = emojisUrls.slice(0);
+            render();
+          }
+        } else emojisEl.innerHTML = "网络错误！";
+      });
+    },
+    { el: emojisEl }
+  );
 </script>
