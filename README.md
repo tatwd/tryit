@@ -14,7 +14,7 @@
 
 add a remote called `upstream` if you want to contribute it:
 ```bash
-git remote add upstream https://github.com/tatwd/test.git
+git remote add upstream https://github.com/tatwd/tryit.git
 ```
 then you can update your local repo:
 ```bash
