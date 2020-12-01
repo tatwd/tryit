@@ -129,5 +129,6 @@ func cutoff64(base int) uint64 {
 	if base < 2 {
 		return 0
 	}
-	return (1<<64-1)/uint64(base) + 1
+	ub := uint64(base)
+	return (1<<64-1)/ub + 1
 }
