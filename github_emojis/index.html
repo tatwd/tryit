@@ -144,6 +144,7 @@
   var hits = [];
   var lastIndex = 0;
   var limit = 20;
+  var lastInputTimestamp = 0;
 
   var render = function () {
     var len = (lastIndex + 1) * limit;
@@ -166,8 +167,8 @@
   };
 
   searchInputEl.addEventListener("input", function (evt) {
-    console.log(evt.timeStamp);
-    if (evt.timeStamp > 2000) {
+    console.log(evt.timeStamp, lastInputTimestamp);
+    if ((evt.timeStamp - lastInputTimestamp) > 1000) {
       moreEl.style.display = "none";
       loading(
         function () {
@@ -184,6 +185,7 @@
         { el: emojisEl }
       );
     }
+    lastInputTimestamp = evt.timeStamp
   });
 
   moreEl.addEventListener("click", function () {
