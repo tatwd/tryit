@@ -80,6 +80,8 @@ InnoDB 的 MVCC：每行记录隐含两个字段——创建时间和过期时�
 
 MVCC 只在 REPEATABLE READ 和 READ COMMITTED 两个隔离级别下工作。
 
+**[Innodb Locking](./innodb-locking.md)**
+
 TODO
 
 参考资料
