@@ -166,13 +166,27 @@
     }
   };
 
+  var timerId = 0;
+  var ms = 800;
   searchInputEl.addEventListener("input", function (evt) {
-    console.log(evt.timeStamp, lastInputTimestamp);
-    if ((evt.timeStamp - lastInputTimestamp) > 1000) {
+    console.log(
+      evt.timeStamp,
+      lastInputTimestamp,
+      timerId,
+      searchInputEl.value
+    );
+    if (evt.timeStamp - lastInputTimestamp <= ms) {
+      clearTimeout(timerId);
+    }
+    timerId = setTimeout(function () {
+      console.log("start fetching data", val);
+      var val = searchInputEl.value.trim();
+      if (!val) {
+        return;
+      }
       moreEl.style.display = "none";
       loading(
         function () {
-          var val = evt.target.value;
           hits = emojisUrls.filter(function (item) {
             return item.key.indexOf(val) !== -1;
           });
@@ -184,8 +198,8 @@
         },
         { el: emojisEl }
       );
-    }
-    lastInputTimestamp = evt.timeStamp
+    }, ms);
+    lastInputTimestamp = evt.timeStamp;
   });
 
   moreEl.addEventListener("click", function () {
