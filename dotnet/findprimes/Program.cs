@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -34,7 +34,7 @@ namespace findprimes
 
         private static void FindPrimes(Channel<int> chan, Channel<bool> waitChan)
         {
-            Task.Run(async() =>
+            Task.Run(async () =>
             {
                 // Console.WriteLine("tid:{0}", Thread.CurrentThread.ManagedThreadId);
                 var ok = await chan.Reader.WaitToReadAsync();
