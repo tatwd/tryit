@@ -139,7 +139,7 @@
   var searchInputEl = document.querySelector('input[name="search_text"]');
   var moreEl = document.querySelector("#more");
 
-  var { makeAjax, loading } = tinykit;
+  var { makeAjax, loading, makeDelayHandler } = tinykit;
   var emojisUrls = [];
   var hits = [];
   var lastIndex = 0;
@@ -166,9 +166,8 @@
     }
   };
 
-  var timerId = 0;
   var ms = 800;
-  var inputHandle = tinykit.makeDelayHandler(function (evt) {
+  var inputHandle = makeDelayHandler(function (evt) {
     console.log("start fetching data", val);
     var val = searchInputEl.value.trim();
     if (!val) {
