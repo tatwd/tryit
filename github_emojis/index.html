@@ -132,7 +132,7 @@
     </div>
   </body>
 </html>
-<script src="https://unpkg.com/tinykit@0.1.7/dist/bundle.umd.js"></script>
+<script src="https://unpkg.com/tinykit@0.1.10/dist/bundle.umd.js"></script>
 <script>
   var apiUrl = "https://api.github.com/emojis";
   var emojisEl = document.querySelector("#emojis");
@@ -168,43 +168,30 @@
 
   var timerId = 0;
   var ms = 800;
-  searchInputEl.addEventListener("input", function (evt) {
-    console.log(
-      evt.timeStamp,
-      lastInputTimestamp,
-      timerId,
-      searchInputEl.value
-    );
-    if (evt.timeStamp - lastInputTimestamp <= ms) {
-      clearTimeout(timerId);
+  var inputHandle = tinykit.makeDelayHandler(function (evt) {
+    console.log("start fetching data", val);
+    var val = searchInputEl.value.trim();
+    if (!val) {
+      return;
     }
-    timerId = setTimeout(function () {
-      console.log("start fetching data", val);
-      var val = searchInputEl.value.trim();
-      if (!val) {
-        return;
-      }
-      moreEl.style.display = "none";
-      loading(
-        function () {
-          hits = emojisUrls.filter(function (item) {
-            return item.key.indexOf(val) !== -1;
-          });
-          if (hits.length) {
-            emojisEl.innerHTML = "";
-            lastIndex = 0;
-            render();
-          } else emojisEl.innerHTML = "Not found!";
-        },
-        { el: emojisEl }
-      );
-    }, ms);
-    lastInputTimestamp = evt.timeStamp;
-  });
+    moreEl.style.display = "none";
+    loading(
+      function () {
+        hits = emojisUrls.filter(function (item) {
+          return item.key.indexOf(val) !== -1;
+        });
+        if (hits.length) {
+          emojisEl.innerHTML = "";
+          lastIndex = 0;
+          render();
+        } else emojisEl.innerHTML = "Not found!";
+      },
+      { el: emojisEl }
+    );
+  }, ms);
 
-  moreEl.addEventListener("click", function () {
-    render();
-  });
+  searchInputEl.addEventListener("input", inputHandle);
+  moreEl.addEventListener("click", render);
 
   loading(
     function () {
