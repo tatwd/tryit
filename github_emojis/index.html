@@ -140,18 +140,29 @@
   var moreEl = document.querySelector("#more");
 
   var { makeAjax, loading, makeDelayHandler } = tinykit;
-  var emojisUrls = [];
-  var hits = [];
-  var lastIndex = 0;
+  var pageIdx = 0;
   var limit = 20;
-  var lastInputTimestamp = 0;
 
-  var render = function () {
-    var len = (lastIndex + 1) * limit;
-    var hitsLen = hits.length;
-    for (var i = lastIndex * limit; i < len && i < hitsLen; i++) {
+  var getCacheData = function () {
+    return JSON.parse(localStorage.getItem("LOCAL_EMOJIS")) || [];
+  };
+
+  var findData = function () {
+    var val = searchInputEl.value.trim();
+    var data = getCacheData();
+    if (!val) return data;
+    return data.filter(function (item) {
+      return item.key.indexOf(val) !== -1;
+    });
+  };
+
+  var render = function (data) {
+    if (!data.length) return;
+    var nextIdx = (pageIdx + 1) * limit;
+    var dataLen = data.length;
+    for (var i = pageIdx * limit; i < nextIdx && i < dataLen; i++) {
       (function (idx) {
-        var item = hits[idx];
+        var item = data[idx];
         var html = `
   <p class="emoji" data-emoji="${item.key}">
     <img src="${item.val}" alt=":${item.key}:" width="22" style="vertical-align: middle;margin-right: 3px;">
@@ -160,65 +171,56 @@
         emojisEl.innerHTML += html;
       })(i);
     }
-    lastIndex++;
-    if ((lastIndex + 1) * limit < hitsLen) {
+    if (nextIdx < dataLen) {
       moreEl.style.display = "block";
     }
+    pageIdx++;
   };
 
   var ms = 800;
   var inputHandle = makeDelayHandler(function (evt) {
-    console.log("start fetching data", val);
-    var val = searchInputEl.value.trim();
-    if (!val) {
-      return;
-    }
     moreEl.style.display = "none";
     loading(
       function () {
-        hits = emojisUrls.filter(function (item) {
-          return item.key.indexOf(val) !== -1;
-        });
-        if (hits.length) {
-          emojisEl.innerHTML = "";
-          lastIndex = 0;
-          render();
-        } else emojisEl.innerHTML = "Not found!";
+        var data = findData();
+        if (!data.length) {
+          emojisEl.innerHTML = "Not found!";
+          return;
+        }
+        emojisEl.innerHTML = "";
+        pageIdx = 0;
+        render(data);
       },
       { el: emojisEl }
     );
   }, ms);
 
   searchInputEl.addEventListener("input", inputHandle);
-  moreEl.addEventListener("click", render);
+  moreEl.addEventListener("click", function () {
+    render(findData());
+  });
 
   loading(
     function () {
-      var cacheVal = JSON.parse(localStorage.getItem("LOCAL_EMOJIS"));
-      console.log(cacheVal);
-      if (cacheVal) {
-        emojisEl.innerHTML = "";
-        emojisUrls = cacheVal;
-        hits = cacheVal.slice(0);
-        render();
-      }
+      emojisEl.innerHTML = "";
+
+      var cacheVal = getCacheData();
+      render(cacheVal);
 
       makeAjax().send(apiUrl, function (res, xhr) {
         if (xhr.status === 200) {
           var data = JSON.parse(res);
-          emojisUrls = [];
+          var emojisUrls = [];
           for (var k in data) {
             if (data.hasOwnProperty(k)) {
               emojisUrls.push({ key: k, val: data[k] });
             }
           }
           localStorage.setItem("LOCAL_EMOJIS", JSON.stringify(emojisUrls));
-          if (!cacheVal) {
-            emojisEl.innerHTML = "";
-            hits = emojisUrls.slice(0);
-            render();
-          }
-        } else emojisEl.innerHTML = "网络错误！";
+          if (!cacheVal.length) render(emojisUrls);
+        } else {
+          !cacheVal.length && (emojisEl.innerHTML = "网络错误！");
+        }
       });
     },
     { el: emojisEl }
