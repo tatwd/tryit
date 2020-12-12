@@ -164,10 +164,10 @@
       (function (idx) {
         var item = data[idx];
         var html = `
-  <p class="emoji" data-emoji="${item.key}">
-    <img src="${item.val}" alt=":${item.key}:" width="22" style="vertical-align: middle;margin-right: 3px;">
-    <code class="code" style="vertical-align:middle;">:${item.key}:</code>
-  </p>`;
+    <p class="emoji" data-emoji="${item.key}">
+      <img src="${item.val}" alt=":${item.key}:" width="22" style="vertical-align: middle;margin-right: 3px;">
+      <code class="code" style="vertical-align:middle;">:${item.key}:</code>
+    </p>`;
         emojisEl.innerHTML += html;
       })(i);
     }
@@ -177,7 +177,6 @@
     pageIdx++;
   };
 
-  var ms = 800;
   var inputHandle = makeDelayHandler(function (evt) {
     moreEl.style.display = "none";
     loading(
@@ -193,36 +192,35 @@
       },
       { el: emojisEl }
     );
-  }, ms);
+  }, 800);
 
   searchInputEl.addEventListener("input", inputHandle);
   moreEl.addEventListener("click", function () {
     render(findData());
   });
 
-  loading(
-    function () {
-      emojisEl.innerHTML = "";
+  var initDataAndRender = function () {
+    emojisEl.innerHTML = "";
 
-      var cacheVal = getCacheData();
-      render(cacheVal);
+    var cacheVal = getCacheData();
+    render(cacheVal);
 
-      makeAjax().send(apiUrl, function (res, xhr) {
-        if (xhr.status === 200) {
-          var data = JSON.parse(res);
-          var emojisUrls = [];
-          for (var k in data) {
-            if (data.hasOwnProperty(k)) {
-              emojisUrls.push({ key: k, val: data[k] });
-            }
+    makeAjax().send(apiUrl, function (res, xhr) {
+      if (xhr.status === 200) {
+        var data = JSON.parse(res);
+        var emojisUrls = [];
+        for (var k in data) {
+          if (data.hasOwnProperty(k)) {
+            emojisUrls.push({ key: k, val: data[k] });
           }
-          localStorage.setItem("LOCAL_EMOJIS", JSON.stringify(emojisUrls));
-          if (!cacheVal.length) render(emojisUrls);
-        } else {
-          !cacheVal.length && (emojisEl.innerHTML = "网络错误！");
         }
-      });
-    },
-    { el: emojisEl }
-  );
+        localStorage.setItem("LOCAL_EMOJIS", JSON.stringify(emojisUrls));
+        if (!cacheVal.length) render(emojisUrls);
+      } else {
+        !cacheVal.length && (emojisEl.innerHTML = "网络错误！");
+      }
+    });
+  };
+
+  loading(initDataAndRender, { el: emojisEl });
 </script>
