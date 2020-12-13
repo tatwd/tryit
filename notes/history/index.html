@@ -19,6 +19,26 @@
   </head>
   <body>
     <div class="container py-4" style="max-width: 666px">
+      <h3>公元纪年转换农历纪年</h3>
+      <div class="form-inline mb-3">
+        <div class="form-group mb-2">
+          <select id="inputCEYearType" class="form-control">
+            <option value="-1">公元前</option>
+            <option value="1">公元后</option>
+          </select>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="inputCEYear" class="sr-only">Password</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputCEYear"
+            placeholder="年份"
+          />
+        </div>
+        <button class="btn btn-primary mb-2" id="ce2lunisolar-btn">转换</button>
+      </div>
+
       <h3>历史纪年</h3>
       <p>
         数据来源：
@@ -44,5 +64,26 @@
       crossorigin="anonymous"
     ></script>
     <script src="./main.js"></script>
+    <script src="./ce2lunisolar.js"></script>
+    <script>
+      $(function () {
+        var $inputCEYearType = $("#inputCEYearType");
+        var $inputCEYear = $("#inputCEYear");
+        $("#ce2lunisolar-btn").click(function (evt) {
+          var type = $inputCEYearType.val();
+          var year = $inputCEYear.val();
+          if (!year || isNaN(year)) {
+            alert("请输入有效年份值！");
+            return;
+          }
+          var result = ce2lunisolar(year * type);
+          if (result === "unknown") {
+            alert("暂时无法转换！");
+            return;
+          }
+          alert("对应农历年份是：" + result + "年");
+        });
+      });
+    </script>
   </body>
 </html>
