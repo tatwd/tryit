@@ -37,6 +37,7 @@
           />
         </div>
         <button class="btn btn-primary mb-2" id="ce2lunisolar-btn">转换</button>
+        <span class="ml-3" id="currentYear"></span>
       </div>
 
       <h3>历史纪年</h3>
@@ -69,6 +70,9 @@
       $(function () {
         var $inputCEYearType = $("#inputCEYearType");
         var $inputCEYear = $("#inputCEYear");
+        var $currentYear = $("#currentYear");
+        var yearTypeMap = { "-1": "公元前", 1: "公元后" };
+
         $("#ce2lunisolar-btn").click(function (evt) {
           var type = $inputCEYearType.val();
           var year = $inputCEYear.val();
@@ -76,13 +80,22 @@
             alert("请输入有效年份值！");
             return;
           }
-          var result = ce2lunisolar(year * type);
-          if (result === "unknown") {
-            alert("暂时无法转换！");
-            return;
-          }
-          alert("对应农历年份是：" + result + "年");
+          updateResult(type, year);
         });
+
+        updateResult(1, new Date().getFullYear());
+
+        function updateResult(yearType, year) {
+          var h = "".concat(
+            yearTypeMap[yearType],
+            " ",
+            year,
+            " 年是<b>",
+            ce2lunisolar(yearType * year),
+            "年</b>"
+          );
+          $currentYear.html(h);
+        }
       });
     </script>
   </body>
