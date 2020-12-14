@@ -24,7 +24,7 @@
         <div class="form-group mb-2">
           <select id="inputCEYearType" class="form-control">
             <option value="-1">公元前</option>
-            <option value="1">公元后</option>
+            <option value="1" selected>公元后</option>
           </select>
         </div>
         <div class="form-group mx-sm-3 mb-2">
@@ -71,9 +71,20 @@
         var $inputCEYearType = $("#inputCEYearType");
         var $inputCEYear = $("#inputCEYear");
         var $currentYear = $("#currentYear");
+        var $convBtn = $("#ce2lunisolar-btn");
         var yearTypeMap = { "-1": "公元前", 1: "公元后" };
 
-        $("#ce2lunisolar-btn").click(function (evt) {
+        main();
+
+        function main() {
+          $inputCEYear.on("keyup", function (evt) {
+            if (evt.keyCode === 13) convHandle();
+          });
+          $convBtn.click(convHandle);
+          updateResult(1, new Date().getFullYear());
+        }
+
+        function convHandle() {
           var type = $inputCEYearType.val();
           var year = $inputCEYear.val();
           if (!year || isNaN(year)) {
@@ -81,9 +92,7 @@
             return;
           }
           updateResult(type, year);
-        });
-
-        updateResult(1, new Date().getFullYear());
+        }
 
         function updateResult(yearType, year) {
           var h = "".concat(
@@ -91,7 +100,7 @@
             " ",
             year,
             " 年是<b>",
-            ce2lunisolar(yearType * year),
+            ce2lunisolar(year, yearType),
             "年</b>"
           );
           $currentYear.html(h);

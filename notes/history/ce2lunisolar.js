@@ -110,24 +110,15 @@ const acMap = {
  * 公元纪年转农历纪年
  * @param {number} ceYear 公元纪元年份
  */
-function ce2lunisolar(ceYear) {
-  if (ceYear <= 0) {
-    var year = ceYear * -1;
-    var u = year % 10;
-    var t = ~~((year / 10) % 10);
-    var o = ~~(year / 100);
-    if (o > 32) return "unknown";
-    var r = o % 3;
-    var oIdx = r === 0 ? r + 2 : r === 2 ? r - 2 : 1;
-    var row = bcMap.units[u];
-    return row[0] + row[bcMap.tens[oIdx][t]];
-  }
+function ce2lunisolar(ceYear, yearType) {
   var u = ceYear % 10;
   var t = ~~((ceYear / 10) % 10);
   var o = ~~(ceYear / 100);
   if (o > 32) return "unknown";
   var r = o % 3;
   var oIdx = r === 0 ? r + 2 : r === 2 ? r - 2 : 1;
-  var row = acMap.units[u];
-  return row[0] + row[acMap.tens[oIdx][t]];
+
+  var map = yearType == -1 ? bcMap : acMap;
+  var row = map.units[u];
+  return row[0] + row[map.tens[oIdx][t]];
 }
