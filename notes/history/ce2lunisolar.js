@@ -53,7 +53,7 @@ const bcMap = {
 };
 
 // 公元后甲子对照表
-const acMap = {
+const adMap = {
   units: {
     0: ["庚", "申", "午", "辰", "寅", "子", "戌"],
     1: ["辛", "酉", "未", "巳", "卯", "丑", "亥"],
@@ -111,6 +111,7 @@ const acMap = {
  * @param {number} ceYear 公元纪元年份
  */
 function ce2lunisolar(ceYear, yearType) {
+  if (ceYear == 0) return "unknown";
   var u = ceYear % 10;
   var t = ~~((ceYear / 10) % 10);
   var o = ~~(ceYear / 100);
@@ -118,7 +119,7 @@ function ce2lunisolar(ceYear, yearType) {
   var r = o % 3;
   var oIdx = r === 0 ? r + 2 : r === 2 ? r - 2 : 1;
 
-  var map = yearType == -1 ? bcMap : acMap;
+  var map = yearType == -1 ? bcMap : adMap;
   var row = map.units[u];
   return row[0] + row[map.tens[oIdx][t]];
 }
