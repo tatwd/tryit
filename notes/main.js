@@ -1,7 +1,7 @@
 $(function () {
   var books = $("#books");
   var badges = {
-    TODO: "badge-secondary",
+    // TODO: "badge-secondary",
     READING: "badge-info",
     FINISHED: "badge-success",
   };
