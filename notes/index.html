@@ -17,8 +17,8 @@
       /*html { content: ""; }
       @media (prefers-color-schema: light) { html { content: "light"; } }
       @media (prefers-color-schema: dark) { html { content: "dark"; } }*/
-      body[theme="dark"],
-      body[theme="dark"] .list-group-item {
+      html[theme="dark"] body,
+      html[theme="dark"] body .list-group-item {
         background-color: #343a40;
         color: #f8f9fa;
       }
@@ -26,6 +26,13 @@
         background-color: rgb(251, 253, 255);
       }
     </style>
+    <script src="https://unpkg.com/tinykit@0.1.1/dist/bundle.umd.min.js"></script>
+    <script>
+      !(function () {
+        if (tinykit.isDark())
+          document.documentElement.setAttribute("theme", "dark");
+      })();
+    </script>
   </head>
   <body>
     <div class="container my-3" style="max-width: 666px">
@@ -108,16 +115,7 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
-    <script
-      defer
-      src="https://unpkg.com/tinykit@0.1.1/dist/bundle.umd.min.js"
-    ></script>
     <script defer src="main.js"></script>
-    <script>
-      $(function () {
-        if (tinykit.isDark()) document.body.setAttribute("theme", "dark");
-      });
-    </script>
     <!--<span id="theme-status"></span>
     <script>
       var isDark = window.matchMedia('(perfers-color-scheme: dark)').matches;
