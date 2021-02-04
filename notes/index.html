@@ -24,10 +24,11 @@
         background-color: rgb(251, 253, 255);
       }
     </style>
-    <script src="https://unpkg.com/tinykit@0.1.1/dist/bundle.umd.min.js"></script>
+    <!-- <script src="https://unpkg.com/tinykit@0.1.1/dist/bundle.umd.min.js"></script> -->
+    <script src="https://unpkg.com/tinykit@0.1.15/dist/x/isDark.min.js"></script>
     <script>
       !(function () {
-        if (tinykit.isDark())
+        if (/*tinykit.*/ isDark())
           document.documentElement.setAttribute("theme", "dark");
       })();
     </script>
