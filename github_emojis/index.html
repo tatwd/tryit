@@ -132,14 +132,17 @@
     </div>
   </body>
 </html>
-<script src="https://unpkg.com/tinykit@0.1.10/dist/bundle.umd.min.js"></script>
+<!-- <script src="https://unpkg.com/tinykit@0.1.10/dist/bundle.umd.min.js"></script> -->
+<script src="https://unpkg.com/tinykit@0.1.15/dist/x/loading.min.js"></script>
+<script src="https://unpkg.com/tinykit@0.1.15/dist/x/makeAjax.min.js"></script>
+<script src="https://unpkg.com/tinykit@0.1.15/dist/x/makeDelayHandler.min.js"></script>
 <script>
   var apiUrl = "https://api.github.com/emojis";
   var emojisEl = document.querySelector("#emojis");
   var searchInputEl = document.querySelector('input[name="search_text"]');
   var moreEl = document.querySelector("#more");
 
-  var { makeAjax, loading, makeDelayHandler } = tinykit;
+  var { makeAjax, loading, makeDelayHandler } = window; /*tinykit*/
   var pageIdx = 0;
   var limit = 20;
 
