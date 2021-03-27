@@ -135,14 +135,20 @@
 <!-- <script src="https://unpkg.com/tinykit@0.1.10/dist/bundle.umd.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.15/dist/x/loading.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.15/dist/x/makeAjax.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.16/dist/x/makeThrottle.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.16/dist/x/makeThrottle.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.16/dist/x/makeDelayHandler.min.js"></script>
 <script>
   var apiUrl = "https://api.github.com/emojis";
   var emojisEl = document.querySelector("#emojis");
   var searchInputEl = document.querySelector('input[name="search_text"]');
   var moreEl = document.querySelector("#more");
 
-  var { makeAjax, loading, makeThrottle } = window; /*tinykit*/
+  var {
+    makeAjax,
+    loading,
+    // makeThrottle,
+    makeDelayHandler,
+  } = window; /*tinykit*/
   var pageIdx = 0;
   var limit = 20;
 
@@ -180,7 +186,7 @@
     pageIdx++;
   };
 
-  var inputHandle = makeThrottle(function (evt) {
+  var inputHandle = makeDelayHandler(function (evt) {
     moreEl.style.display = "none";
     loading(
       function () {
