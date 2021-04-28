@@ -1,5 +1,41 @@
 [
   {
+    "isbn": "978-7-544784269",
+    "title": "佩德罗·巴拉莫",
+    "authors": [
+      {
+        "name": "[墨西哥]胡安·鲁尔福",
+        "type": "WRITER"
+      },
+      {
+        "name": "屠梦超",
+        "type": "TRANSLATOR"
+      }
+    ],
+    "press": "译林出版社",
+    "publish_at": "2021-01",
+    "status": "FINISHED",
+    "begin_at": "2021-04-26",
+    "end_at": "2021-04-27",
+    "times": 1
+  },
+  {
+    "isbn": "978-7-201097206",
+    "title": "呐喊",
+    "authors": [
+      {
+        "name": "鲁迅",
+        "type": "WRITER"
+      }
+    ],
+    "press": "天津人民出版社",
+    "publish_at": "2016-01",
+    "status": "FINISHED",
+    "begin_at": "2021-04-24",
+    "end_at": "2021-04-25",
+    "times": 1
+  },
+  {
     "isbn": "978-7-559629999",
     "title": "古代汉语常识",
     "authors": [
