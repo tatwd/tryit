@@ -14,6 +14,9 @@
       .poetry--text {
         font-size: 18px;
       }
+      .indent {
+        text-indent: 2em;
+      }
     </style>
   </head>
   <body>
@@ -60,6 +63,7 @@
       function renderPoetryTextFromFile() {
         var ajax = makeAjax();
         ajax.send(poetry.text_file, function (res) {
+          poetryText.classList.add("indent");
           poetryText.innerHTML = marked(res);
         });
       }
