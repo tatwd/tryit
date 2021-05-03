@@ -31,17 +31,11 @@
           </div>
         </div>
       </section>
-      <p>
-        <a
-          class="border--none text-decoration--none"
-          href="./index.html"
-          style="font-size: 16px; color: black"
-          >&larr;</a
-        >
-      </p>
+      <p id="gohome" style="display: none"></p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.16/dist/x/makeAjax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.16/dist/x/isME.min.js"></script>
     <script>
       var key = decodeURI(location.search).split("=")[1];
       var poetries = JSON.parse(localStorage.getItem("poetries"));
@@ -49,6 +43,17 @@
 
       var poetryTitle = document.querySelector(".poetry--title");
       var poetryText = document.querySelector(".poetry--text");
+      var gohomeEl = document.querySelector("#gohome");
+      if (!isME()) {
+        gohomeEl.innerHTML = `
+        <a
+          class="border--none text-decoration--none"
+          href="./index.html"
+          style="font-size: 16px; color: black"
+          >&larr;</a
+        >`;
+        gohomeEl.style.display = "unset";
+      }
       //var poetryCreateAt = document.querySelector('.poetry--create_at');
 
       poetryTitle.innerHTML = poetry.title;
