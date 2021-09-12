@@ -1,4 +1,5 @@
 using System.Text;
+using Yarp.ReverseProxy.Telemetry.Consumption;
 using Yarp.ReverseProxy.Transforms;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,36 +9,39 @@ var proxyBuilder = builder.Services.AddReverseProxy();
 // Initialize the reverse proxy from the "ReverseProxy" section of configuration
 proxyBuilder.LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
+builder.Services.AddHttpContextAccessor();
+
+// Interface that collects general metrics about the proxy forwarder
+builder.Services.AddSingleton<IForwarderMetricsConsumer, ForwarderMetricsConsumer>();
+
+// Registration of a consumer to events for proxy forwarder telemetry
+builder.Services.AddTelemetryConsumer<ForwarderTelemetryConsumer>();
+
+// Registration of a consumer to events for HttpClient telemetry
+// Note: this depends on changes implemented in .NET 5
+builder.Services.AddTelemetryConsumer<HttpClientTelemetryConsumer>();
+
+
+
 var app = builder.Build();
-
-
-
 
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
 
+// Custom middleware that collects and reports the proxy metrics
+// Placed at the beginning so it is the first and last thing run for each request
+app.UsePerRequestMetricCollection();
+
 app.MapGet("/", () => "Hello World!");
-// app.MapGet("/bar/{**all}",  (ctx) => {
-//     var sb = new StringBuilder();
-
-//     sb.AppendFormat("path: {0}\n", ctx.Request.Path);
-//     sb.AppendFormat("query: {0}\n", ctx.Request.QueryString);
-//     sb.AppendLine("headers: ");
-//     foreach (var (k, v) in ctx.Request.Headers) {
-//         sb.AppendFormat("   {0}: {1}\n", k, v);
-//     }
-//     return ctx.Response.WriteAsync(sb.ToString());
-// });
-
 
 // Enable endpoint routing, required for the reverse proxy
 app.UseRouting();
 // Register the reverse proxy routes
-app.UseEndpoints(endpoints => 
+app.UseEndpoints(endpoints =>
 {
-    endpoints.MapReverseProxy(); 
-}); 
+    endpoints.MapReverseProxy();
+});
 
 app.Run();

@@ -38,6 +38,7 @@ public class WeatherForecastController : ControllerBase
         sb.AppendFormat("path-base: {0}\n", HttpContext.Request.PathBase);
         sb.AppendFormat("path: {0}\n", HttpContext.Request.Path);
         sb.AppendFormat("query: {0}\n", HttpContext.Request.QueryString);
+        sb.AppendFormat("schema: {0}\n", HttpContext.Request.Scheme);
         sb.AppendLine("headers: ");
         foreach (var (k, v) in HttpContext.Request.Headers.OrderBy(e => e.Key)) {
             sb.AppendFormat("   {0}: {1}\n", k, v);
