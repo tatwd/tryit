@@ -12,6 +12,8 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+// app.UseForwardedHeaders();
+
 // Configure the HTTP request pipeline.
 if (builder.Environment.IsDevelopment())
 {
@@ -19,7 +21,7 @@ if (builder.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "api1 v1"));
 }
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
