@@ -6,6 +6,7 @@ bin/
 obj/
 packages/
 .vs/
+.idea/
 tmp*
 *.rar
 *.user
