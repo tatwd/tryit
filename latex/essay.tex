@@ -1,0 +1,41 @@
+% arara: pdflatex
+% arara: pdflatex
+\documentclass[
+	english,
+	accentcolor=9c,
+	type=intern,
+	marginpar=false
+	]{tudapub}
+
+\usepackage[english, main=english]{babel}
+\usepackage[babel]{csquotes}
+\usepackage{mathtools}
+% \usepackage{CJKutf8}
+\usepackage{xeCJK}
+
+\usepackage{ctex}
+
+
+\begin{document}
+
+
+\title{Build LaTeX locally with Docker}
+\author{Nico Alt}
+%\date{} % Ohne Angabe wird automatisch das heutige Datum eingefügt
+
+\maketitle
+
+\section{Introduction}
+
+To calculate velocity, start like this:
+
+\begin{equation*}
+v = \frac{s}{t}
+\end{equation*}
+
+中文字体（默认宋体）
+\fangsong 中文字体（仿宋） \songti 中文字体（宋体） \lishu 中文字体（隶书） \heiti 中文字体（黑体）\\
+\CJKfamily{zhkai} 中文字体（楷书） \CJKfamily{zhyou} 中文字体（幼圆） \CJKfamily{zhyahei} 中文字体（微软雅黑）\\
+
+
+\end{document}
