@@ -1,8 +1,8 @@
 using System;
 using System.Net.Http;
-using Yarp.ReverseProxy.Telemetry.Consumption;
+using Yarp.Telemetry.Consumption;
 
-public sealed class HttpClientTelemetryConsumer : IHttpTelemetryConsumer
+public sealed class HttpClientTelemetryConsumer : IForwarderTelemetryConsumer
 {
     public void OnRequestStart(DateTime timestamp, string scheme, string host, int port, string pathAndQuery, int versionMajor, int versionMinor, HttpVersionPolicy versionPolicy)
     {

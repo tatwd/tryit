@@ -1,7 +1,7 @@
 using System;
-using Yarp.ReverseProxy.Telemetry.Consumption;
+using Yarp.Telemetry.Consumption;
 
-public sealed class ForwarderMetricsConsumer : IForwarderMetricsConsumer
+public sealed class ForwarderMetricsConsumer : IForwarderTelemetryConsumer
 {
     public void OnForwarderMetrics(ForwarderMetrics oldMetrics, ForwarderMetrics newMetrics)
     {

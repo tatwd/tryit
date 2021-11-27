@@ -1,6 +1,9 @@
 using System.Text;
-using Yarp.ReverseProxy.Telemetry.Consumption;
-using Yarp.ReverseProxy.Transforms;
+using Yarp.Telemetry.Consumption;
+// using Yarp.ReverseProxy.Transforms;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +15,7 @@ proxyBuilder.LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 builder.Services.AddHttpContextAccessor();
 
 // Interface that collects general metrics about the proxy forwarder
-builder.Services.AddSingleton<IForwarderMetricsConsumer, ForwarderMetricsConsumer>();
+builder.Services.AddSingleton<IForwarderTelemetryConsumer, ForwarderMetricsConsumer>();
 
 // Registration of a consumer to events for proxy forwarder telemetry
 builder.Services.AddTelemetryConsumer<ForwarderTelemetryConsumer>();
