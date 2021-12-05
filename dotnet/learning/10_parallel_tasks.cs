@@ -1,34 +1,114 @@
+using System;
+using System.Collections.Concurrent;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Xunit;
+
 public class n10_parallel_tasks
 {
-    static int N = 10000;
-
-    static int all = 0;
-
-    static void sum(int n)
+    [Fact]
+    public void simple_sum_compare_parallel_sum()
     {
-        all += n;
-        // System.Console.WriteLine(n);
-    }
+        var watcher = new Stopwatch();
+        const int N = 1000000;
 
-    [Xunit.Fact]
-    public void run()
-    {
-        var watcher = new System.Diagnostics.Stopwatch();
-
-        // watcher.Start();
-        // for (int i = 0; i < N; i++) {
-        //     all += i;
-        // }
-        // watcher.Stop();
-        // System.Console.WriteLine("A: all: {0} elapsed: {1}ms", all, watcher.ElapsedMilliseconds);
-
-        // all = 0;
-
+        // 普通求和
         watcher.Start();
-        System.Threading.Tasks.Parallel.For(0, N, sum);
+        var sum1 = 0;
+        for (var i = 0; i < N; i++)
+        {
+            sum1 += i;
+        }
         watcher.Stop();
-        System.Console.WriteLine("B: all: {0} elapsed: {1}ms", all, watcher.ElapsedMilliseconds);
+        var elapsed1 = watcher.ElapsedMilliseconds;
 
-        // System.Threading.Thread.Sleep(10 * 1000);
+
+        // 并行求和
+        watcher.Restart();
+        var sum2 = 0;
+        // var mutex = new object();
+        // Parallel.For(0, 10000, (n) =>
+        // {
+        //     lock (mutex)
+        //         sum2 += n;
+        // });
+        // Parallel.For(0, N,
+        //     localInit: () => 0,
+        //     body: (n, state, localVal) => localVal + n,
+        //     localFinally: (localVal) => {
+        //         lock (mutex)
+        //             sum2 += localVal;
+        //     });
+        Parallel.For(0, N,
+            localInit: () => 0,
+            body: (n, state, localVal) => localVal + n,
+            localFinally: (localVal) => {
+                Interlocked.Add(ref sum2, localVal);
+            });
+        // var values = Enumerable.Range(0, N).ToArray();
+        // var customPartitioner = Partitioner.Create(values, true);
+
+        // foreach( var val in customPartitioner.AsParallel())
+            // sum2 += val;
+        // sum2 = values.AsParallel().WithDegreeOfParallelism(4).Sum();
+        watcher.Stop();
+        var elapsed2 = watcher.ElapsedMilliseconds;
+
+        Assert.Equal(sum1, sum2);
+        Assert.True(elapsed2 < elapsed1);
+
     }
+
+    [Fact]
+    public void parallel_cancel()
+    {
+        Assert.Throws<OperationCanceledException>(() =>
+        {
+            // 15s 超时
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(15));
+            // var options = new ParallelOptions
+            // {
+            //     // 最大并行度
+            //     MaxDegreeOfParallelism = 4,
+            //     // 取消令牌
+            //     CancellationToken = cts.Token
+            // };
+            // Parallel.For(0, 10000, options, (n) =>
+            // {
+            //     Thread.Sleep(1000);
+            // });
+            Enumerable.Range(0, 10000)
+                .AsParallel()
+                .WithCancellation(cts.Token)
+                .WithDegreeOfParallelism(4)
+                .ForAll(n =>
+                {
+                    Thread.Sleep(1000);
+                });
+        });
+
+    }
+
+
+
+    [Fact]
+    public void task_cancel()
+    {
+        Assert.Throws<OperationCanceledException>(() =>
+        {
+            // 15s 超时
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(2));
+            Task.Run(() =>
+            {
+                Console.WriteLine("task start");
+                Thread.Sleep(10 * 1000);
+                // cts.Token.ThrowIfCancellationRequested();
+                Console.WriteLine("task end");
+            }, cts.Token).Wait(cts.Token);
+        });
+
+    }
+
 }
