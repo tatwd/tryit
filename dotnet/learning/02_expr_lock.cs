@@ -1,4 +1,4 @@
-class expr_lock
+public class expr_lock
 {
     decimal balance;
 
@@ -14,6 +14,7 @@ class expr_lock
         }
     }
 
+    [Xunit.Fact]
     public static void run()
     {
         var expr = new expr_lock

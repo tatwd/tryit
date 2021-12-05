@@ -4,7 +4,7 @@ class A {
     }
 }
 
-class key_staic {
+public class key_staic {
     static A a1 = new A("a1"); // 1
     A a2 = new A("a2"); // 3
 
@@ -16,6 +16,7 @@ class key_staic {
         a2 = new A("a4"); // 4
     }
 
+    [Xunit.Fact]
     public static void run() {
         new key_staic();
     }

@@ -35,7 +35,7 @@ public class expr_linq
         }
 
         // 获取每个分组的最大年龄项
-        // 取出 ID 值，并把 UnitPrice 值赋给 MaxAge 
+        // 取出 ID 值，并把 UnitPrice 值赋给 MaxAge
         var r2 = from u in users
                  group u by u.ID into g
                  select new {
@@ -48,7 +48,7 @@ public class expr_linq
         // 获取指定列
         var r3 = from u in users
                  group u by new {
-                    u.ID, 
+                    u.ID,
                     u.Name
                  } into g
                  select new {
@@ -57,8 +57,10 @@ public class expr_linq
                  };
         foreach (var item in r3)
             utils.println(item.g.Key);
+
     }
 
+    [Xunit.Fact]
     public static void run()
     {
         group_by();

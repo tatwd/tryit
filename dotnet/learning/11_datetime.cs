@@ -1,16 +1,22 @@
-class datetime
+using System;
+using System.Globalization;
+using Xunit;
+
+public class n11_datetime
 {
-    static void demo_ParseExact()
+    public DateTime demo_ParseExact()
     {
         var fmt = "yyyyMMdd";
         var str = "20190604";
-        var date = System.DateTime.ParseExact(str, fmt,
-            System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
-        System.Console.WriteLine(date);
+        var date = DateTime.ParseExact(str, fmt,
+            CultureInfo.CreateSpecificCulture("en-US"));
+        return date;
     }
 
-    public static void run()
+    [Fact]
+    public void demo_ParseExact_test()
     {
-        demo_ParseExact();
+        var date = demo_ParseExact();
+        Assert.Equal(2019, date.Year);
     }
 }

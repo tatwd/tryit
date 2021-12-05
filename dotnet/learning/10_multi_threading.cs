@@ -1,10 +1,11 @@
-class multi_threading
+public class multi_threading
 {
     static int count { set; get; }
 
     static int thid => System.Threading.Thread.CurrentThread.ManagedThreadId; // GetHashCode()
 
-    public static void run()
+    [Xunit.Fact]
+    public void run()
     {
         // 主线线程
         System.Console.WriteLine("A #{0}: {1}", thid, count++);

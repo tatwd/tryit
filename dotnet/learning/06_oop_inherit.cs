@@ -1,4 +1,4 @@
-class oop_inherit
+public class oop_inherit
 {
     class A {
         public int id { get; set; }
@@ -9,6 +9,7 @@ class oop_inherit
         public int age { get; set; }
     }
 
+    [Xunit.Fact]
     public static void run()
     {
         A a = new B{ id = 1, name = "jaron" };

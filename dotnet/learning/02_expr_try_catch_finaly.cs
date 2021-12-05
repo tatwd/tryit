@@ -1,4 +1,4 @@
-class expr_try_catch_finaly
+public class expr_try_catch_finaly
 {
     static int? question1()
     {
@@ -47,6 +47,7 @@ class expr_try_catch_finaly
         return null;
     }
 
+    [Xunit.Fact]
     public static void run()
     {
         int? ans;

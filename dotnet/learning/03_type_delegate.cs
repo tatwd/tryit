@@ -1,4 +1,4 @@
-class type_delegate
+public class type_delegate
 {
     delegate double Function(double x);
 
@@ -14,6 +14,7 @@ class type_delegate
         return i * i;
     }
 
+    [Xunit.Fact]
     public static void run()
     {
         double[] a = { 0.0, 0.5, 1.0 };

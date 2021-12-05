@@ -9,6 +9,7 @@ public class expr_yield
         yield break;
     }
 
+    [Xunit.Fact]
     public static void run()
     {
         var expr = new expr_yield();

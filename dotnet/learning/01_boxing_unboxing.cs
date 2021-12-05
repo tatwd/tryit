@@ -4,6 +4,7 @@
  */
 public class boxing_unboxing
 {
+    [Xunit.Fact]
     public static void run()
     {
         int n = 1;

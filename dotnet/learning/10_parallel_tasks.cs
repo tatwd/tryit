@@ -1,4 +1,4 @@
-class parallel_tasks
+public class n10_parallel_tasks
 {
     static int N = 10000;
 
@@ -10,7 +10,8 @@ class parallel_tasks
         // System.Console.WriteLine(n);
     }
 
-    public static void run()
+    [Xunit.Fact]
+    public void run()
     {
         var watcher = new System.Diagnostics.Stopwatch();
 

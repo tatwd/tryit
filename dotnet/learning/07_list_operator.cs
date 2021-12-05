@@ -1,5 +1,7 @@
-class list_operator
+public class list_operator
 {
+
+    [Xunit.Fact]
     public static void run()
     {
         System.Collections.Generic.IList<string> list =

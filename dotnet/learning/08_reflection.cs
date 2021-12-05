@@ -1,5 +1,5 @@
 // 反射
-class reflection
+public class reflection
 {
     class Dog
     {
@@ -72,6 +72,7 @@ class reflection
         System.Console.WriteLine(result);
     }
 
+    [Xunit.Fact]
     public static void run()
     {
         get_type_info();

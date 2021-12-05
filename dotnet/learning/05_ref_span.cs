@@ -24,7 +24,7 @@ public static class ReadonlySpanExtension
 
 }
 
-class ref_span
+public class ref_span
 {
     static ref int get_array_ref(int[] arr, int index) => ref arr[index];
 
@@ -73,6 +73,7 @@ class ref_span
         toint2();
     }
 
+    [Xunit.Fact]
     public static void run()
     {
         try_ref();

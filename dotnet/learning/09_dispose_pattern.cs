@@ -1,4 +1,4 @@
-class dispose_pattern
+public class dispose_pattern
 {
     class Dog : System.IDisposable
     {
@@ -24,7 +24,8 @@ class dispose_pattern
         }
     }
 
-    public static void run()
+    [Xunit.Fact]
+    public void run()
     {
         using (var dog1 = new Dog())
         {

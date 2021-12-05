@@ -1,4 +1,4 @@
-class attributes
+public class attributes
 {
     class HelpAttribute : System.Attribute
     {
@@ -28,6 +28,7 @@ class attributes
         else utils.print(attr);
     }
 
+    [Xunit.Fact]
     public static void run()
     {
         show_help(typeof(widget));

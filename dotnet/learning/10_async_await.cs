@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-class async_await
+public class async_await
 {
 
     static Task<string> StartTask()
@@ -12,7 +12,8 @@ class async_await
         });
     }
 
-    public static void run()
+    [Xunit.Fact]
+    public void run()
     {
         var task = StartTask();
         System.Console.WriteLine("Downloading...");

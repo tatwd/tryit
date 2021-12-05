@@ -1,5 +1,6 @@
 public class expr_checked_unchecked
 {
+    [Xunit.Fact]
     public static void run()
     {
         int i = int.MaxValue;
