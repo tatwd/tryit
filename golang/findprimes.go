@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	origin, wait := make(chan int), make(chan struct{})
 	findprime(origin, wait)
-	for num := 2; num < 10; num++ {
+	for num := 2; num < 50; num++ {
 		origin <- num
 	}
 	close(origin)
