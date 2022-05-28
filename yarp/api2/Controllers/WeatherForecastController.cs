@@ -38,6 +38,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet("echo_headers")]
     public string EchoHeaders()
     {
+        _logger.LogInformation("echooooo!");
         var sb = new StringBuilder();
         sb.AppendFormat("path-base: {0}\n", HttpContext.Request.PathBase);
         sb.AppendFormat("path: {0}\n", HttpContext.Request.Path);
