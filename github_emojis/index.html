@@ -1,142 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>GitHub emojis</title>
-    <style>
-      *,
-      ::after,
-      ::before {
-        box-sizing: border-box;
-      }
-      html {
-        font-size: 12px;
-      }
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      p,
-      input {
-        font-size: 1.15rem;
-      }
-      a {
-        text-decoration: none;
-        color: lightcoral;
-      }
-      .container {
-        max-width: 766px;
-        margin: auto;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-      .uppercase {
-        text-transform: uppercase;
-      }
-      .search-input,
-      .search-input:focus {
-        display: block;
-        width: 100%;
-        padding: 8px 10px;
-        margin: 0;
-        line-height: 1.5;
-        border-radius: 3px;
-        border: 1px solid lightcoral;
-        outline: 0;
-        -ms-progress-appearance: unset;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-      }
-      .clearfix::after {
-        content: "";
-        display: block;
-        clear: both;
-      }
-      .code {
-        border: 1px solid #ddd;
-        border-radius: 3px;
-        background-color: #eee;
-        padding: 2px 5px;
-      }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>GitHub emojis</title>
+  <style>
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 12px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    p,
+    input {
+      font-size: 1.15rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: lightcoral;
+    }
+
+    .container {
+      max-width: 766px;
+      margin: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .uppercase {
+      text-transform: uppercase;
+    }
+
+    .search-input,
+    .search-input:focus {
+      display: block;
+      width: 100%;
+      padding: 8px 10px;
+      margin: 0;
+      line-height: 1.5;
+      border-radius: 3px;
+      border: 1px solid lightcoral;
+      outline: 0;
+      -ms-progress-appearance: unset;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .code {
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      background-color: #eee;
+      padding: 2px 5px;
+    }
+
+    .emoji {
+      float: left;
+      width: 50%;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 425px) {
       .emoji {
-        float: left;
-        width: 50%;
-        line-height: 1.5;
+        width: 100%;
       }
-      @media (max-width: 425px) {
-        .emoji {
-          width: 100%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="uppercase">GitHub emojis</h1>
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="uppercase">GitHub emojis</h1>
+    <p>
+      by
+      <a class="uppercase" href="http://github.com/tatwd" target="_blank" rel="noopener noreferrer">
+        _king
+      </a>
+    </p>
+    <section>
+      <h2>API</h2>
+      <p><code class="code">https://api.github.com/emojis</code></p>
+    </section>
+    <section>
+      <h2>Usage</h2>
+      <p><code class="code">:emoji:</code></p>
+    </section>
+    <section>
+      <h2>Search</h2>
       <p>
-        by
-        <a
-          class="uppercase"
-          href="http://github.com/tatwd"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          _king
-        </a>
+        <input type="text" class="search-input" name="search_text" placeholder="请输入关键字 😘" />
       </p>
-      <section>
-        <h2>API</h2>
-        <p><code class="code">https://api.github.com/emojis</code></p>
-      </section>
-      <section>
-        <h2>Usage</h2>
-        <p><code class="code">:emoji:</code></p>
-      </section>
-      <section>
-        <h2>Search</h2>
-        <p>
-          <input
-            type="text"
-            class="search-input"
-            name="search_text"
-            placeholder="请输入关键字 😘"
-          />
-        </p>
-      </section>
-      <section>
-        <h2>List</h2>
-        <div id="emojis" class="clearfix"><!-- placeholder --></div>
-        <a id="more" href="javascript:;" style="font-size: 18px; display: none"
-          >more</a
-        >
-      </section>
-      <hr style="border: 1px solid #eee" />
-      <footer>
-        <p>
-          Power by
-          <a
-            href="https://github.com/tatwd/tryit/tree/master/github_emojis"
-            target="_blank"
-            rel="noopener noreferrer"
-            >GitHub</a
-          >
-          at 2019-01-17.
-        </p>
-      </footer>
-    </div>
-  </body>
+    </section>
+    <section>
+      <h2>List</h2>
+      <div id="emojis" class="clearfix">
+        <!-- placeholder -->
+      </div>
+      <a id="more" href="javascript:;" style="font-size: 18px; display: none">more</a>
+    </section>
+    <hr style="border: 1px solid #eee" />
+    <footer>
+      <p>
+        Power by
+        <a href="https://github.com/tatwd/tryit/tree/master/github_emojis" target="_blank"
+          rel="noopener noreferrer">GitHub</a>
+        at 2019-01-17.
+      </p>
+    </footer>
+  </div>
+</body>
+
 </html>
 <!-- <script src="https://unpkg.com/tinykit@0.1.10/dist/bundle.umd.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.15/dist/x/loading.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.15/dist/x/makeAjax.min.js"></script>
+<script src="https://unpkg.com/tinykit@0.1.15/dist/x/loading.min.js"></script>
+<script src="https://unpkg.com/tinykit@0.1.15/dist/x/makeAjax.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.16/dist/x/makeThrottle.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/tinykit@0.1.16/dist/x/makeDelayHandler.min.js"></script>
+<script src="https://unpkg.com/tinykit@0.1.16/dist/x/makeDelayHandler.min.js"></script>
 <script>
   var apiUrl = "https://api.github.com/emojis";
   var emojisEl = document.querySelector("#emojis");
