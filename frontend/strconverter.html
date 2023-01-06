@@ -1,0 +1,33 @@
+<button id="cvt">convert</button>
+<label for="from-sep">from分割符：</label>
+<select id="from-sep">
+  <option value="\s+">空白符</option>
+  <option value=",">英文逗号</option>
+  <option value="，">中文逗号</option>
+</select>
+<label for="to-sep">to分割符：</label>
+<select id="to-sep">
+  <option value=",">英文逗号</option>
+  <option value="，">中文逗号</option>
+  <option value=" ">一个空格</option>
+</select>
+
+<br />
+<textarea id="txt" rows="20" cols="80"></textarea>
+<textarea id="out-txt" rows="20" cols="80"></textarea>
+
+<script>
+  var txtEl = document.querySelector('#txt')
+  var outTxtEl = document.querySelector('#out-txt')
+  var fromSepEl = document.querySelector('#from-sep')
+  var toSepEl = document.querySelector('#to-sep')
+
+  document.querySelector('#cvt').onclick = function () {
+
+    var txt = txtEl.value
+    var RE = new RegExp(fromSepEl.value)
+    var newTxt = txt.split(RE).join(toSepEl.value)
+    outTxtEl.value = newTxt
+  }
+
+</script>
