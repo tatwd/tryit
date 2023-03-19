@@ -24,11 +24,11 @@ function handleRequest(request) {
     `<head>
       <meta http-equiv="Refresh" content="0; URL=${destWebsite}${pathname}${search}" />
     </head>`,
-    // {
-    //   headers: {
-    //     "content-type": "text/html; charset=UTF-8",
-    //   },
-    // },
+    {
+      headers: {
+        "content-type": "text/html; charset=UTF-8",
+      },
+    },
   );
 
 }
