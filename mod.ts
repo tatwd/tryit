@@ -19,16 +19,16 @@ const destWebsite = "https://blog.cloong.me"
 // }
 
 function handleRequest(request) {
-  const { pathname } = new URL(request.url);
+  const { pathname,search } = new URL(request.url);
   return new Response(
     `<head>
-      <meta http-equiv="Refresh" content="0; URL=${destWebsite}${pathname}" />
+      <meta http-equiv="Refresh" content="0; URL=${destWebsite}${pathname}${search}" />
     </head>`,
-    {
-      headers: {
-        "content-type": "text/html; charset=UTF-8",
-      },
-    },
+    // {
+    //   headers: {
+    //     "content-type": "text/html; charset=UTF-8",
+    //   },
+    // },
   );
 
 }
